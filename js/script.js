@@ -1,0 +1,133 @@
+			// lightmode script
+			function toggleDarkMode() {
+			const body = document.body;
+			body.classList.toggle('light-mode');
+			}
+				// anti right-click protection
+				document.addEventListener('contextmenu', function (e) {
+				e.preventDefault();
+			});
+	
+                var data = [
+                    { title: "Cigarettes After Sex - Apocalypse", url: "music/Cigarettes After Sex - Apocalypse.mp3" },
+                    { title: "Sam Smith - Fire on fire", url: "music/Sam Smith - Fire on fire.mp3" },
+                    { title: "3030 - Fé", url: "music/rap/3030 - Fé.mp3" },
+                    { title: "Rodrigo Alarcon - Apesar de querer", url: "music/Rodrigo Alarcon - Apesar de querer.mp3" },
+                    { title: "Xamã - Uma linda mulher", url: "music/rap/Xamã - Uma linda mulher.mp3" },
+                    { title: "Cigarettes After Sex - Touch", url: "music/Cigarettes After Sex - Touch.mp3" },
+                    { title: "Stephen Sanchez - Until i found you", url: "music/Stephen Sanchez - Until i found you.mp3" },
+                    { title: "New West - Those Eyes", url: "music/New West - Those Eyes.mp3" },
+                    { title: "Cigarettes After Sex - Crush", url: "music/Cigarettes After Sex - Crush.mp3" },
+                    { title: "3030 - Lunar", url: "music/rap/3030 - Lunar.mp3" },
+                    { title: "Cigarettes After Sex - K", url: "music/Cigarettes After Sex - K.mp3" },
+                    { title: "Cigarettes After Sex - Keep On Loving You", url: "music/Cigarettes After Sex - Keep On Loving You.mp3" },
+                    { title: "Jão - Alinhamento Milenar", url: "music/Jão - Alinhamento Milenar.mp3" },
+                    { title: "Sleeping At Last - Saturn", url: "music/Sleeping At Last - Saturn.mp3" },
+                    { title: "Pagan John - Meu Cais", url: "music/Pagan John - Meu Cais.mp3" },
+                    { title: "Pagan John - Inesperado", url: "music/Pagan John - Inesperado.mp3" },
+                    { title: "Torus - Dança Sincrônica", url: "music/Torus - Dança Sincrônica.mp3" },
+                    { title: "Agnes Nunes - 100 por hora", url: "music/rap/Agnes Nunes - 100 por hora.mp3" },
+                    { title: "Jão - Imaturo", url: "music/Jão - Imaturo.mp3" },
+                    { title: "Samantha Machado - Livre Pra Voar", url: "music/Samantha Machado - Livre Pra Voar.mp3" },
+                    { title: "Coldplay - A Sky Full Of Stars", url: "music/Coldplay - A Sky Full Of Stars.mp3" },
+                    { title: "Luisa Sonza - Iguaria", url: "music/rap/Luisa Sonza - Iguaria.mp3" },
+                    { title: "Filipe Ret - Livre e Triste", url: "music/rap/Filipe Ret - Livre e Triste.mp3" },
+                    { title: "Aaron Hibell - Destroyer of Worlds", url: "music/Aaron Hibell - Destroyer of Worlds.mp3" },
+                    { title: "Aaryan Shah - Renegade", url: "music/Aaryan Shah - Renegade.mp3" },
+                    { title: "Cálices - Modestia", url: "music/rap/Cálices - Modestia.mp3" },
+                    { title: "Jeans - Rudi", url: "music/Jeans - Rudi.mp3" },
+                    { title: "Nikito - Fire In The Palace", url: "music/rap/Nikito - Fire In The Palace.mp3" },
+                    { title: "Taylor Swift - Safe and Sound (Nightcore)", url: "music/Taylor Swift - Safe and Sound (Nightcore).mp3" },
+                    { title: "Infinity - James Young (Nighcore)", url: "music/Infinity - James Young (Nighcore).mp3" },
+                    { title: "3030 - Alma De Cigana", url: "music/rap/3030 - Alma De Cigana.mp3" },
+                    { title: "3030 - Brilho Na Alma", url: "music/rap/3030 - Brilho Na Alma.mp3" },
+                    { title: "3030 - Raízes", url: "music/rap/3030 - Raízes.mp3" },
+                    { title: "Bhaskar - Manhã de sol (ft. 3030)", url: "music/electro/Bhaskar - Manhã de sol (ft. 3030).mp3" },
+                    { title: "Os Nonatos - Astronauta", url: "music/Os Nonatos - Astronauta.mp3" },
+                    { title: "Ella Baila Sola - Eslabon Armado", url: "music/latin/Ella Baila Sola - Eslabon Armado.mp3" },
+                    { title: "The Weeknd - Save Your Tears", url: "music/The Weeknd - Save Your Tears.mp3" },
+                    { title: "Major RD - Camisa P", url: "music/rap/Major RD - Camisa P (feat. Xamã, Froid, Cynthia Luz).mp3" },
+                    { title: "Maglore - A Sete Chaves", url: "music/Maglore - A Sete Chaves.mp3" },
+                    { title: "Trio America - Cuando Voy por la Calle", url: "music/latin/Trio America - Cuando Voy por la Calle.mp3" },
+                    { title: "Torus - Tempo", url: "music/Torus - Tempo.mp3" },
+                ];
+
+                var ul = document.getElementById("results");
+
+                for (var i = 0; i < data.length; i++) {
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.href = "#"; // Defina o href para # para evitar que o link abra uma nova página
+                    a.onclick = function (index) {
+                        return function () {
+                            changeAudioSource(index);
+                        };
+                    }(i);
+                    a.textContent = data[i].title;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                    li.style.display = "none";
+                }
+
+                function changeAudioSource(index) {
+                    var audio = document.getElementById('audioPlayer');
+                    var source = document.getElementById('audioSource');
+
+                    source.src = data[index].url;
+                    audio.load();
+                    audio.play();
+                    displayCurrentSongTitle(data[index].title); // Chama a função para exibir o título da música
+                }
+
+                function search() {
+                    var input = document.getElementById("search");
+                    var filter = input.value.toUpperCase();
+                    var ul = document.getElementById("results");
+                    var li = ul.getElementsByTagName("li");
+
+                    for (var i = 0; i < li.length; i++) {
+                        var a = li[i].getElementsByTagName("a")[0];
+                        var txtValue = a.textContent || a.innerText;
+
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            li[i].style.display = "";
+                        } else {
+                            li[i].style.display = "none";
+                        }
+                    }
+
+                    if (filter.length == 0) {
+                        ul.style.display = "none";
+                    } else {
+                        ul.style.display = "block";
+                    }
+                }
+
+                function displayCurrentSongTitle(title) {
+                    var tituloMusica = document.getElementById("tituloMusica");
+                    tituloMusica.textContent = title;
+                }
+
+                // Script de reprodução aleatória
+                var audioPlayer = document.getElementById('audioPlayer');
+                var audioSource = document.getElementById('audioSource');
+
+                function getRandomTrack() {
+                    var randomIndex = Math.floor(Math.random() * data.length);
+                    return data[randomIndex];
+                }
+
+                function playRandom() {
+                    var randomTrack = getRandomTrack();
+                    audioSource.src = randomTrack.url; // Correção: use randomTrack.url para obter o URL da música
+                    audioPlayer.load();
+                    audioPlayer.play();
+                    displayCurrentSongTitle(randomTrack.title); // Chama a função para exibir o título da música
+                }
+
+                function skipSong() {
+                    playRandom();
+                }
+
+                // Inicie a reprodução com a primeira música aleatória
+                playRandom();

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Orbit Player </title>
+    <link rel="icon" href="img/orbit_ico_blue.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <header>
+        <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player"></a></p>
+
+        <p>
+            <a href="explore.html"> Explore </a> •
+            <a href="news.html"> Updates </a>
+		</p>
+
+        <!-- Botão fixo -->
+		<button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+
+
+    </header>
+
+    <main>
+        <article>
+
+            <p align="center">
+                <input type="text" id="search" onkeyup="search()" placeholder="Search music..." width="300" height="40">
+
+                <button onclick="skipSong()">Skip</button>
+            </p>
+
+            <ul align="center" id="results"></ul>
+
+            <article>
+
+            </article>
+
+            <aside>
+            </aside>
+    </main>
+
+    <footer>
+	
+	<p align="center" id="tituloMusica"></p>
+	
+			<p align="center">
+                <audio id="audioPlayer" controls onended="playRandom()">
+                    <source id="audioSource" src="" type="audio/mp3">
+                    Seu navegador não suporta a tag de áudio.
+                </audio>
+            </p>
+
+    </footer>
+	
+			<script> // lightmode script
+			function toggleDarkMode() {
+			const body = document.body;
+			body.classList.toggle('light-mode');
+			}
+			</script>
+				
+			<script> // anti right-click protection
+				document.addEventListener('contextmenu', function (e) {
+				e.preventDefault();
+			});
+			</script>
+
+            <script>
+                var data = [
+					  {title: "Xama - Uma linda mulher", url: "music/rap/Xama - Uma linda mulher.mp3"},
+					  {title: "3030 - Lunar", url: "music/rap/3030 - Lunar.mp3"},
+					  {title: "Agnes Nunes - 100 por hora", url: "music/rap/Agnes Nunes - 100 por hora.mp3"},
+					  {title: "Luisa Sonza - Iguaria", url: "music/rap/Luisa Sonza - Iguaria.mp3"},
+					  {title: "Filipe Ret - Livre e Triste", url: "music/rap/Filipe Ret - Livre e Triste.mp3"},
+					  {title: "Cálices - Modestia", url: "music/rap/Cálices - Modestia.mp3"},
+					  {title: "Jeans - Rudi", url: "music/rap/Jeans - Rudi.mp3"},
+					  {title: "Nikito - Fire In The Palace", url: "music/rap/Nikito - Fire In The Palace.mp3"},
+					  {title: "3030 - Alma De Cigana", url: "music/rap/3030 - Alma De Cigana.mp3"},
+					  {title: "3030 - Brilho Na Alma", url: "music/rap/3030 - Brilho Na Alma.mp3"},
+					  {title: "3030 - Raízes", url: "music/rap/3030 - Raízes.mp3"},
+					  {title: "Bhaskar - Manhã de sol (ft. 3030)", url: "music/electro/Bhaskar - Manhã de sol (ft. 3030).mp3"},
+					  {title: "Major RD - Camisa P", url: "music/rap/Major RD - Camisa P (feat. Xamã, Froid, Cynthia Luz).mp3"},
+					  {title: "DomLaike - Posturadão (ft. Filipe Ret)", url: "music/rap/DomLaike - Posturadão (ft. Filipe Ret).mp3"},
+					  {title: "Filipe Ret - A Meu Favor (ft. Kayuá)", url: "music/rap/Filipe Ret - A Meu Favor (ft. Kayuá).mp3"},
+					  {title: "Filipe Ret - Corte Americano (ft. L7NNON)", url: "music/rap/Filipe Ret - Corte Americano (ft. L7NNON).mp3"},
+					  {title: "Filipe Ret - Dentro de Você (ft. Kevin O Chris)", url: "music/rap/Filipe Ret - Dentro de Você (ft. Kevin O Chris).mp3"},
+					  {title: "Filipe Ret - Deus Perdoa", url: "music/rap/Filipe Ret - Deus Perdoa.mp3"},
+					  {title: "Filipe Ret - Good Vibe (ft. Caio Luccas)", url: "music/rap/Filipe Ret - Good Vibe (ft. Caio Luccas).mp3"},
+					  {title: "Filipe Ret - Konteiner (ft. L7NNON)", url: "music/rap/Filipe Ret - Konteiner (ft. L7NNON).mp3"},
+					  {title: "Filipe Ret - Melhor Agora", url: "music/rap/Filipe Ret - Melhor Agora.mp3"},
+					  {title: "Filipe Ret - Sonho Dos Cria (ft. Poze do Rodo)", url: "music/rap/Filipe Ret - Sonho Dos Cria (ft. Poze do Rodo).mp3"},
+					  {title: "Filipe Ret - Trem Bala", url: "music/rap/Filipe Ret - Trem Bala.mp3"},
+					  {title: "Filipe Ret - Tudo do Melhor", url: "music/rap/Filipe Ret - Tudo do Melhor.mp3"},
+					  {title: "Filipe Ret - Tudo Nosso (ft. Anitta)", url: "music/rap/Filipe Ret - Tudo Nosso (ft. Anitta).mp3"},
+					  {title: "Hideki - All Night", url: "music/rap/Hideki - All Night.mp3"},
+					  {title: "Japa - High", url: "music/rap/Japa - High.mp3"},
+					  {title: "Leviano - Vetin (ft. Borges e TZ da Coronel)", url: "music/rap/Leviano - Vetin (ft. Borges e TZ da Coronel).mp3"},
+					  {title: "MC Maneirinho - Santo Amaro (ft. Filipe Ret)", url: "music/rap/MC Maneirinho - Santo Amaro (ft. Filipe Ret).mp3"},
+					  {title: "Vizão de Cria 2 - Anezzi, Tz da Coronel, Filipe Ret, Caio Luccas, PJ Houdini, MC Maneirinho", url: "music/rap/Vizão de Cria 2 - Anezzi, Tz da Coronel, Filipe Ret, Caio Luccas, PJ Houdini, MC Maneirinho.mp3"},
+					  {title: "Filipe Ret - Acende a Vela", url: "music/rap/Filipe Ret - Acende a Vela.mp3"},
+					  {title: "Filipe Ret - Cobaia de Deus", url: "music/rap/Filipe Ret - Cobaia de Deus.mp3"},
+					  {title: "Filipe Ret - Além do Dinheiro", url: "music/rap/Filipe Ret - Além do Dinheiro.mp3"},
+					  {title: "Filipe Ret - F.F.M", url: "music/rap/Filipe Ret - F.F.M.mp3"},
+					  {title: "Filipe Ret - War", url: "music/rap/Filipe Ret - War.mp3"},
+					  {title: "L7NNON - Freio da Blazer", url: "music/rap/L7NNON - Freio da Blazer.mp3"},
+					  {title: "Xamã - American Pie (ft. Orochi)", url: "music/rap/Xamã - American Pie (ft. Orochi).mp3"},
+					  {title: "Post Malone - Congratulations", url: "music/rap/Post Malone - Congratulations.mp3"},
+					  {title: "Post Malone - Motley Crew", url: "music/rap/Post Malone - Motley Crew.mp3"},
+					  {title: "Post Malone - Rockstar (ft 21 Savage)", url: "music/rap/Post Malone - Rockstar (ft 21 Savage).mp3"},
+					  {title: "Post Malone - White Iverson", url: "music/rap/Post Malone - White Iverson.mp3"},
+					  {title: "Kayblack - Melhor Só (ft. Baco Exu do Blues)", url: "music/rap/Kayblack - Melhor Só (ft. Baco Exu do Blues).mp3"},
+					  {title: "Celin - Valor e não preço", url: "music/rap/Celin - Valor e não preço.mp3"},
+					  {title: "Celin - Bruxo", url: "music/rap/Celin - Bruxo.mp3"},
+					  {title: "Celin - 2077", url: "music/rap/Celin - 2077.mp3"},
+					  {title: "Celin - Não te prometo (ft. Amme Fran)", url: "music/rap/Celin - Não te prometo (ft. Amme Fran).mp3"},
+					  {title: "Celin - Virar Fumaça", url: "music/rap/Celin - Virar Fumaça.mp3"},
+					  {title: "Modestia - Slow", url: "music/rap/Modestia - Slow.mp3"},
+					  {title: "Xama - Era uma vez", url: "music/rap/Xama - Era uma vez.mp3"},
+					  {title: "Cjota - Esqueceu seu brinco", url: "music/rap/Cjota - Esqueceu seu brinco.mp3"},
+					  {title: "Filipe Ret - Tedebeeme", url: "music/rap/Filipe Ret - Tedebeeme.mp3"},
+					  {title: "Orochi - Assault Monopolio", url: "music/rap/Orochi - Assault Monopolio.mp3"},
+					  {title: "Kallebe - No 1", url: "music/rap/Kallebe - No 1.mp3"},
+					  {title: "Orochi - Por que nao", url: "music/rap/Orochi - Por que nao.mp3"},
+					  {title: "Yung Buda - Sem sinal", url: "music/rap/Yung Buda - Sem sinal.mp3"},
+					{title: "Yung Buda - Piloto", url: "music/rap/Yung Buda - Piloto.mp3"},
+					{title: "Xama - Maldita Vontade", url: "music/rap/Xama - Maldita Vontade.mp3"},
+					{title: "Xama - Cocaina", url: "music/rap/Xama - Cocaina.mp3"},
+					{title: "Choice, Azzy - Buzz Lightyear", url: "music/rap/Choice, Azzy - Buzz Lightyear.mp3"},
+					{title: "Matue - Anos Luz", url: "music/rap/Matue - Anos Luz.mp3"},
+					{title: "Baco Exu do Blues - Me desculpa Jay Z", url: "music/rap/Baco Exu do Blues - Me desculpa Jay Z.mp3"},
+					{title: "Borges - AK do Flamengo", url: "music/rap/Borges - AK do Flamengo.mp3"},
+					{title: "Love - Kendrick Lamar", url: "music/rap/Love - Kendrick Lamar.mp3"},
+					{title: "Xama - Um drink no inferno", url: "music/rap/Xama - Um drink no inferno.mp3"},
+					{title: "Xama - Sex Pistols", url: "music/rap/Xama - Sex Pistols.mp3"},
+					{title: "PK - Quando a vontade bater", url: "music/rap/PK - Quando a vontade bater.mp3"},
+					{title: "WC no Beat - Sensacional", url: "music/rap/WC no Beat - Sensacional.mp3"},
+					{title: "Xama, Matue - Luxuria", url: "music/rap/Xama, Matue - Luxuria.mp3"},
+					{title: "Haikaiss - A praga", url: "music/rap/Haikaiss - A praga.mp3"},
+					{title: "Post Malone - Hollywoods bleeding", url: "music/rap/Post Malone - Hollywoods bleeding.mp3"},
+					{title: "Baco Exu do Blues - Me desculpa Jay Z", url: "music/rap/Baco Exu do Blues - Me desculpa Jay Z.mp3"},
+					{title: "Baco Exu do Blues - Te amo disgraca", url: "music/rap/Baco Exu do Blues - Te amo disgraca.mp3"},
+					{title: "Xama - Malvadao 2", url: "music/rap/Xama - Malvadao 2.mp3"},
+					{title: "Papatinho - A culpa e do papato", url: "music/rap/Papatinho - A culpa e do papato.mp3"},
+					{title: "Lil Whind - Medusa", url: "music/rap/Lil Whind - Medusa.mp3"},
+					{title: "Lil Whind - Piaui", url: "music/rap/Lil Whind - Piaui.mp3"},
+					{title: "Lil Whind - Cerrado", url: "music/rap/Lil Whind - Cerrado.mp3"},
+					{title: "Das - So o caco", url: "music/rap/Das - So o caco.mp3"},
+{title: "Yung Buda - Riders X", url: "music/rap/Yung Buda - Riders X.mp3"},
+{title: "Yung Buda - The End", url: "music/rap/Yung Buda - The End.mp3"},
+{title: "Yung Buda - Roxo", url: "music/rap/Yung Buda - Roxo.mp3"},
+{title: "Yung Buda - Safezone", url: "music/rap/Yung Buda - Safezone.mp3"},
+{title: "Yung Buda - Aquelamusicaali", url: "music/rap/Yung Buda - Aquelamusicaali.mp3"},
+{title: "Travis Scott - Pick up the phone", url: "music/rap/Travis Scott - Pick up the phone.mp3"},
+					  ];
+
+                var ul = document.getElementById("results");
+
+                for (var i = 0; i < data.length; i++) {
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.href = "#"; // Defina o href para # para evitar que o link abra uma nova página
+                    a.onclick = function (index) {
+                        return function () {
+                            changeAudioSource(index);
+                        };
+                    }(i);
+                    a.textContent = data[i].title;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                    li.style.display = "none";
+                }
+
+                function changeAudioSource(index) {
+                    var audio = document.getElementById('audioPlayer');
+                    var source = document.getElementById('audioSource');
+
+                    source.src = data[index].url;
+                    audio.load();
+                    audio.play();
+                    displayCurrentSongTitle(data[index].title); // Chama a função para exibir o título da música
+                }
+
+                function search() {
+                    var input = document.getElementById("search");
+                    var filter = input.value.toUpperCase();
+                    var ul = document.getElementById("results");
+                    var li = ul.getElementsByTagName("li");
+
+                    for (var i = 0; i < li.length; i++) {
+                        var a = li[i].getElementsByTagName("a")[0];
+                        var txtValue = a.textContent || a.innerText;
+
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            li[i].style.display = "";
+                        } else {
+                            li[i].style.display = "none";
+                        }
+                    }
+
+                    if (filter.length == 0) {
+                        ul.style.display = "none";
+                    } else {
+                        ul.style.display = "block";
+                    }
+                }
+
+                function displayCurrentSongTitle(title) {
+                    var tituloMusica = document.getElementById("tituloMusica");
+                    tituloMusica.textContent = title;
+                }
+
+                // Script de reprodução aleatória
+                var audioPlayer = document.getElementById('audioPlayer');
+                var audioSource = document.getElementById('audioSource');
+
+                function getRandomTrack() {
+                    var randomIndex = Math.floor(Math.random() * data.length);
+                    return data[randomIndex];
+                }
+
+                function playRandom() {
+                    var randomTrack = getRandomTrack();
+                    audioSource.src = randomTrack.url; // Correção: use randomTrack.url para obter o URL da música
+                    audioPlayer.load();
+                    audioPlayer.play();
+                    displayCurrentSongTitle(randomTrack.title); // Chama a função para exibir o título da música
+                }
+
+                function skipSong() {
+                    playRandom();
+                }
+
+                // Inicie a reprodução com a primeira música aleatória
+                playRandom();
+            </script>
+
+</body>
+
+</html>

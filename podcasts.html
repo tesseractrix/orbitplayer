@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title> Orbit Player - Podcasts </title>
+<link rel="icon" href="img/orbit_ico_blue.png">
+<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <style>
+        /* Estilize o retângulo */
+        .image-container {
+            display: flex; /* Exibe as imagens em uma linha horizontal */
+            overflow: hidden; /* Oculta as imagens que ultrapassam o contêiner */
+            width: 100%; /* Largura total do retângulo */
+            height: 130px; /* Altura do retângulo (ajuste conforme necessário) */
+        }
+
+        .image {
+            flex-shrink: 0; /* Impede que as imagens diminuam além do tamanho original */
+            transition: transform 0.3s ease; /* Animação suave de crescimento */
+            margin-right: 10px; /* Espaçamento entre as imagens */
+			filter: grayscale(100%);
+        }
+
+        .image:hover {
+            transform: scale(1.1); /* Aumenta a imagem em 10% quando o mouse está sobre ela */
+			filter: grayscale(0%);
+        }
+    </style>
+
+  <header>
+    <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player" ></a></p>
+	
+	<p>
+	<a href="start.html"> Music </a> • 
+	<a href="news.html"> Updates </a>
+	</p>
+	
+        <!-- Botão fixo -->
+		<button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+
+  </header>
+
+  <main>
+    <article>
+	
+	<p align="left">Podcasts</p>
+
+	<div class="image-container">
+        <a href="meditation.html"><img class="image" height="130px" src="img/meditation.jpg" title="Meditation" alt="Meditation"></a>
+        <img class="image" src="img/philosophy.jpg" alt="Philosophy" title="Unavailable">
+        <img class="image" src="img/politics.jpg" alt="Politics" title="Unavailable">
+		<img class="image" src="img/soon.jpg" alt="Coming Soon" title="Coming Soon" style="filter:grayscale(100%)">
+        <!-- Adicione mais imagens conforme necessário -->
+    </div>
+	
+	<p></p>
+	
+	</article>
+
+<script> // lightmode script
+function toggleDarkMode() {
+const body = document.body;
+body.classList.toggle('light-mode');
+}
+</script>
+	
+<script> // anti right-click protection
+	document.addEventListener('contextmenu', function (e) {
+	e.preventDefault();
+});
+</script>
+
+<article>
+
+</article>
+
+    <aside>
+    </aside>
+  </main>
+
+</body>
+</html>

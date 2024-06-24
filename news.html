@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title> Orbit Player - Updates </title>
+<link rel="icon" href="img/orbit_ico_blue.png">
+<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <header>
+    <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player" ></a></p>
+	
+        <!-- Botão fixo -->
+		<button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+
+  </header>
+
+  <main>
+    <article>
+	<p><a href="start.html"><h6>Back to start</h6></a></p>
+	
+<p align="left">Added in update:</p>
+
+	<details>
+	  <summary>1.1</summary>
+	  <ul><h5>
+		<li style="display:block;">- Search engine;</li>
+		<li style="display:block;">- Player runs in a new tab.</li>
+	  </h5></ul>
+	</details>
+
+	<details>
+	  <summary>1.2</summary>
+	  <ul><h5>
+		<li style="display:block;">- Bugs fixed;</li>
+		<li style="display:block;">- Search engine improved;</li>
+		<li style="display:block;">- Local dynamic player;</li>
+		<li style="display:block;">- Dark/light mode;</li>
+		<li style="display:block;">- Random play functionality;</li>
+		<li style="display:block;">- Autoplay functionality;</li>
+		<li style="display:block;">- Skip functionality;</li>
+		<li style="display:block;">- Meditation podcast category;</li>
+		<li style="display:block;">- Version updates page;</li>
+		<li style="display:block;">- CSS design improved.</li>
+	  </h5></ul>
+	</details>
+	
+	<details>
+	  <summary>1.3 (current version)</summary>
+	  <ul><h5>
+		<li style="display:block;">- Podcasts officially released;</li>
+		<li style="display:block;">- Tabs titles fixed;</li>
+		<li style="display:block;">- Bugs fixed in different browsers;</li>
+		<li style="display:block;">- Display name of the current playing song;</li>
+		<li style="display:block;">- Changes in player elements disposition;</li>
+		<li style="display:block;">- Explorer;</li>
+		<li style="display:block;">- New editorial playlists.</li>
+	  </h5></ul>
+	</details>
+	
+	<details>
+	  <summary>Coming soon</summary>
+	  <ul><h5>
+	    <li style="display:block;">- Automatic read and atualization of music database;</li>
+	  </h5></ul>
+	</details>
+		
+	</article>
+
+    <aside>
+    </aside>
+  </main>
+  
+<script> // lightmode script
+function toggleDarkMode() {
+const body = document.body;
+body.classList.toggle('light-mode');
+}
+</script>
+	
+<script> // anti right-click protection
+	document.addEventListener('contextmenu', function (e) {
+	e.preventDefault();
+});
+</script>
+
+</body>
+</html>

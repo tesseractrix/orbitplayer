@@ -1,0 +1,103 @@
+    body {
+	  background-color: #333;	
+      margin: 0;
+      font-family: Arial, sans-serif;
+      padding: 0px;
+	  color: #c7c7c7;
+    }
+	
+	  audio {
+      width: 300px;
+      margin: 20px;
+    }
+	
+	  ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+      li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    header {
+      background-color: #424242;
+      padding: 10px;
+	  text-align: center;
+    }
+	
+	a {
+	color: white;
+	text-decoration: none;
+	}
+	
+	a:visited {
+		color: #white;
+    }
+	
+	a:hover {
+	color: #c7c7c7;
+	}
+
+    main {
+      display: flex;
+    }
+
+    article {
+      flex: 3;
+      padding: 75px;
+    }
+
+    aside {
+      flex: 0;
+      background-color: #424242;
+      padding: 0px;
+    }
+
+    footer {
+      background-color: #424242;
+      padding: 5px;
+      text-align: center;
+	  color: #fff;
+	  position: fixed;
+	  bottom: 0;
+	  width: 100%;
+	  height: 120px
+    }
+	
+	details {
+		display: block
+	}
+	
+		// Light mode
+		body {
+			transition: background-color 0.3s ease;
+    }
+	
+		.light-mode {
+			background-color: #fff;
+			color: #B3B3B3;
+			a:link {color: #B3B3B3;}
+			a:visited {color: #B3B3B3;}
+			a:hover {color: #c7c7c7;}
+			}
+			
+		#audioPlayer {
+			position: center;
+			width: 90%;
+			height: 20px;
+		}
+			
+	/* Estilos para o botão 'Switch Theme' */
+    #fixedButton {
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 5px 10px;
+        background-color: #ffffff;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 9999; /* Garante que o botão esteja sempre acima de outros conteúdos */
+    }

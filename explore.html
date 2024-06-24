@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title> Orbit Player - Explore </title>
+<link rel="icon" href="img/orbit_ico_blue.png">
+<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<style>
+        /* Estilize o retângulo */
+        .image-container {
+            display: flex; /* Exibe as imagens em uma linha horizontal */
+            overflow-x: auto;
+			overflow: hidden;
+            width: 90%; /* Largura total do retângulo */
+            height: 130px; /* Altura do retângulo (ajuste conforme necessário) */
+        }
+		
+		@media (max-width: 600px) {
+		.image-container {
+			width: 24.5%
+			
+		.end {
+			position: fixed;
+			left: 10px;
+			top: 20px;
+			z-index: 1;
+			background-color: rgba(255, 255, 255, 0.5);
+			border: none
+			outline: none;
+			padding: 0px;
+		}
+
+		.start
+			position: fixed;
+			right: 10px;
+			top: 20px;
+			z-index: 1;
+			background-color: rgba(255, 255, 255, 0.5);
+			border: none
+			outline: none;
+			padding: 0px;
+}
+		}
+	}
+
+        .image {
+            flex-shrink: 0; /* Impede que as imagens diminuam além do tamanho original */
+            transition: transform 0.3s ease; /* Animação suave de crescimento */
+            margin-right: 10px; /* Espaçamento entre as imagens */
+			filter: grayscale(100%);
+        }
+
+        .image:hover {
+            transform: scale(1.1); /* Aumenta a imagem em 10% quando o mouse está sobre ela */
+			filter: grayscale(0%);
+        }
+		
+    </style>
+
+  <header>
+    <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player" ></a></p>
+	
+	<p>
+	<a href="index.html"> Home </a> • 
+	<a href="news.html"> Updates </a>
+	</p>
+	
+        <!-- Botão fixo -->
+		<button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+
+  </header>
+
+  <main>
+    <article>
+	
+	<p align="left">Playlists</p>
+
+	<div class="image-container" id="imageContainer">
+	<button class="end" onclick="scrollToEnd()">&#10095;</button>
+		<a href="playlist_call-the-boss.html"><img class="image" height="130px" src="img/call_the_boss.jpg" title="Call The Boss" alt="Call The Boss"></a>
+		<a href="playlist_high-trip.html"><img class="image" height="130px" src="img/high_trip.jpg" title="High Trip" alt="High Trip"></a>
+		<a href="playlist_rock-wins.html"><img class="image" height="130px" src="img/rock_wins.jpg" title="Rock Wins" alt="Rock Wins"></a>
+		<a href="playlist_rio-night.html"><img class="image" height="130px" src="img/rio_night.jpg" title="Rio Night" alt="Rio Night"></a>
+		<a href="playlist_serenitas-divinae.html"><img class="image" height="130px" src="img/serenitas_divinae.jpg" title="Serenitas Divinae" alt="Serenitas Divinae"></a>
+        <a href="playlist_cigarettes-after-sex.html"><img class="image" height="130px" src="img/cigarettesaftersex.jpg" title="Cigarettes After Sex" alt="Cigarettes After Sex"></a>
+		<a href="playlist_celin.html"><img class="image" height="130px" src="img/celin24h.jpg" title="Celin" alt="Celin"></a>
+		<a href="playlist_old-but-gold.html"><img class="image" height="130px" src="img/old_but_gold.jpg" title="Old but gold" alt="Old but gold"></a>
+		<a href="playlist_fuego-latino.html"><img class="image" height="130px" src="img/fuego_latino.jpg" title="Fuego Latino" alt="Fuego Latino"></a>
+		<a href="playlist_ambient.html"><img class="image" height="130px" src="img/.jpg" title="Ambient Music" alt="Ambient Music"></a>
+	<button class="start" onclick="scrollToStart()">&#10094;</button>
+        <!-- Adicione mais imagens conforme necessário -->
+    </div>
+	
+	</br>
+	
+		<p align="left">Podcasts</p>
+
+	<div class="image-container">
+        <a href="meditation.html"><img class="image" height="130px" src="img/meditation.jpg" title="Meditation" alt="Meditation"></a>
+        <img class="image" src="img/philosophy.jpg" alt="Philosophy" title="Unavailable">
+        <img class="image" src="img/politics.jpg" alt="Politics" title="Unavailable">
+		<img class="image" src="img/soon.jpg" alt="Coming Soon" title="Coming Soon" style="filter:grayscale(100%)">
+        <!-- Adicione mais imagens conforme necessário -->
+    </div>
+	
+	<p></p>
+		
+	</article>
+
+    <aside>
+    </aside>
+  </main>
+  
+<script>
+// função dos botões de navegação
+
+function scrollToStart() {
+	const imageContainer = document.querySelector('.image-container');
+	imageContainer.scrollTo({
+		left: 0,
+		behavior: 'smooth'
+	});
+}
+
+function scrollToEnd() {
+	const imageContainer = document.querySelector('.image-container');
+	const maxScroll = imageContainer.scrollWidth - imageContainer.clientWidth;
+	imageContainer.scrollTo({
+		left: maxScroll,
+		behavior: 'smooth'
+	});
+}
+
+</script>
+
+<script>
+// script para rolagem automática das imagens no contêiner
+
+const imageContainer = document.querySelector('.image-container');
+
+imageContainer.addEventListener('mouseover', (e) => {
+const containerWidth = imageContainer.clientWidth;
+const scrollWidth = imageContainer.scrollWidth;
+const mouseX = e.clientX - imageContainer.getBoundingClientRect().left;
+const scrollAmount = (mouseX / containerWidth) * (scrollWidth - containerWidth);
+
+imageContainer.scrollTo({
+	left: scrollAmount,
+	behavior: 'smooth'
+});
+});
+
+</script>
+  
+<script>
+
+// lightmode script
+function toggleDarkMode() {
+const body = document.body;
+body.classList.toggle('light-mode');
+}
+
+// anti right-click protection
+	document.addEventListener('contextmenu', function (e) {
+	e.preventDefault();
+});
+</script>
+
+</body>
+</html>
