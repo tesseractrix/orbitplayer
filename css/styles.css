@@ -101,21 +101,3 @@
         cursor: pointer;
         z-index: 9999; /* Garante que o botão esteja sempre acima de outros conteúdos */
     }
-
-//Botão de repetição
-
-	.repeat-button {
-            background-color: #fff;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            margin-left: 10px;
-            transition: background-color 0.3s;
-        }
-        .repeat-button.active {
-            background-color: #4caf50; /* Cor verde para indicar que está ativo */
-        }
-        .repeat-button img {
-            width: 24px;
-            height: 24px;
-        }
