@@ -53,6 +53,8 @@
                     <source id="audioSource" src="" type="audio/mp3">
                     Seu navegador não suporta a tag de áudio.
                 </audio>
+		<button id="repeatButton" class="repeat-button">
+		<img src="repeat_icon.png" alt="Repeat" width="24" height="24">
             </p>
 
     </footer>
@@ -431,6 +433,26 @@
                     var randomIndex = Math.floor(Math.random() * data.length);
                     return data[randomIndex];
                 }
+
+		//Script de repeat
+			document.addEventListener('DOMContentLoaded', () => {
+            const audioPlayer = document.getElementById('audioPlayer');
+            const repeatButton = document.getElementById('repeatButton');
+
+            let isRepeatOn = false;
+
+            repeatButton.addEventListener('click', () => {
+                isRepeatOn = !isRepeatOn;
+                repeatButton.classList.toggle('active', isRepeatOn);
+            });
+
+            audioPlayer.addEventListener('ended', () => {
+                if (isRepeatOn) {
+                    audioPlayer.currentTime = 0;
+                    audioPlayer.play();
+                }
+            });
+        });
 
                 function playRandom() {
                     var randomTrack = getRandomTrack();
