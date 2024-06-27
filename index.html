@@ -428,31 +428,28 @@
                 // Script de reprodução aleatória
                 var audioPlayer = document.getElementById('audioPlayer');
                 var audioSource = document.getElementById('audioSource');
+		var repeatButton = document.getElementById('repeatButton');
+
+        let isRepeatOn = false;
+
+        repeatButton.addEventListener('click', () => {
+            isRepeatOn = !isRepeatOn;
+            repeatButton.classList.toggle('active', isRepeatOn);
+        });
+
+        audioPlayer.addEventListener('ended', () => {
+            if (isRepeatOn) {
+                audioPlayer.currentTime = 0;
+                audioPlayer.play();
+            } else {
+                playRandom();
+            }
+        });
 
                 function getRandomTrack() {
                     var randomIndex = Math.floor(Math.random() * data.length);
                     return data[randomIndex];
                 }
-
-		//Script de repeat
-			document.addEventListener('DOMContentLoaded', () => {
-            const audioPlayer = document.getElementById('audioPlayer');
-            const repeatButton = document.getElementById('repeatButton');
-
-            let isRepeatOn = false;
-
-            repeatButton.addEventListener('click', () => {
-                isRepeatOn = !isRepeatOn;
-                repeatButton.classList.toggle('active', isRepeatOn);
-            });
-
-            audioPlayer.addEventListener('ended', () => {
-                if (isRepeatOn) {
-                    audioPlayer.currentTime = 0;
-                    audioPlayer.play();
-                }
-            });
-        });
 
                 function playRandom() {
                     var randomTrack = getRandomTrack();
