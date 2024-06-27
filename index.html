@@ -94,7 +94,6 @@
 {title: "Breaking Benjamin - Failure", url: "music/rock/Breaking Benjamin - Failure.mp3"},
 {title: "Breaking Benjamin - The Great Divide", url: "music/rock/Breaking Benjamin - The Great Divide.mp3"},
 {title: "Calema - Até de manhã (ft. Diana Lima, T-Rex)", url: "music/pop/Calema - Até de manhã (ft. Diana Lima, T-Rex).mp3"},
-{title: "Modestia - Calices", url: "music/rap/Modestia - Calices.mp3"},
 {title: "Cassia Eller, Nando Reis - Relicário", url: "music/mpb/Cassia Eller, Nando Reis - Relicário.mp3"},
 {title: "Celin - 2077", url: "music/rap/Celin - 2077.mp3"},
 {title: "Celin - Bruxo", url: "music/rap/Celin - Bruxo.mp3"},
@@ -428,23 +427,6 @@
                 // Script de reprodução aleatória
                 var audioPlayer = document.getElementById('audioPlayer');
                 var audioSource = document.getElementById('audioSource');
-		var repeatButton = document.getElementById('repeatButton');
-
-        let isRepeatOn = false;
-
-        repeatButton.addEventListener('click', () => {
-            isRepeatOn = !isRepeatOn;
-            repeatButton.classList.toggle('active', isRepeatOn);
-        });
-
-        audioPlayer.addEventListener('ended', () => {
-            if (isRepeatOn) {
-                audioPlayer.currentTime = 0;
-                audioPlayer.play();
-            } else {
-                playRandom();
-            }
-        });
 
                 function getRandomTrack() {
                     var randomIndex = Math.floor(Math.random() * data.length);
