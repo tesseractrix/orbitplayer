@@ -425,6 +425,16 @@
     function displayCurrentSongTitle(title) {
         var tituloMusica = document.getElementById("tituloMusica");
         tituloMusica.textContent = title;
+
+        var artist = title.split(" - ")[0];
+        var songTitle = title.split(" - ")[1];
+
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: songTitle,
+                artist: artist
+            });
+        }
     }
 
     // Script de reprodução aleatória
@@ -463,12 +473,6 @@
 
         navigator.mediaSession.setActionHandler('nexttrack', () => {
             skipSong();
-        });
-
-        navigator.mediaSession.metadata = new MediaMetadata({
-            title: 'My Song',
-            artist: 'Artist Name',
-            album: 'Album Name'
         });
     }
 
