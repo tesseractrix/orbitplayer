@@ -446,14 +446,6 @@
     }
 }
 
-        if ('mediaSession' in navigator) {
-            navigator.mediaSession.metadata = new MediaMetadata({
-                title: songTitle,
-                artist: artist
-            });
-        }
-    }
-
     // Script de reprodução aleatória
     var audioPlayer = document.getElementById('audioPlayer');
     var audioSource = document.getElementById('audioSource');
