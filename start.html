@@ -428,6 +428,23 @@
 
         var artist = title.split(" - ")[0];
         var songTitle = title.split(" - ")[1];
+	var artworkUrl = 'img/orbit_ico.png'; // Substitua com o caminho da sua imagem de logo
+
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: songTitle,
+            artist: artist,
+            artwork: [
+                { src: artworkUrl, sizes: '96x96', type: 'img/orbit_ico.png' },
+                { src: artworkUrl, sizes: '128x128', type: 'img/orbit_ico.png' },
+                { src: artworkUrl, sizes: '192x192', type: 'img/orbit_ico.png' },
+                { src: artworkUrl, sizes: '256x256', type: 'img/orbit_ico.png' },
+                { src: artworkUrl, sizes: '384x384', type: 'img/orbit_ico.png' },
+                { src: artworkUrl, sizes: '512x512', type: 'img/orbit_ico.png' },
+            ]
+        });
+    }
+}
 
         if ('mediaSession' in navigator) {
             navigator.mediaSession.metadata = new MediaMetadata({
