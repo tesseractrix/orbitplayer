@@ -475,8 +475,10 @@
                 }
 
                 function skipSong() {
-                    playRandom();
-                }
+    if (!isRepeat) {
+        playRandom();
+    }
+}
 
                 if ('mediaSession' in navigator) {
                     navigator.mediaSession.setActionHandler('play', () => {
@@ -496,18 +498,18 @@
                 }
 
                 // Evento para detectar o fim da música e agir conforme a repetição ou reprodução aleatória
-                audioPlayer.addEventListener('ended', function() {
+audioPlayer.addEventListener('ended', function() {
     if (isRepeat) {
         audioPlayer.currentTime = 0; // Reseta o tempo da música para o início
         audioPlayer.play(); // Reproduz novamente a música atual
     } else {
-        skipSong(); // Passa para a próxima música aleatória
+        playRandom(); // Passa para a próxima música aleatória
     }
 });
 
-                // Inicie a reprodução com a primeira música aleatória
-                playRandom();
-            </script>
+// Inicie a reprodução com a primeira música aleatória
+playRandom();
+</script>
     
 </body>
 </html>
