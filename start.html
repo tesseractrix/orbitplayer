@@ -49,7 +49,7 @@
     <p align="center" id="tituloMusica"></p>
     
             <p align="center">
-                <audio id="audioPlayer" controls onended="playRandom()">
+                <audio id="audioPlayer" controls>
                     <source id="audioSource" src="" type="audio/mp3">
                     Seu navegador não suporta a tag de áudio.
                 </audio>
@@ -376,8 +376,8 @@
 
                 // Adiciona o evento de clique ao botão de repetição
                 document.getElementById('repeatButton').addEventListener('click', function() {
-                    isRepeat = !isRepeat;
-                    this.textContent = isRepeat ? 'Repeat On' : 'Repeat Off'; // Atualiza o texto do botão
+                isRepeat = !isRepeat;
+                this.textContent = isRepeat ? 'Repeat On' : 'Repeat Off'; // Atualiza o texto do botão
                 });
 
                 for (var i = 0; i < data.length; i++) {
