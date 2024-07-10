@@ -30,8 +30,8 @@
             <p align="center">
                 <input type="text" id="search" onkeyup="search()" placeholder="Search music..." width="300" height="40">
 
-                <button onclick="skipSong()">⮞</button>
-                <button id="repeatButton">⮎</button>
+                <button onclick="skipSong()">Skip</button>
+                <button id="repeatButton">Random</button>
             </p>
 
             <ul align="center" id="results"></ul>
@@ -377,7 +377,7 @@ var isRepeat = false; // Flag para indicar se a repetição está ativada
 // Adiciona o evento de clique ao botão de repetição
 document.getElementById('repeatButton').addEventListener('click', function() {
     isRepeat = !isRepeat;
-    this.textContent = isRepeat ? '⭮' : '⮎'; // Atualiza o texto do botão
+    this.textContent = isRepeat ? 'Repeat' : 'Random'; // Atualiza o texto do botão
 });
 
 for (var i = 0; i < data.length; i++) {
