@@ -17,11 +17,10 @@
         <p>
             <a href="explore.html"> Explore </a> •
             <a href="news.html"> Updates </a>
-		</p>
+        </p>
 
         <!-- Botão fixo Switch Theme -->
-		<button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
-
+        <button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
 
     </header>
 
@@ -32,6 +31,7 @@
                 <input type="text" id="search" onkeyup="search()" placeholder="Search music..." width="300" height="40">
 
                 <button onclick="skipSong()">Skip</button>
+                <button id="repeatButton">Repeat Off</button>
             </p>
 
             <ul align="center" id="results"></ul>
@@ -45,10 +45,10 @@
     </main>
 
     <footer>
-	
-	<p align="center" id="tituloMusica"></p>
-	
-			<p align="center">
+    
+    <p align="center" id="tituloMusica"></p>
+    
+            <p align="center">
                 <audio id="audioPlayer" controls onended="playRandom()">
                     <source id="audioSource" src="" type="audio/mp3">
                     Seu navegador não suporta a tag de áudio.
@@ -56,22 +56,22 @@
             </p>
 
     </footer>
-	
+    
 <script>
 // lightmode script
-			function toggleDarkMode() {
-			const body = document.body;
-			body.classList.toggle('light-mode');
-			}
+            function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            }
 // anti right-click protection
-				document.addEventListener('contextmenu', function (e) {
-				e.preventDefault();
-			});
+                document.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+            });
 </script>
 
             <script>
                 var data = [
-{title: "30 seconds to mars - From Yesterday", url: "music/rock/30 seconds to mars - From Yesterday.mp3"},
+                    {title: "30 seconds to mars - From Yesterday", url: "music/rock/30 seconds to mars - From Yesterday.mp3"},
 {title: "3030 - Alma De Cigana", url: "music/rap/3030 - Alma De Cigana.mp3"},
 {title: "3030 - Brilho Na Alma", url: "music/rap/3030 - Brilho Na Alma.mp3"},
 {title: "3030 - Fé", url: "music/rap/3030 - Fé.mp3"},
@@ -368,128 +368,145 @@
 {title: "Gigi Dagostino - I still believe in your eyes", url: "music/electro/Gigi Dagostino - I still believe in your eyes.mp3"},
 {title: "3030 - Mundo gira", url: "music/rap/3030 - Mundo gira.mp3"},
 {title: "Cigarettes After Sex - Dark vacay", url: "music/indie/Cigarettes After Sex - Dark vacay.mp3"},
-
                 ];
 
                 var ul = document.getElementById("results");
 
-    for (var i = 0; i < data.length; i++) {
-        var li = document.createElement("li");
-        var a = document.createElement("a");
-        a.href = "#";
-        a.onclick = function (index) {
-            return function () {
-                changeAudioSource(index);
-            };
-        }(i);
-        a.textContent = data[i].title;
-        li.appendChild(a);
-        ul.appendChild(li);
-        li.style.display = "none";
-    }
+                var isRepeat = false; // Flag para indicar se a repetição está ativada
 
-    function changeAudioSource(index) {
-        var audio = document.getElementById('audioPlayer');
-        var source = document.getElementById('audioSource');
+                // Adiciona o evento de clique ao botão de repetição
+                document.getElementById('repeatButton').addEventListener('click', function() {
+                    isRepeat = !isRepeat;
+                    this.textContent = isRepeat ? 'Repeat On' : 'Repeat Off'; // Atualiza o texto do botão
+                });
 
-        source.src = data[index].url;
-        audio.load();
-        audio.play();
-        displayCurrentSongTitle(data[index].title);
-    }
+                for (var i = 0; i < data.length; i++) {
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.href = "#";
+                    a.onclick = function (index) {
+                        return function () {
+                            changeAudioSource(index);
+                        };
+                    }(i);
+                    a.textContent = data[i].title;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                    li.style.display = "none";
+                }
 
-    function search() {
-        var input = document.getElementById("search");
-        var filter = input.value.toUpperCase();
-        var ul = document.getElementById("results");
-        var li = ul.getElementsByTagName("li");
+                function changeAudioSource(index) {
+                    var audio = document.getElementById('audioPlayer');
+                    var source = document.getElementById('audioSource');
 
-        for (var i = 0; i < li.length; i++) {
-            var a = li[i].getElementsByTagName("a")[0];
-            var txtValue = a.textContent || a.innerText;
+                    source.src = data[index].url;
+                    audio.load();
+                    audio.play();
+                    displayCurrentSongTitle(data[index].title);
+                }
 
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
-            } else {
-                li[i].style.display = "none";
-            }
-        }
+                function search() {
+                    var input = document.getElementById("search");
+                    var filter = normalizeString(input.value.toUpperCase());
+                    var ul = document.getElementById("results");
+                    var li = ul.getElementsByTagName("li");
 
-        if (filter.length == 0) {
-            ul.style.display = "none";
-        } else {
-            ul.style.display = "block";
-        }
-    }
+                    for (var i = 0; i < li.length; i++) {
+                        var a = li[i].getElementsByTagName("a")[0];
+                        var txtValue = normalizeString(a.textContent || a.innerText);
 
-    function displayCurrentSongTitle(title) {
-        var tituloMusica = document.getElementById("tituloMusica");
-        tituloMusica.textContent = title;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            li[i].style.display = "";
+                        } else {
+                            li[i].style.display = "none";
+                        }
+                    }
 
-        var artist = title.split(" - ")[0];
-        var songTitle = title.split(" - ")[1];
-	var artworkUrl = 'img/orbit_ico.png'; // Substitua com o caminho da sua imagem de logo
+                    if (filter.length == 0) {
+                        ul.style.display = "none";
+                    } else {
+                        ul.style.display = "block";
+                    }
+                }
 
-    if ('mediaSession' in navigator) {
-        navigator.mediaSession.metadata = new MediaMetadata({
-            title: songTitle,
-            artist: artist,
-            artwork: [
-                { src: artworkUrl, sizes: '96x96', type: 'img/orbit_ico.png' },
-                { src: artworkUrl, sizes: '128x128', type: 'img/orbit_ico.png' },
-                { src: artworkUrl, sizes: '192x192', type: 'img/orbit_ico.png' },
-                { src: artworkUrl, sizes: '256x256', type: 'img/orbit_ico.png' },
-                { src: artworkUrl, sizes: '384x384', type: 'img/orbit_ico.png' },
-                { src: artworkUrl, sizes: '512x512', type: 'img/orbit_ico.png' },
-            ]
-        });
-    }
-}
+                function normalizeString(str) {
+                    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/ç/g, 'c').replace(/Ç/g, 'C');
+                }
 
-    // Script de reprodução aleatória
-    var audioPlayer = document.getElementById('audioPlayer');
-    var audioSource = document.getElementById('audioSource');
+                function displayCurrentSongTitle(title) {
+                    var tituloMusica = document.getElementById("tituloMusica");
+                    tituloMusica.textContent = title;
 
-    function getRandomTrack() {
-        var randomIndex = Math.floor(Math.random() * data.length);
-        return data[randomIndex];
-    }
+                    var artist = title.split(" - ")[0];
+                    var songTitle = title.split(" - ")[1];
+                    var artworkUrl = 'img/orbit_ico.png'; // Substitua com o caminho da sua imagem de logo
 
-    function playRandom() {
-        var randomTrack = getRandomTrack();
-        audioSource.src = randomTrack.url;
-        audioPlayer.load();
-        audioPlayer.play();
-        displayCurrentSongTitle(randomTrack.title);
-    }
+                    if ('mediaSession' in navigator) {
+                        navigator.mediaSession.metadata = new MediaMetadata({
+                            title: songTitle,
+                            artist: artist,
+                            artwork: [
+                                { src: artworkUrl, sizes: '96x96', type: 'image/png' },
+                                { src: artworkUrl, sizes: '128x128', type: 'image/png' },
+                                { src: artworkUrl, sizes: '192x192', type: 'image/png' },
+                                { src: artworkUrl, sizes: '256x256', type: 'image/png' },
+                                { src: artworkUrl, sizes: '384x384', type: 'image/png' },
+                                { src: artworkUrl, sizes: '512x512', type: 'image/png' },
+                            ]
+                        });
+                    }
+                }
 
-    function skipSong() {
-        playRandom();
-    }
+                // Script de reprodução aleatória
+                var audioPlayer = document.getElementById('audioPlayer');
+                var audioSource = document.getElementById('audioSource');
 
-    if ('mediaSession' in navigator) {
-        navigator.mediaSession.setActionHandler('play', () => {
-            audioPlayer.play();
-        });
+                function getRandomTrack() {
+                    var randomIndex = Math.floor(Math.random() * data.length);
+                    return data[randomIndex];
+                }
 
-        navigator.mediaSession.setActionHandler('pause', () => {
-            audioPlayer.pause();
-		
-        // navigator.mediaSession.setActionHandler('previoustrack', () => {
-            // Você pode adicionar funcionalidade de "previoustrack" se necessário
-		
-        });
+                function playRandom() {
+                    var randomTrack = getRandomTrack();
+                    audioSource.src = randomTrack.url;
+                    audioPlayer.load();
+                    audioPlayer.play();
+                    displayCurrentSongTitle(randomTrack.title);
+                }
 
-        navigator.mediaSession.setActionHandler('nexttrack', () => {
-            skipSong();
-        });
-    }
+                function skipSong() {
+                    playRandom();
+                }
 
-    audioPlayer.addEventListener('ended', skipSong);
+                if ('mediaSession' in navigator) {
+                    navigator.mediaSession.setActionHandler('play', () => {
+                        audioPlayer.play();
+                    });
 
-    // Inicie a reprodução com a primeira música aleatória
-    playRandom();
-</script>
-	
+                    navigator.mediaSession.setActionHandler('pause', () => {
+                        audioPlayer.pause();
+                    });
+
+                    navigator.mediaSession.setActionHandler('nexttrack', () => {
+                        skipSong();
+                    });
+
+                    // Define metadados inicialmente
+                    displayCurrentSongTitle(data[0].title);
+                }
+
+                // Evento para detectar o fim da música e agir conforme a repetição ou reprodução aleatória
+                audioPlayer.addEventListener('ended', function() {
+                    if (isRepeat) {
+                        audioPlayer.play(); // Reproduz novamente a música atual
+                    } else {
+                        skipSong(); // Passa para a próxima música aleatória
+                    }
+                });
+
+                // Inicie a reprodução com a primeira música aleatória
+                playRandom();
+            </script>
+    
 </body>
 </html>
