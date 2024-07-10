@@ -433,7 +433,6 @@ function normalizeString(str) {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/ç/g, 'c').replace(/Ç/g, 'C');
 }
 
-
                 function displayCurrentSongTitle(title) {
                     var tituloMusica = document.getElementById("tituloMusica");
                     tituloMusica.textContent = title;
@@ -501,6 +500,13 @@ audioPlayer.addEventListener('timeupdate', function() {
     if (isRepeat && audioPlayer.duration - audioPlayer.currentTime <= 0.25) {
         audioPlayer.currentTime = 0; // Reseta o tempo da música para o início
         audioPlayer.play(); // Reproduz novamente a música atual
+    }
+});
+
+// Evento para detectar o fim da música e agir conforme a repetição ou reprodução aleatória
+audioPlayer.addEventListener('ended', function() {
+    if (!isRepeat) {
+        playRandom(); // Passa para a próxima música aleatória
     }
 });
 
