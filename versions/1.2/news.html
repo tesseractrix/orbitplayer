@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title> Orbit Player </title>
+<link rel="icon" href="img/orbit_icon.png">
+<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <header>
+    <p><a href="start.html"><img src="img/orbit_white.png" width="180" height="64" title="Orbit Player" ></a></p>
+	
+	<button onclick="toggleDarkMode()">Switch Theme</button>
+
+  </header>
+
+  <main>
+    <article>
+	
+<p align="left">Added in update:</p>
+
+	<details align="left">
+	  <summary>1.1</summary>
+	  <ul><h5>
+		<li style="display:block;">- Search engine;</li>
+		<li style="display:block;">- Player runs in a new tab.</li>
+	  </h5></ul>
+	</details>
+
+	<details align="left">
+	  <summary>1.2</summary>
+	  <ul><h5>
+		<li style="display:block;">- Bugs fixed;</li>
+		<li style="display:block;">- Search engine improved;</li>
+		<li style="display:block;">- Local dynamic player;</li>
+		<li style="display:block;">- Dark/light mode;</li>
+		<li style="display:block;">- Random play functionality;</li>
+		<li style="display:block;">- Player skip function;</li>
+		<li style="display:block;">- Meditation category;</li>
+		<li style="display:block;">- Version updates page;</li>
+		<li style="display:block;">- CSS design improved.</li>
+	  </h5></ul>
+	</details>
+		
+	</article>
+
+    <aside>
+    </aside>
+  </main>
+
+  <footer>
+	<p> Orbit Player © 2024 </p>
+	
+	<p><marquee direction="left"> Recent Updates: Bugs fixed • Search engine improved • Dark/light mode added • Local dynamic player • Random play functionality • Skip function • Meditation category added • Design improved. </marquee></p>	
+  </footer>
+  
+<script> // lightmode script
+function toggleDarkMode() {
+const body = document.body;
+body.classList.toggle('light-mode');
+}
+</script>
+	
+<script> // anti right-click protection
+	document.addEventListener('contextmenu', function (e) {
+	e.preventDefault();
+});
+</script>
+
+</body>
+</html>

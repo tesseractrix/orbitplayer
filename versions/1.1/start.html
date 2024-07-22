@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Orbit Player </title>
+<link rel="icon" href="img/orbit_icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #424242;
+      padding: 10px;
+      text-align: center;
+    }
+	
+	a {
+	color: black;
+	text-decoration: none;
+	}
+	
+	a:visited {
+		color: #black;
+    }
+	
+	a:hover {
+	color: #c7c7c7;
+	}
+
+    main {
+      display: flex;
+    }
+
+    article {
+      flex: 3;
+      padding: 200px;
+    }
+
+    aside {
+      flex: 0;
+      background-color: #424242;
+      padding: 0px;
+    }
+
+    footer {
+      background-color: #424242;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p><img src="img/orbit_white.png" width="180" height="64" title="Orbit Player" ></p>
+	
+<script> // anti right-click protection
+	document.addEventListener('contextmenu', function (e) {
+	e.preventDefault();
+});
+</script>
+
+  </header>
+
+  <main>
+    <article>
+
+<p align="center"><input type="text" id="search" onkeyup="search()" placeholder="Pesquisar...">
+<button type="button" onclick="search()">Pesquisar</button>
+<ul id="results"></ul></p>
+
+<script>
+function search() {
+  var input = document.getElementById("search");
+  var filter = input.value.toUpperCase();
+  var ul = document.getElementById("results");
+  var li = ul.getElementsByTagName("li");
+
+  for (var i = 0; i < li.length; i++) {
+    var a = li[i].getElementsByTagName("a")[0];
+    var txtValue = a.textContent || a.innerText;
+
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+
+  if (filter.length == 0) {
+    ul.style.display = "none";
+  } else {
+    ul.style.display = "block";
+  }
+}
+
+var data = [
+  {title: "Cigarettes After Sex - Apocalypse", url: "music/Cigarettes After Sex - Apocalypse.mp3"},
+  {title: "Sam Smith - Fire on fire", url: "music/Sam Smith - Fire on fire.mp3"},
+  {title: "3030 - Fé", url: "music/3030 - Fé.mp3"},
+  {title: "Rodrigo Alarcon - Apesar de querer", url: "music/Rodrigo Alarcon - Apesar de querer.mp3"},
+  {title: "Xamã - Uma linda mulher", url: "music/Xamã - Uma linda mulher.mp3"},
+  {title: "Cigarettes After Sex - Touch", url: "music/Cigarettes After Sex - Touch.mp3"},
+  {title: "Stephen Sanchez - Until i found you", url: "music/Stephen Sanchez - Until i found you.mp3"},
+  {title: "New West - Those Eyes", url: "music/New West - Those Eyes.mp3"},
+  {title: "Cigarettes After Sex - Crush", url: "music/Cigarettes After Sex - Crush.mp3"},
+  {title: "3030 - Lunar", url: "music/3030 - Lunar.mp3"},
+  {title: "Cigarettes After Sex - K", url: "music/Cigarettes After Sex - K.mp3"},
+  {title: "Cigarettes After Sex - Keep On Loving You", url: "music/Cigarettes After Sex - Keep On Loving You.mp3"},
+  {title: "Jão - Alinhamento Milenar", url: "music/Jão - Alinhamento Milenar.mp3"},
+  {title: "Sleeping At Last - Saturn", url: "music/Sleeping At Last - Saturn.mp3"},
+  {title: "Pagan John - Meu Cais", url: "music/Pagan John - Meu Cais.mp3"},
+  {title: "Pagan John - Inesperado", url: "music/Pagan John - Inesperado.mp3"},
+  {title: "Torus - Dança Sincrônica", url: "music/Torus - Dança Sincrônica.mp3"}
+];
+
+var ul = document.getElementById("results");
+
+for (var i = 0; i < data.length; i++) {
+  var li = document.createElement("li");
+  var a = document.createElement("a");
+  a.href = data[i].url;
+  a.target = "_blank"; // adicionado para abrir em nova guia
+  a.textContent = data[i].title;
+  li.appendChild(a);
+  ul.appendChild(li);
+  li.style.display = "none";
+}
+</script>
+
+    </article>
+
+    <aside>
+    </aside>
+  </main>
+
+  <footer>
+	<p style="color:#FFFFFF"> Orbit Player v1.0 © 2024 </p>
+  </footer>
+
+</body>
+</html>
