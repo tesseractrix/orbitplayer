@@ -1,130 +1,153 @@
-<script>
 // lightmode script
-			function toggleDarkMode() {
-			const body = document.body;
-			body.classList.toggle('light-mode');
-			}
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('light-mode');
+}
+
 // anti right-click protection
-				document.addEventListener('contextmenu', function (e) {
-				e.preventDefault();
-			});
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
 
 var ul = document.getElementById("results");
 
-    for (var i = 0; i < data.length; i++) {
-        var li = document.createElement("li");
-        var a = document.createElement("a");
-        a.href = "#";
-        a.onclick = function (index) {
-            return function () {
-                changeAudioSource(index);
-            };
-        }(i);
-        a.textContent = data[i].title;
-        li.appendChild(a);
-        ul.appendChild(li);
-        li.style.display = "none";
-    }
+var isRepeat = false; // Flag para indicar se a repetição está ativada
 
-    function changeAudioSource(index) {
-        var audio = document.getElementById('audioPlayer');
-        var source = document.getElementById('audioSource');
+// Adiciona o evento de clique ao botão de repetição
+document.getElementById('repeatButton').addEventListener('click', function() {
+    isRepeat = !isRepeat;
+    this.textContent = isRepeat ? 'Repeat On' : 'Repeat Off'; // Atualiza o texto do botão
+});
 
-        source.src = data[index].url;
-        audio.load();
-        audio.play();
-        displayCurrentSongTitle(data[index].title);
-    }
+for (var i = 0; i < data.length; i++) {
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    a.href = "#";
+    a.onclick = function (index) {
+        return function () {
+            changeAudioSource(index);
+        };
+    }(i);
+    a.textContent = data[i].title;
+    li.appendChild(a);
+    ul.appendChild(li);
+    li.style.display = "none";
+}
 
-    function search() {
-        var input = document.getElementById("search");
-        var filter = input.value.toUpperCase();
-        var ul = document.getElementById("results");
-        var li = ul.getElementsByTagName("li");
+function changeAudioSource(index) {
+    var audio = document.getElementById('audioPlayer');
+    var source = document.getElementById('audioSource');
 
-        for (var i = 0; i < li.length; i++) {
-            var a = li[i].getElementsByTagName("a")[0];
-            var txtValue = a.textContent || a.innerText;
+    source.src = data[index].url;
+    audio.load();
+    audio.play();
+    displayCurrentSongTitle(data[index].title);
+}
 
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
-            } else {
-                li[i].style.display = "none";
-            }
-        }
+function search() {
+    var input = document.getElementById("search");
+    var filter = normalizeString(input.value.toUpperCase());
+    var ul = document.getElementById("results");
+    var li = ul.getElementsByTagName("li");
 
-        if (filter.length == 0) {
-            ul.style.display = "none";
+    for (var i = 0; i < li.length; i++) {
+        var a = li[i].getElementsByTagName("a")[0];
+        var txtValue = normalizeString(a.textContent || a.innerText);
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
         } else {
-            ul.style.display = "block";
+            li[i].style.display = "none";
         }
     }
 
-    function displayCurrentSongTitle(title) {
-        var tituloMusica = document.getElementById("tituloMusica");
-        tituloMusica.textContent = title;
+    if (filter.length == 0) {
+        ul.style.display = "none";
+    } else {
+        ul.style.display = "block";
+    }
+}
 
-        var artist = title.split(" - ")[0];
-        var songTitle = title.split(" - ")[1];
-	var artworkUrl = 'img/orbit_ico.png'; // Substitua com o caminho da sua imagem de logo
+function normalizeString(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/ç/g, 'c').replace(/Ç/g, 'C');
+}
+
+function displayCurrentSongTitle(title) {
+    var tituloMusica = document.getElementById("tituloMusica");
+    tituloMusica.textContent = title;
+
+    var artist = title.split(" - ")[0];
+    var songTitle = title.split(" - ")[1];
+    var artworkUrl = 'img/orbit_ico.png'; // Substitua com o caminho da sua imagem de logo
 
     if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
             title: songTitle,
             artist: artist,
             artwork: [
-                { src: artworkUrl, sizes: '96x96', type: 'img/orbit_ico.png' },
-                { src: artworkUrl, sizes: '128x128', type: 'img/orbit_ico.png' },
-                { src: artworkUrl, sizes: '192x192', type: 'img/orbit_ico.png' },
-                { src: artworkUrl, sizes: '256x256', type: 'img/orbit_ico.png' },
-                { src: artworkUrl, sizes: '384x384', type: 'img/orbit_ico.png' },
-                { src: artworkUrl, sizes: '512x512', type: 'img/orbit_ico.png' },
+                { src: artworkUrl, sizes: '96x96', type: 'image/png' },
+                { src: artworkUrl, sizes: '128x128', type: 'image/png' },
+                { src: artworkUrl, sizes: '192x192', type: 'image/png' },
+                { src: artworkUrl, sizes: '256x256', type: 'image/png' },
+                { src: artworkUrl, sizes: '384x384', type: 'image/png' },
+                { src: artworkUrl, sizes: '512x512', type: 'image/png' },
             ]
         });
     }
 }
 
-    // Script de reprodução aleatória
-    var audioPlayer = document.getElementById('audioPlayer');
-    var audioSource = document.getElementById('audioSource');
+// Script de reprodução aleatória
+var audioPlayer = document.getElementById('audioPlayer');
+var audioSource = document.getElementById('audioSource');
 
-    function getRandomTrack() {
-        var randomIndex = Math.floor(Math.random() * data.length);
-        return data[randomIndex];
-    }
+function getRandomTrack() {
+    var randomIndex = Math.floor(Math.random() * data.length);
+    return data[randomIndex];
+}
 
-    function playRandom() {
-        var randomTrack = getRandomTrack();
-        audioSource.src = randomTrack.url;
-        audioPlayer.load();
-        audioPlayer.play();
-        displayCurrentSongTitle(randomTrack.title);
-    }
+function playRandom() {
+    var randomTrack = getRandomTrack();
+    audioSource.src = randomTrack.url;
+    audioPlayer.load();
+    audioPlayer.play();
+    displayCurrentSongTitle(randomTrack.title);
+}
 
-    function skipSong() {
-        playRandom();
-    }
-
-    if ('mediaSession' in navigator) {
-        navigator.mediaSession.setActionHandler('play', () => {
-            audioPlayer.play();
-        });
-
-        navigator.mediaSession.setActionHandler('pause', () => {
-            audioPlayer.pause();
-		
-        // navigator.mediaSession.setActionHandler('previoustrack', () => {
-            // Você pode adicionar funcionalidade de "previoustrack" se necessário
-		
-        });
-
-        navigator.mediaSession.setActionHandler('nexttrack', () => {
-            skipSong();
-        });
-    }
-
-    audioPlayer.addEventListener('ended', skipSong);
-
-    // Inicie a reprodução com a primeira música aleatória
+function skipSong() {
     playRandom();
-</script>
+}
+
+if ('mediaSession' in navigator) {
+    navigator.mediaSession.setActionHandler('play', () => {
+        audioPlayer.play();
+    });
+
+    navigator.mediaSession.setActionHandler('pause', () => {
+        audioPlayer.pause();
+    });
+
+    navigator.mediaSession.setActionHandler('nexttrack', () => {
+        skipSong();
+    });
+
+    // Define metadados inicialmente
+    displayCurrentSongTitle(data[0].title);
+}
+
+// Evento para detectar se a música está prestes a terminar
+audioPlayer.addEventListener('timeupdate', function() {
+    if (isRepeat && audioPlayer.duration - audioPlayer.currentTime <= 0.25) {
+        audioPlayer.currentTime = 0; // Reseta o tempo da música para o início
+        audioPlayer.play(); // Reproduz novamente a música atual
+    }
+});
+
+// Evento para detectar o fim da música e agir conforme a repetição ou reprodução aleatória
+audioPlayer.addEventListener('ended', function() {
+    if (!isRepeat) {
+        playRandom(); // Passa para a próxima música aleatória
+    }
+});
+
+// Inicie a reprodução com a primeira música aleatória
+playRandom();
