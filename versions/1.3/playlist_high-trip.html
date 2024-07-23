@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Orbit Player </title>
+    <link rel="icon" href="img/orbit_ico_blue.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <header>
+        <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player"></a></p>
+
+        <p>
+            <a href="explore.html"> Explore </a> •
+            <a href="news.html"> Updates </a>
+		</p>
+
+        <!-- Botão fixo -->
+		<button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+
+
+    </header>
+
+    <main>
+        <article>
+
+            <p align="center">
+                <input type="text" id="search" onkeyup="search()" placeholder="Search music..." width="300" height="40">
+
+                <button onclick="skipSong()">Skip</button>
+            </p>
+
+            <ul align="center" id="results"></ul>
+
+            <article>
+
+            </article>
+
+            <aside>
+            </aside>
+    </main>
+
+    <footer>
+	
+	<p align="center" id="tituloMusica"></p>
+	
+			<p align="center">
+                <audio id="audioPlayer" controls onended="playRandom()">
+                    <source id="audioSource" src="" type="audio/mp3">
+                    Seu navegador não suporta a tag de áudio.
+                </audio>
+            </p>
+
+    </footer>
+	
+			<script> // lightmode script
+			function toggleDarkMode() {
+			const body = document.body;
+			body.classList.toggle('light-mode');
+			}
+			</script>
+				
+			<script> // anti right-click protection
+				document.addEventListener('contextmenu', function (e) {
+				e.preventDefault();
+			});
+			</script>
+
+            <script>
+                var data = [
+                    {title: "Cigarettes After Sex - Apocalypse", url: "music/indie/Cigarettes After Sex - Apocalypse.mp3"},
+					{title: "Cigarettes After Sex - Touch", url: "music/indie/Cigarettes After Sex - Touch.mp3"},
+					{title: "Cigarettes After Sex - Crush", url: "music/indie/Cigarettes After Sex - Crush.mp3"},
+					{title: "Cigarettes After Sex - K", url: "music/indie/Cigarettes After Sex - K.mp3"},
+                    {title: "Cigarettes After Sex - Keep On Loving You", url: "music/indie/Cigarettes After Sex - Keep On Loving You.mp3"},
+					{title: "Cigarettes After Sex - Affection", url: "music/indie/Cigarettes After Sex - Affection.mp3"},
+					{title: "Cigarettes After Sex - Cry", url: "music/indie/Cigarettes After Sex - Cry.mp3"},
+					{title: "Cigarettes After Sex - Dont let me go", url: "music/indie/Cigarettes After Sex - Dont let me go.mp3"},
+					{title: "Cigarettes After Sex - Each time you fall in love", url: "music/indie/Cigarettes After Sex - Each time you fall in love.mp3"},
+					{title: "Cigarettes After Sex - Heavenly", url: "music/indie/Cigarettes After Sex - Heavenly.mp3"},
+					{title: "Cigarettes After Sex - John Wayne", url: "music/indie/Cigarettes After Sex - John Wayne.mp3"},
+					{title: "Cigarettes After Sex - Motion Picture Soundtrack", url: "music/indie/Cigarettes After Sex - Motion Picture Soundtrack.mp3"},
+					{title: "Cigarettes After Sex - Pistol", url: "music/indie/Cigarettes After Sex - Pistol.mp3"},
+					{title: "Cigarettes After Sex - Sesame Syrup", url: "music/indie/Cigarettes After Sex - Sesame Syrup.mp3"},
+					{title: "Cigarettes After Sex - Sweet", url: "music/indie/Cigarettes After Sex - Sweet.mp3"},
+					{title: "Cigarettes After Sex - Young and Dumb", url: "music/indie/Cigarettes After Sex - Young and Dumb.mp3"},
+					{title: "Cigarettes After Sex - Youre all i want", url: "music/indie/Cigarettes After Sex - Youre all i want.mp3"},
+					{title: "Cigatettes After Sex - Nothings gonna hurt you baby", url: "music/indie/Cigatettes After Sex - Nothings gonna hurt you baby.mp3"},
+					{title: "Cigarettes After Sex - Neon Moon", url: "music/indie/Cigarettes After Sex - Neon Moon.mp3"},
+					{title: "Cigarettes After Sex - Sunsetz", url: "music/indie/Cigarettes After Sex - Sunsetz.mp3"},
+					{title: "Cigarettes After Sex - Tejano Blue", url: "music/indie/Cigarettes After Sex - Tejano Blue.mp3"},
+					{title: "Cigarettes After Sex - Truly", url: "music/indie/Cigarettes After Sex - Truly.mp3"},
+					{title: "Between Friends - Affection.mp3", url: "music/indie/Between Friends - Affection.mp3"},
+					{title: "SYML - Wheres my love", url: "music/indie/SYML - Wheres my love.mp3"},
+					{title: "The Weeknd - I was never there", url: "music/rnb/The Weeknd - I was never there.mp3"},
+					{title: "Ghost - Mary on a cross", url: "music/rock/Ghost - Mary on a cross.mp3"},
+					{title: "Partynextdoor - Trauma", url: "music/rnb/Partynextdoor - Trauma.mp3"},
+					{title: "Matvey, Mayxnor - I dont wanna know", url: "music/electro/Matvey, Mayxnor - I dont wanna know.mp3"},
+					{title: "Tinlicker - Because You Move Me", url: "music/electro/Tinlicker - Because You Move Me.mp3"},
+					{title: "Post Malone - Congratulations", url: "music/rap/Post Malone - Congratulations.mp3"},
+					{title: "Alderyn - Never have i ever (ft Tessa Odden)", url: "music/electro/Alderyn - Never have i ever (ft Tessa Odden).mp3"},
+					{title: "The Weeknd - Save Your Tears", url: "music/electro/The Weeknd - Save Your Tears.mp3"},
+					{title: "The Weeknd - I feel it coming", url: "music/electro/The Weeknd - I feel it coming.mp3"},
+					{title: "Adam Juhl - What if i die today", url: "music/electro/Adam Juhl - What if i die today.mp3"},
+					{title: "Axel Johansson - I found you", url: "music/electro/Axel Johansson - I found you.mp3"},
+					{title: "EC Twins - Liberian Girl", url: "music/electro/EC Twins - Liberian Girl.mp3"},
+					{title: "Jay Tastic - Body", url: "music/electro/Jay Tastic - Body.mp3"},
+					{title: "Aaryan Shah - Renegade", url: "music/electro/Aaryan Shah - Renegade.mp3"},
+                    {title: "Cálices - Modestia", url: "music/rap/Cálices - Modestia.mp3"},
+                    {title: "Jeans - Rudi", url: "music/rap/Jeans - Rudi.mp3"},
+                    {title: "Nikito - Fire In The Palace", url: "music/rap/Nikito - Fire In The Palace.mp3"},
+					{title: "Coldplay - A Sky Full Of Stars", url: "music/electro/Coldplay - A Sky Full Of Stars.mp3"},
+					{title: "Stephen Sanchez - Until i found you", url: "music/pop/Stephen Sanchez - Until i found you.mp3"},
+                    {title: "New West - Those Eyes", url: "music/indie/New West - Those Eyes.mp3"},
+					{title: "Xamã - Uma linda mulher", url: "music/rap/Xamã - Uma linda mulher.mp3"},
+					{title: "Sam Smith - Fire on fire", url: "music/pop/Sam Smith - Fire on fire.mp3"},
+					{title: "Oh Wonder - Drive", url: "music/indie/Oh Wonder - Drive.mp3"},
+					{title: "Oh Wonder - Technicolour Beat", url: "music/indie/Oh Wonder - Technicolour Beat.mp3"},
+					{title: "Ian Storm - Waves (ft Marissa)", url: "music/electro/Ian Storm - Waves (ft Marissa).mp3"},
+					{title: "Luiz Lins - A música mais triste do ano", url: "music/indie/Luiz Lins - A música mais triste do ano.mp3"},
+					{title: "Jova - Vacilei", url: "music/indie/Jova - Vacilei.mp3"},
+					{title: "Diana Lima - Não somos iguais", url: "music/pop/Diana Lima - Não somos iguais.mp3"},
+					{title: "Calema - Até de manhã (ft. Diana Lima, T-Rex)", url: "music/pop/Calema - Até de manhã (ft. Diana Lima, T-Rex).mp3"},
+					{title: "Tribalistas - Velha Infancia", url: "music/mpb/Tribalistas - Velha Infancia.mp3"},
+					{title: "Nando Reis - All Star", url: "music/mpb/Nando Reis - All Star.mp3"},
+					{title: "Nando Reis - Luz dos olhos", url: "music/mpb/Nando Reis - Luz dos olhos.mp3"},
+					{title: "Legião Urbana - Monte Castelo", url: "music/mpb/Legião Urbana - Monte Castelo.mp3"},
+					{title: "Jão - Clarão", url: "music/pop/Jão - Clarão.mp3"},
+					{title: "Cassia Eller, Nando Reis - Relicário", url: "music/mpb/Cassia Eller, Nando Reis - Relicário.mp3"},
+					{title: "Luiz Lins - A música mais triste do ano", url: "music/indie/Luiz Lins - A música mais triste do ano.mp3"},
+					{title: "Lennon Stella - Pretty Boy", url: "music/indie/Lennon Stella - Pretty Boy.mp3"},
+					{title: "The Internet - Girl", url: "music/rnb/The Internet - Girl.mp3"},
+					{title: "Modestia - Slow", url: "music/rap/Modestia - Slow.mp3"},
+					{title: "Xama - Era uma vez", url: "music/rap/Xama - Era uma vez.mp3"},
+{title: "30 seconds to mars - From Yesterday", url: "music/rock/30 seconds to mars - From Yesterday.mp3"},
+{title: "Agnes Nunes - 100 por hora", url: "music/rap/Agnes Nunes - 100 por hora.mp3"},
+{title: "Ali Gatie - Its you", url: "music/indie/Ali Gatie - Its you.mp3"},
+{title: "Alok - Side effect", url: "music/electro/Alok - Side effect.mp3"},
+{title: "Cjota - Esqueceu seu brinco", url: "music/rap/Cjota - Esqueceu seu brinco.mp3"},
+{title: "Coldplay, Chainsmokers - Something just like this", url: "music/electro/Coldplay, Chainsmokers - Something just like this.mp3"},
+{title: "DomLaike - Posturadão (ft. Filipe Ret)", url: "music/rap/DomLaike - Posturadão (ft. Filipe Ret).mp3"},
+{title: "Edward Maya - Feeling", url: "music/electro/Edward Maya - Feeling.mp3"},
+{title: "Ella Baila Sola - Eslabon Armado", url: "music/latin/Ella Baila Sola - Eslabon Armado.mp3"},
+{title: "Filipe Ret - F.F.M", url: "music/rap/Filipe Ret - F.F.M.mp3"},
+{title: "Filipe Ret - Deus Perdoa", url: "music/rap/Filipe Ret - Deus Perdoa.mp3"},
+{title: "Filipe Ret - Corte Americano (ft. L7NNON)", url: "music/rap/Filipe Ret - Corte Americano (ft. L7NNON).mp3"},
+{title: "Filipe Ret - Good Vibe (ft. Caio Luccas)", url: "music/rap/Filipe Ret - Good Vibe (ft. Caio Luccas).mp3"},
+{title: "Filipe Ret - Melhor Agora", url: "music/rap/Filipe Ret - Melhor Agora.mp3"},
+{title: "Filipe Ret - Trem Bala", url: "music/rap/Filipe Ret - Trem Bala.mp3"},
+{title: "Filipe Ret - Tudo Nosso (ft. Anitta)", url: "music/rap/Filipe Ret - Tudo Nosso (ft. Anitta).mp3"},
+{title: "Hideki - All Night", url: "music/rap/Hideki - All Night.mp3"},
+{title: "Japa - High", url: "music/rap/Japa - High.mp3"},
+{title: "Jonas Blue - Perfect strangers", url: "music/electro/Jonas Blue - Perfect strangers.mp3"},
+{title: "Loud Luxury - Body", url: "music/electro/Loud Luxury - Body.mp3"},
+{title: "Loud Luxury - Fill me in", url: "music/electro/Loud Luxury - Fill me in.mp3"},
+{title: "Major RD - Camisa P", url: "music/rap/Major RD - Camisa P (feat. Xamã, Froid, Cynthia Luz).mp3"},
+{title: "Martin Garrix, Dua Lipa - Scared to be lonely", url: "music/electro/Martin Garrix, Dua Lipa - Scared to be lonely.mp3"},
+{title: "Meduza - Lose Control", url: "music/electro/Meduza - Lose Control.mp3"},
+{title: "Meduza - Paradise", url: "music/electro/Meduza - Paradise.mp3"},
+{title: "Meduza - Piece of your heart", url: "music/electro/Meduza - Piece of your heart.mp3"},
+{title: "Michael Brun - All i ever wanted", url: "music/electro/Michael Brun - All i ever wanted.mp3"},
+{title: "Orochi - Por que nao", url: "music/rap/Orochi - Por que nao.mp3"},
+{title: "Samantha Machado - Livre Pra Voar", url: "music/electro/Samantha Machado - Livre Pra Voar.mp3"},
+{title: "Tep No - Swear like a sailor", url: "music/electro/Tep No - Swear like a sailor.mp3"},
+{title: "Ali Gatie - Its you", url: "music/rnb/Ali Gatie - Its you.mp3"},
+{title: "Backbear - idfc (Tarro Remix)", url: "music/rnb/Backbear - idfc (Tarro Remix).mp3"},
+{title: "Baco Exu do Blues - Me desculpa Jay Z", url: "music/rap/Baco Exu do Blues - Me desculpa Jay Z.mp3"},
+{title: "Baco Exu do Blues - Te amo disgraca", url: "music/rap/Baco Exu do Blues - Te amo disgraca.mp3"},
+{title: "DJ Snake - Let me love you (ft. Justin Bieber)", url: "music/electro/DJ Snake - Let me love you (ft. Justin Bieber).mp3"},
+{title: "Dreambox - Honeymoon", url: "music/indie/Dreambox - Honeymoon.mp3"},
+{title: "Dua Lipa - Last Dance", url: "music/pop/Dua Lipa - Last Dance.mp3"},
+{title: "DVSN - Think about me", url: "music/rnb/DVSN - Think about me.mp3"},
+{title: "Edward Maya - Desert Rain", url: "music/electro/Edward Maya - Desert Rain.mp3"},
+{title: "Edward Maya - Feeling", url: "music/electro/Edward Maya - Feeling.mp3"},
+{title: "Hibou - Night fell", url: "music/indie/Hibou - Night fell.mp3"},
+{title: "Hibou - Upon the clouds you weep", url: "music/indie/Hibou - Upon the clouds you weep.mp3"},
+{title: "HVME - Goosebumps", url: "music/electro/HVME - Goosebumps.mp3"},
+{title: "Jacquees - Bed", url: "music/rnb/Jacquees - Bed.mp3"},
+{title: "Jacquees - You", url: "music/rnb/Jacquees - You.mp3"},
+{title: "James Arthur - Naked", url: "music/pop/James Arthur - Naked.mp3"},
+{title: "Kendrick Lamar - Love", url: "music/rnb/Kendrick Lamar - Love.mp3"},
+{title: "Konai - Infinito", url: "music/indie/Konai - Infinito.mp3"},
+{title: "Liniker - Intimidade", url: "music/rnb/Liniker - Intimidade.mp3"},
+{title: "Meduza - Lose Control", url: "music/electro/Meduza - Lose Control.mp3"},
+{title: "Nazar Drago - Days", url: "music/electro/Nazar Drago - Days.mp3"},
+{title: "Occult X - Be Mine", url: "music/indie/Occult X - Be Mine.mp3"},
+{title: "Occult X - Love", url: "music/indie/Occult X - Love.mp3"},
+{title: "Occult X - With u", url: "music/indie/Occult X - With u.mp3"},
+{title: "Oneheart - Snowfall", url: "music/electro/Oneheart - Snowfall.mp3"},
+{title: "Childish Gambino - Redbone", url: "music/rnb/Childish Gambino - Redbone.mp3"},
+{title: "Salvia Palth - I was all over her", url: "music/indie/Salvia Palth - I was all over her.mp3"},
+{title: "Sam Smith - Dancing with a stranger", url: "music/pop/Sam Smith - Dancing with a stranger.mp3"},
+{title: "Siames - Summer nights", url: "music/indie/Siames - Summer nights.mp3"},
+{title: "Slo - Woo x i was never there", url: "music/rnb/Slo - Woo x i was never there.mp3"},
+{title: "STWO - Neither do i", url: "music/rnb/STWO - Neither do i.mp3"},
+{title: "The Internet - Hold On", url: "music/rnb/The Internet - Hold On.mp3"},
+{title: "The Neighbourhood - Afraid", url: "music/indie/The Neighbourhood - Afraid.mp3"},
+{title: "The Neighbourhood - Reflections", url: "music/indie/The Neighbourhood - Reflections.mp3"},
+{title: "The Neighbourhood - Stargazing", url: "music/indie/The Neighbourhood - Stargazing.mp3"},
+{title: "The Weeknd - Blinding Lights", url: "music/electro/The Weeknd - Blinding Lights.mp3"},
+{title: "The Weeknd - Call out my name", url: "music/rnb/The Weeknd - Call out my name.mp3"},
+{title: "The Weeknd - Earned it", url: "music/rnb/The Weeknd - Earned it.mp3"},
+{title: "The Weeknd - Lost in the fire", url: "music/rnb/The Weeknd - Lost in the fire.mp3"},
+{title: "The Weeknd - Party monster", url: "music/rnb/The Weeknd - Party monster.mp3"},
+{title: "The Weeknd - Save your tears", url: "music/rnb/The Weeknd - Save your tears.mp3"},
+{title: "The Weeknd - The Hills", url: "music/rnb/The Weeknd - The Hills.mp3"},
+{title: "The Weeknd - The Zone", url: "music/rnb/The Weeknd - The Zone.mp3"},
+{title: "Tiago Iorc - Tangerina", url: "music/pop/Tiago Iorc - Tangerina.mp3"},
+{title: "Tom Rosenthal - Its ok", url: "music/indie/Tom Rosenthal - Its ok.mp3"},
+{title: "Trey Songz - Na na", url: "music/rap/Trey Songz - Na na.mp3"},
+{title: "Trippie Redd - Excitement", url: "music/rnb/Trippie Redd - Excitement.mp3"},
+{title: "Two Feet - Had some drinks", url: "music/electro/Two Feet - Had some drinks.mp3"},
+{title: "Xama - Malvadao 2", url: "music/rap/Xama - Malvadao 2.mp3"},
+{title: "Yo Trane - Waves", url: "music/rnb/Yo Trane - Waves.mp3"},
+{title: "Ark Patrol - Let go", url: "music/indie/Ark Patrol - Let go.mp3"},
+{title: "The Weeknd - Try me", url: "music/rnb/The Weeknd - Try me.mp3"},
+{title: "The Weeknd - Hurt You", url: "music/rnb/The Weeknd - Hurt You.mp3"},
+{title: "The Weeknd - Wasted Times", url: "music/rnb/The Weeknd - Wasted Times.mp3"},
+{title: "Cigarettes After Sex - Baby blue movie", url: "music/indie/Cigarettes After Sex - Baby blue movie.mp3"},
+{title: "Chris Brown - Under the influence", url: "music/rnb/Chris Brown - Under the influence.mp3"},
+{title: "Cigarettes After Sex - Dark vacay", url: "music/indie/Cigarettes After Sex - Dark vacay.mp3"},
+{title: "Xamã - Escorpião", url: "music/rap/Xamã - Escorpião.mp3"},
+{title: "Cigarettes After Sex - Hot", url: "music/indie/Cigarettes After Sex - Hot.mp3"},
+{title: "Cigarettes After Sex - X's", url: "music/indie/Cigarettes After Sex - X's.mp3"},
+{title: "Cigarettes After Sex - Hideaway", url: "music/indie/Cigarettes After Sex - Hideaway.mp3"},
+{title: "The Outfield - Your Love", url: "music/rock/The Outfield - Your Love.mp3"},
+{title: "1kilo - Deixe-me Ir", url: "music/rap/1kilo - Deixe-me Ir.mp3"},
+{title: "Lou Garcia - Não Fosse Tão Tarde", url: "music/pop/Lou Garcia - Não Fosse Tão Tarde.mp3"},
+{title: "Pele Milflows - Vem Cá", url: "music/rap/Pele Milflows - Vem Cá.mp3"},
+                    ];
+					
+
+                var ul = document.getElementById("results");
+
+                for (var i = 0; i < data.length; i++) {
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.href = "#"; // Defina o href para # para evitar que o link abra uma nova página
+                    a.onclick = function (index) {
+                        return function () {
+                            changeAudioSource(index);
+                        };
+                    }(i);
+                    a.textContent = data[i].title;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                    li.style.display = "none";
+                }
+
+                function changeAudioSource(index) {
+                    var audio = document.getElementById('audioPlayer');
+                    var source = document.getElementById('audioSource');
+
+                    source.src = data[index].url;
+                    audio.load();
+                    audio.play();
+                    displayCurrentSongTitle(data[index].title); // Chama a função para exibir o título da música
+                }
+
+                function search() {
+                    var input = document.getElementById("search");
+                    var filter = input.value.toUpperCase();
+                    var ul = document.getElementById("results");
+                    var li = ul.getElementsByTagName("li");
+
+                    for (var i = 0; i < li.length; i++) {
+                        var a = li[i].getElementsByTagName("a")[0];
+                        var txtValue = a.textContent || a.innerText;
+
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            li[i].style.display = "";
+                        } else {
+                            li[i].style.display = "none";
+                        }
+                    }
+
+                    if (filter.length == 0) {
+                        ul.style.display = "none";
+                    } else {
+                        ul.style.display = "block";
+                    }
+                }
+
+                function displayCurrentSongTitle(title) {
+                    var tituloMusica = document.getElementById("tituloMusica");
+                    tituloMusica.textContent = title;
+                }
+
+                // Script de reprodução aleatória
+                var audioPlayer = document.getElementById('audioPlayer');
+                var audioSource = document.getElementById('audioSource');
+
+                function getRandomTrack() {
+                    var randomIndex = Math.floor(Math.random() * data.length);
+                    return data[randomIndex];
+                }
+
+                function playRandom() {
+                    var randomTrack = getRandomTrack();
+                    audioSource.src = randomTrack.url; // Correção: use randomTrack.url para obter o URL da música
+                    audioPlayer.load();
+                    audioPlayer.play();
+                    displayCurrentSongTitle(randomTrack.title); // Chama a função para exibir o título da música
+                }
+
+                function skipSong() {
+                    playRandom();
+                }
+
+                // Inicie a reprodução com a primeira música aleatória
+                playRandom();
+            </script>
+
+</body>
+
+</html>

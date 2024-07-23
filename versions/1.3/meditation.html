@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Orbit Player </title>
+    <link rel="icon" href="img/orbit_ico_blue.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <header>
+        <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player"></a></p>
+
+        <p>
+            <a href="explore.html"> Explore </a> •
+            <a href="news.html"> Updates </a>
+		</p>
+
+        <!-- Botão fixo -->
+		<button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+
+
+    </header>
+
+    <main>
+        <article>
+
+            <p align="center">
+                <input type="text" id="search" onkeyup="search()" placeholder="Search meditation..." width="300" height="40">
+
+                <button onclick="skipSong()">Skip</button>
+            </p>
+
+            <ul align="center" id="results"></ul>
+
+            <article>
+
+            </article>
+
+            <aside>
+            </aside>
+    </main>
+
+    <footer>
+	
+	<p align="center" id="tituloMusica"></p>
+	
+			<p align="center">
+                <audio id="audioPlayer" controls onended="playRandom()">
+                    <source id="audioSource" src="" type="audio/mp3">
+                    Seu navegador não suporta a tag de áudio.
+                </audio>
+            </p>
+
+    </footer>
+	
+			<script> // lightmode script
+			function toggleDarkMode() {
+			const body = document.body;
+			body.classList.toggle('light-mode');
+			}
+			</script>
+				
+			<script> // anti right-click protection
+				document.addEventListener('contextmenu', function (e) {
+				e.preventDefault();
+			});
+			</script>
+
+            <script>
+                var data = [
+					{title: "Adyashanti - A solidao e uma dadiva", url: "podcasts/meditation/Adyashanti - A solidao e uma dadiva.mp3"},
+					{title: "Adyashanti - O Verdadeiro Silêncio", url: "podcasts/meditation/Adyashanti - O Verdadeiro Silêncio.mp3"},
+					{title: "Ajahn Chah - O caminho do meio", url: "podcasts/meditation/Ajahn Chah - O caminho do meio.mp3"},
+					{title: "Alan Watts - Morra Antes de Morrer", url: "podcasts/meditation/Alan Watts - Morra Antes de Morrer.mp3"},
+					{title: "Alan Watts - Não Tente Entender", url: "podcasts/meditation/Alan Watts - Não Tente Entender.mp3"},
+					{title: "Chagdud Tulku Rinpoche - Aprenda a domar a mente", url: "podcasts/meditation/Chagdud Tulku Rinpoche - Aprenda a domar a mente.mp3"},
+					{title: "Chogyam Trungpa - Como Superar o Ego", url: "podcasts/meditation/Chogyam Trungpa - Como Superar o Ego.mp3"},
+					{title: "Eckhart Tolle - Renda-se ao agora", url: "podcasts/meditation/Eckhart Tolle - Renda-se ao agora.mp3"},
+					{title: "Eckhart Tolle - Você é Quem Observa o Sofrimento", url: "podcasts/meditation/Eckhart Tolle - Você é Quem Observa o Sofrimento.mp3"},
+					{title: "Eckhart Tolle - Voce nao e a sua mente", url: "podcasts/meditation/Eckhart Tolle - Voce nao e a sua mente.mp3"},
+					{title: "Hazrat Inayat Khan - O caminho da verdade", url: "podcasts/meditation/Hazrat Inayat Khan - O caminho da verdade.mp3"},
+					{title: "Jack Kornfield - Não Espere Para Ser Feliz", url: "podcasts/meditation/Jack Kornfield - Não Espere Para Ser Feliz.mp3"},
+					{title: "Jiddu Krishnamurti - A morte do passado", url: "podcasts/meditation/Jiddu Krishnamurti - A morte do passado.mp3"},
+					{title: "Jiddu Krishnamurti - O Fim do Conflito", url: "podcasts/meditation/Jiddu Krishnamurti - O Fim do Conflito.mp3"},
+					{title: "Lie Tzu - Nao busque reconhecimento", url: "podcasts/meditation/Lie Tzu - Nao busque reconhecimento.mp3"},
+					{title: "Mooji - Descubra quem você é", url: "podcasts/meditation/Mooji - Descubra Quem Você É.mp3"},
+					{title: "Mooji - Não Se Preocupe", url: "podcasts/meditation/Mooji - Não Se Preocupe.mp3"},
+					{title: "Mooji - O Paradoxo da Iluminação", url: "podcasts/meditation/Mooji - O Paradoxo da Iluminação.mp3"},
+					{title: "Nisargadatta Maharaj - Apenas Seja", url: "podcasts/meditation/Nisargadatta Maharaj - Apenas Seja.mp3"},
+					{title: "Nisargadatta Maharaj - Concentre-se na consciencia", url: "podcasts/meditation/Nisargadatta Maharaj - Concentre-se na consciencia.mp3"},
+					{title: "O Ponto Neutro - Faça Qualquer Situação Virar a Seu Favor", url: "podcasts/meditation/O Ponto Neutro - Faça Qualquer Situação Virar a Seu Favor.mp3"},
+					{title: "Papaji - Fique em paz", url: "podcasts/meditation/Papaji - Fique em paz.mp3"},
+					{title: "Paramahansa Yogananda - Conselhos ao Coração", url: "podcasts/meditation/Paramahansa Yogananda - Conselhos ao Coração.mp3"},
+					{title: "Ramakant Maharaj - Dissolva a ilusao", url: "podcasts/meditation/Ramakant Maharaj - Dissolva a ilusao.mp3"},
+					{title: "Ramakant Maharaj - Vá Além das Palavras", url: "podcasts/meditation/Ramakant Maharaj - Vá Além das Palavras.mp3"},
+					{title: "Ramana Maharshi - Como Acalmar a Mente", url: "podcasts/meditation/Ramana Maharshi - Como Acalmar a Mente.mp3"},
+					{title: "Ramana Maharshi - Quem é Deus", url: "podcasts/meditation/Ramana Maharshi - Quem é Deus.mp3"},
+					{title: "Ranjit Maharaj - Um Pássaro Livre", url: "podcasts/meditation/Ranjit Maharaj - Um Pássaro Livre.mp3"},
+					{title: "Robert Adams - Problemas nao existem", url: "podcasts/meditation/Robert Adams - Problemas nao existem.mp3"},
+					{title: "Rumi - Através do Amor", url: "podcasts/meditation/Rumi - Através do Amor.mp3"},
+					{title: "Rumi - Escute o Silêncio", url: "podcasts/meditation/Rumi - Escute o Silêncio.mp3"},
+					{title: "Rumi - O Destino do Coração", url: "podcasts/meditation/Rumi - O Destino do Coração.mp3"},
+					{title: "Rumi - Siga seu Coração", url: "podcasts/meditation/Rumi - Siga seu Coração.mp3"},
+					{title: "Seneca - A tranquilidade da alma", url: "podcasts/meditation/Seneca - A tranquilidade da alma.mp3"},
+					{title: "Shunryu Suzuki - Tudo Muda", url: "podcasts/meditation/Shunryu Suzuki - Tudo Muda.mp3"},
+					{title: "Sri Chinmoy - A Espiritualidade no Dia a Dia", url: "podcasts/meditation/Sri Chinmoy - A Espiritualidade no Dia a Dia.mp3"},
+					{title: "Swami Brahmananda - Lembre-se de Deus", url: "podcasts/meditation/Swami Brahmananda - Lembre-se de Deus.mp3"},
+					{title: "Swami Sivananda - A Voz do Silêncio", url: "podcasts/meditation/Swami Sivananda - A Voz do Silêncio.mp3"},
+					{title: "Swami Vivekananda - Advaita, a filosofia da nao dualidade", url: "podcasts/meditation/Swami Vivekananda - Advaita, a filosofia da nao dualidade.mp3"},
+					{title: "Swami Vivekananda - Domine o Ego", url: "podcasts/meditation/Swami Vivekananda - Domine o Ego.mp3"},
+					{title: "Thich Nhat Hanh - A Compaixão da Compreensão", url: "podcasts/meditation/Thich Nhat Hanh - A Compaixão da Compreensão.mp3"},
+					{title: "Thich nhat hanh - A Paz é Cada Passo", url: "podcasts/meditation/Thich nhat hanh - A paz é cada passo.mp3"},
+					{title: "Thich Nhat Hanh - Aprenda a Desapegar", url: "podcasts/meditation/Thich Nhat Hanh - Aprenda a Desapegar.mp3"},
+					{title: "Wu Hsin - A Compreensão Absoluta", url: "podcasts/meditation/Wu Hsin - A compreensão absoluta.mp3"},
+					{title: "Jean Klein - Por que nao vemos a realidade", url: "podcasts/meditation/Jean Klein - Por que nao vemos a realidade.mp3"},
+					{title: "Thich Nhat Hanh - A Prática da Impermanência", url: "podcasts/meditation/Thich Nhat Hanh - A pratica da impermanencia.mp3"},
+					{title: "Sri Aurobindo - A Vida Divina", url: "podcasts/meditation/Sri Aurobindo - A vida divina.mp3"},
+					{title: "Dilgo Khyentse Rinpoche - Reconheça a Vacuidade da Mente", url: "podcasts/meditation/Dilgo Khyentse Rinpoche - Reconheca a vacuidade da mente.mp3"},
+					{title: "Eckhart Tolle - Não Resista Ao Momento Presente", url: "podcasts/meditation/Eckhart Tolle - Nao resista ao momento presente.mp3"},
+					{title: "Chagdud Tulku Rinpoche - Sua vida e sua pratica espiritual", url: "podcasts/meditation/Chagdud Tulku Rinpoche - Sua vida e sua pratica espiritual.mp3"},
+					{title: "A Vontade Dele", url: "podcasts/meditation/A vontade dele.mp3"},
+					{title: "A Vida é Só Um Sonho", url: "podcasts/meditation/A vida é só um sonho.mp3"},
+					{title: "Ramesh Balsekar - O Livre Arbítrio é Uma Ilusão", url: "podcasts/meditation/Ramesh Balsekar - O livre arbitrio e uma ilusao.mp3"},
+					{title: "Eckhart Tolle - A Inteligencia da Serenidade", url: "podcasts/meditation/Eckhart Tolle - A inteligencia da serenidade.mp3"},
+					{title: "Swami Vivekananda - Alcance o Amor Divino", url: "podcasts/meditation/swami vivekananda - alcance o amor divino.mp3"},
+					{title: "Hsin Hsin Ming - Versos Sobre a Fé na Mente", url: "podcasts/meditation/hsin hsin ming - versos sobre a fe na mente.mp3"},
+					{title: "Rabindranath Tagore - O Abrigo dos Sábios", url: "podcasts/meditation/rabindranath tagore - o abrigo dos sabios.mp3"},
+					{title: "Eckhart Tolle - Quem Você É", url: "podcasts/meditation/eckhart tolle - quem voce e.mp3"},
+					{title: "Nisargadatta Maharaj - Desapegue dos Desejos", url: "podcasts/meditation/nisargadatta maharaj - desapegue dos desejos.mp3"},
+					{title: "Swami Vivekananda - Advaita a Filosofia da Não Dualidade", url: "podcasts/meditation/swami vivekananda - advaita a filosofia da nao dualidade.mp3"},
+					{title: "Robert Adams - Observe-se Sinceramente", url: "podcasts/meditation/robert adams - observe-se sinceramente.mp3"},
+					{title: "Adyashanti - Despertando no Nível das Entranhas", url: "podcasts/meditation/adyashanti - despertando no nivel das entranhas.mp3"},
+					{title: "Ram Dass - O Mais Requintado Paradoxo: Não Queira Ter e Terá", url: "podcasts/meditation/ram dass - o mais requintado paradoxo nao queira ter e tera.mp3"},
+					{title: "Ajaan Abhijato - Pare de Usar a Velha Forma de Felicidade", url: "podcasts/meditation/ajaan abhijato - pare de usa a velha forma de felicidade.mp3"},
+					{title: "Siddharameshwar Maharaj - 10 Sinais de Sabedoria", url: "podcasts/meditation/siddharameshwar maharaj - 10 sinais de sabedoria.mp3"},
+					{title: "Bhante Henepola Gunaratana - O Nobre Silêncio", url: "podcasts/meditation/bhante henepola gunaratana - o nobre silencio.mp3"},
+					{title: "Eckhart Tolle - Escravidão do Eu e Como Se Libertar", url: "podcasts/meditation/eckhart tolle - escravidao do eu e como se libertar.mp3"},
+					{title: "Rupert Spira - Tenha Uma Experiência Transcendental", url: "podcasts/meditation/rupert spira - tenha uma experiencia transcendental.mp3"},
+					{title: "Sêneca - Envelheca Como um Sábio Realizado", url: "podcasts/meditation/seneca - envelheca como um sabio realizado.mp3"},
+					{title: "Abhinavagupta - A Essência de Tudo é Consciência", url: "podcasts/meditation/abhinavagupta - a essencia de tudo e consciencia.mp3"},
+					//teste com o estilo abaixo
+					{title: "3 testes espirituais importantes que voce precisa passar", url: "podcasts/meditation/3 testes espirituais importantes que voce precisa passar.mp3"},
+					{title: "5 efeitos colaterais sombrios do despertar espiritual", url: "podcasts/meditation/5 efeitos colaterais sombrios do despertar espiritual.mp3"},
+					{title: "Somente pessoas com alta energia vibracional experimentam essas coisas estranhas", url: "podcasts/meditation/Somente pessoas com alta energia vibracional experimentam essas coisas estranhas.mp3"},
+					];
+
+                var ul = document.getElementById("results");
+
+                for (var i = 0; i < data.length; i++) {
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.href = "#"; // Defina o href para # para evitar que o link abra uma nova página
+                    a.onclick = function (index) {
+                        return function () {
+                            changeAudioSource(index);
+                        };
+                    }(i);
+                    a.textContent = data[i].title;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                    li.style.display = "none";
+                }
+
+                function changeAudioSource(index) {
+                    var audio = document.getElementById('audioPlayer');
+                    var source = document.getElementById('audioSource');
+
+                    source.src = data[index].url;
+                    audio.load();
+                    audio.play();
+                    displayCurrentSongTitle(data[index].title); // Chama a função para exibir o título da música
+                }
+
+                function search() {
+                    var input = document.getElementById("search");
+                    var filter = input.value.toUpperCase();
+                    var ul = document.getElementById("results");
+                    var li = ul.getElementsByTagName("li");
+
+                    for (var i = 0; i < li.length; i++) {
+                        var a = li[i].getElementsByTagName("a")[0];
+                        var txtValue = a.textContent || a.innerText;
+
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            li[i].style.display = "";
+                        } else {
+                            li[i].style.display = "none";
+                        }
+                    }
+
+                    if (filter.length == 0) {
+                        ul.style.display = "none";
+                    } else {
+                        ul.style.display = "block";
+                    }
+                }
+
+                function displayCurrentSongTitle(title) {
+                    var tituloMusica = document.getElementById("tituloMusica");
+                    tituloMusica.textContent = title;
+                }
+
+                // Script de reprodução aleatória
+                var audioPlayer = document.getElementById('audioPlayer');
+                var audioSource = document.getElementById('audioSource');
+
+                function getRandomTrack() {
+                    var randomIndex = Math.floor(Math.random() * data.length);
+                    return data[randomIndex];
+                }
+
+                function playRandom() {
+                    var randomTrack = getRandomTrack();
+                    audioSource.src = randomTrack.url; // Correção: use randomTrack.url para obter o URL da música
+                    audioPlayer.load();
+                    audioPlayer.play();
+                    displayCurrentSongTitle(randomTrack.title); // Chama a função para exibir o título da música
+                }
+
+                function skipSong() {
+                    playRandom();
+                }
+
+                // Inicie a reprodução com a primeira música aleatória
+                playRandom();
+            </script>
+
+</body>
+
+</html>
