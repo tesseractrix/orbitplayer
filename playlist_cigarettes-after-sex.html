@@ -32,6 +32,7 @@
                 <input type="text" id="search" onkeyup="search()" placeholder="Search music in 100% Cigarettes..." width="300" height="40">
 
                 <button onclick="skipSong()">Skip</button>
+		<button id="repeatButton">Repeat Off</button>
             </p>
 
             <ul align="center" id="results"></ul>
@@ -49,7 +50,7 @@
 	<p align="center" id="tituloMusica"></p>
 	
 			<p align="center">
-                <audio id="audioPlayer" controls onended="playRandom()">
+               	    <audio id="audioPlayer" controls onended="playRandom()">
                     <source id="audioSource" src="" type="audio/mp3">
                     Seu navegador não suporta a tag de áudio.
                 </audio>
@@ -58,7 +59,7 @@
     </footer>
 
             <script>
-                var data = [
+                			var data = [
                     			{title: "Cigarettes After Sex - Apocalypse", url: "music/indie/Cigarettes After Sex - Apocalypse.mp3"},
 					{title: "Cigarettes After Sex - Touch", url: "music/indie/Cigarettes After Sex - Touch.mp3"},
 					{title: "Cigarettes After Sex - Crush", url: "music/indie/Cigarettes After Sex - Crush.mp3"},
@@ -86,11 +87,10 @@
 					{title: "Cigarettes After Sex - Hot", url: "music/indie/Cigarettes After Sex - Hot.mp3"},
 					{title: "Cigarettes After Sex - X's", url: "music/indie/Cigarettes After Sex - X's.mp3"},
 					{title: "Cigarettes After Sex - Hideaway", url: "music/indie/Cigarettes After Sex - Hideaway.mp3"},
-                    ];
+                    			];
 
             </script>
 	    <script src="js/script.js"></script>
 
 </body>
-
 </html>
