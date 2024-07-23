@@ -32,6 +32,7 @@
                 <input type="text" id="search" onkeyup="search()" placeholder="Search music in Fuego Latino..." width="300" height="40">
 
                 <button onclick="skipSong()">Skip</button>
+		<button id="repeatButton">Repeat Off</button>
             </p>
 
             <ul align="center" id="results"></ul>
@@ -56,127 +57,35 @@
             </p>
 
     </footer>
-	
-			<script> // lightmode script
-			function toggleDarkMode() {
-			const body = document.body;
-			body.classList.toggle('light-mode');
-			}
-			</script>
-				
-			<script> // anti right-click protection
-				document.addEventListener('contextmenu', function (e) {
-				e.preventDefault();
-			});
-			</script>
 
             <script>
                 var data = [
-                    {title: "Trio America - Cuando Voy por la Calle", url: "music/latin/Trio America - Cuando Voy por la Calle.mp3"},
-                    {title: "Ella Baila Sola - Eslabon Armado", url: "music/latin/Ella Baila Sola - Eslabon Armado.mp3"},
-                    {title: "Rodrigo Amarante - Tuyo", url: "music/latin/Rodrigo Amarante - Tuyo.mp3"},
-					{title: "J Balvin - Rojo", url: "music/latin/J Balvin - Rojo.mp3"},
-					{title: "Chris Andrew, Ozuna - Hey Shorty", url: "music/latin/Chris Andrew, Ozuna - Hey Shorty.mp3"},
-					{title: "Maluma - Felices los 4", url: "music/latin/Maluma - Felices los 4.mp3"},
-					{title: "Wisin - Fiel", url: "music/latin/Wisin - Fiel.mp3"},
-					{title: "Bad Bunny - Te mudaste", url: "music/latin/Bad Bunny - Te mudaste.mp3"},
-					{title: "Bad Bunny - Yonaguni", url: "music/latin/Bad Bunny - Yonaguni.mp3"},
-{title: "Wisin - Escapate conmigo", url: "music/latin/Wisin - Escapate conmigo.mp3"},
-{title: "J Balvin - Tu veneno", url: "music/latin/J Balvin - Tu veneno.mp3"},
-{title: "Maluma - Borro Cassete", url: "music/latin/Maluma - Borro Cassete.mp3"},
-{title: "Zion y Lennox - Dame tu amor", url: "music/latin/Zion y Lennox - Dame tu amor.mp3"},
-{title: "Zion y Lennox - Embriagame (feat. Don Omar)", url: "music/latin/Zion y Lennox - Embriagame (feat. Don Omar).mp3"},
-{title: "Bad Bunny - Monaco", url: "music/latin/Bad Bunny - Monaco.mp3"},
-{title: "Cosculluela - Te busco (feat. Nicky Jam)", url: "music/latin/Cosculluela - Te busco (feat. Nicky Jam).mp3"},
-{title: "CNCO - Reggaeton Lento", url: "music/latin/CNCO - Reggaeton Lento.mp3"},
-{title: "J Balvin - Ay vamos", url: "music/latin/J Balvin - Ay vamos.mp3"},
-{title: "J Balvin - Yo te lo dije", url: "music/latin/J Balvin - Yo te lo dije.mp3"},
-{title: "Don Omar - Te quiero pa mi", url: "music/latin/Don Omar - Te quiero pa mi.mp3"},
-{title: "Zion y Lennox - Mi tesoro", url: "music/latin/Zion y Lennox - Mi tesoro.mp3"},
-{title: "Zion y Lennox - Pierdo la cabeza", url: "music/latin/Zion y Lennox - Pierdo la cabeza.mp3"},
-                    ];
+			{title: "Trio America - Cuando Voy por la Calle", url: "music/latin/Trio America - Cuando Voy por la Calle.mp3"},
+			{title: "Ella Baila Sola - Eslabon Armado", url: "music/latin/Ella Baila Sola - Eslabon Armado.mp3"},
+			{title: "Rodrigo Amarante - Tuyo", url: "music/latin/Rodrigo Amarante - Tuyo.mp3"},
+			{title: "J Balvin - Rojo", url: "music/latin/J Balvin - Rojo.mp3"},
+			{title: "Chris Andrew, Ozuna - Hey Shorty", url: "music/latin/Chris Andrew, Ozuna - Hey Shorty.mp3"},
+			{title: "Maluma - Felices los 4", url: "music/latin/Maluma - Felices los 4.mp3"},
+			{title: "Wisin - Fiel", url: "music/latin/Wisin - Fiel.mp3"},
+			{title: "Bad Bunny - Te mudaste", url: "music/latin/Bad Bunny - Te mudaste.mp3"},
+			{title: "Bad Bunny - Yonaguni", url: "music/latin/Bad Bunny - Yonaguni.mp3"},
+			{title: "Wisin - Escapate conmigo", url: "music/latin/Wisin - Escapate conmigo.mp3"},
+			{title: "J Balvin - Tu veneno", url: "music/latin/J Balvin - Tu veneno.mp3"},
+			{title: "Maluma - Borro Cassete", url: "music/latin/Maluma - Borro Cassete.mp3"},
+			{title: "Zion y Lennox - Dame tu amor", url: "music/latin/Zion y Lennox - Dame tu amor.mp3"},
+			{title: "Zion y Lennox - Embriagame (feat. Don Omar)", url: "music/latin/Zion y Lennox - Embriagame (feat. Don Omar).mp3"},
+			{title: "Bad Bunny - Monaco", url: "music/latin/Bad Bunny - Monaco.mp3"},
+			{title: "Cosculluela - Te busco (feat. Nicky Jam)", url: "music/latin/Cosculluela - Te busco (feat. Nicky Jam).mp3"},
+			{title: "CNCO - Reggaeton Lento", url: "music/latin/CNCO - Reggaeton Lento.mp3"},
+			{title: "J Balvin - Ay vamos", url: "music/latin/J Balvin - Ay vamos.mp3"},
+			{title: "J Balvin - Yo te lo dije", url: "music/latin/J Balvin - Yo te lo dije.mp3"},
+			{title: "Don Omar - Te quiero pa mi", url: "music/latin/Don Omar - Te quiero pa mi.mp3"},
+			{title: "Zion y Lennox - Mi tesoro", url: "music/latin/Zion y Lennox - Mi tesoro.mp3"},
+			{title: "Zion y Lennox - Pierdo la cabeza", url: "music/latin/Zion y Lennox - Pierdo la cabeza.mp3"},
+                    		];
 
-                var ul = document.getElementById("results");
-
-                for (var i = 0; i < data.length; i++) {
-                    var li = document.createElement("li");
-                    var a = document.createElement("a");
-                    a.href = "#"; // Defina o href para # para evitar que o link abra uma nova página
-                    a.onclick = function (index) {
-                        return function () {
-                            changeAudioSource(index);
-                        };
-                    }(i);
-                    a.textContent = data[i].title;
-                    li.appendChild(a);
-                    ul.appendChild(li);
-                    li.style.display = "none";
-                }
-
-                function changeAudioSource(index) {
-                    var audio = document.getElementById('audioPlayer');
-                    var source = document.getElementById('audioSource');
-
-                    source.src = data[index].url;
-                    audio.load();
-                    audio.play();
-                    displayCurrentSongTitle(data[index].title); // Chama a função para exibir o título da música
-                }
-
-                function search() {
-                    var input = document.getElementById("search");
-                    var filter = input.value.toUpperCase();
-                    var ul = document.getElementById("results");
-                    var li = ul.getElementsByTagName("li");
-
-                    for (var i = 0; i < li.length; i++) {
-                        var a = li[i].getElementsByTagName("a")[0];
-                        var txtValue = a.textContent || a.innerText;
-
-                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            li[i].style.display = "";
-                        } else {
-                            li[i].style.display = "none";
-                        }
-                    }
-
-                    if (filter.length == 0) {
-                        ul.style.display = "none";
-                    } else {
-                        ul.style.display = "block";
-                    }
-                }
-
-                function displayCurrentSongTitle(title) {
-                    var tituloMusica = document.getElementById("tituloMusica");
-                    tituloMusica.textContent = title;
-                }
-
-                // Script de reprodução aleatória
-                var audioPlayer = document.getElementById('audioPlayer');
-                var audioSource = document.getElementById('audioSource');
-
-                function getRandomTrack() {
-                    var randomIndex = Math.floor(Math.random() * data.length);
-                    return data[randomIndex];
-                }
-
-                function playRandom() {
-                    var randomTrack = getRandomTrack();
-                    audioSource.src = randomTrack.url; // Correção: use randomTrack.url para obter o URL da música
-                    audioPlayer.load();
-                    audioPlayer.play();
-                    displayCurrentSongTitle(randomTrack.title); // Chama a função para exibir o título da música
-                }
-
-                function skipSong() {
-                    playRandom();
-                }
-
-                // Inicie a reprodução com a primeira música aleatória
-                playRandom();
             </script>
+	    <script src="js/script.js"></script>
 
 </body>
-
 </html>
