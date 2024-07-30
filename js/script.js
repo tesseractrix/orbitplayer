@@ -160,3 +160,16 @@ if ('mediaSession' in navigator) {
         }
     }, 10000); // Atualiza a cada 10 segundos
 }
+
+// Manter a Media Session ativa mesmo após o bloqueio de tela
+document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') {
+        // Reiniciar o áudio em segundo plano para manter a Media Session ativa
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            setTimeout(() => {
+                audioPlayer.pause();
+            }, 100);
+        }
+    }
+});
