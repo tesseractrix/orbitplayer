@@ -151,3 +151,11 @@ audioPlayer.addEventListener('ended', function() {
 
 // Inicie a reprodução com a primeira música aleatória
 playRandom();
+
+// Função para manter a Media Session ativa
+    setInterval(() => {
+        if (audioPlayer.currentTime > 0 || audioPlayer.paused) {
+            navigator.mediaSession.playbackState = 'playing';
+        }
+    }, 10000); // Atualiza a cada 10 segundos
+}
