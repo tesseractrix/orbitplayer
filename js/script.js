@@ -153,6 +153,7 @@ audioPlayer.addEventListener('ended', function() {
 playRandom();
 
 // Função para manter a Media Session ativa
+if ('mediaSession' in navigator) {
     setInterval(() => {
         if (audioPlayer.currentTime > 0 || audioPlayer.paused) {
             navigator.mediaSession.playbackState = 'playing';
