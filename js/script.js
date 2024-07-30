@@ -119,11 +119,15 @@ function skipSong() {
 
 if ('mediaSession' in navigator) {
     navigator.mediaSession.setActionHandler('play', () => {
-        audioPlayer.play();
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+        }
     });
 
     navigator.mediaSession.setActionHandler('pause', () => {
-        audioPlayer.pause();
+        if (!audioPlayer.paused) {
+            audioPlayer.pause();
+        }
     });
 
     navigator.mediaSession.setActionHandler('nexttrack', () => {
@@ -151,25 +155,3 @@ audioPlayer.addEventListener('ended', function() {
 
 // Inicie a reprodução com a primeira música aleatória
 playRandom();
-
-// Função para manter a Media Session ativa
-if ('mediaSession' in navigator) {
-    setInterval(() => {
-        if (audioPlayer.currentTime > 0 || audioPlayer.paused) {
-            navigator.mediaSession.playbackState = 'playing';
-        }
-    }, 10000); // Atualiza a cada 10 segundos
-}
-
-// Manter a Media Session ativa mesmo após o bloqueio de tela
-document.addEventListener('visibilitychange', function() {
-    if (document.visibilityState === 'hidden') {
-        // Reiniciar o áudio em segundo plano para manter a Media Session ativa
-        if (audioPlayer.paused) {
-            audioPlayer.play();
-            setTimeout(() => {
-                audioPlayer.pause();
-            }, 100);
-        }
-    }
-});
