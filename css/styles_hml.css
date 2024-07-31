@@ -111,9 +111,9 @@
             padding: 10px;
             background-color: #333; /* Cor de fundo da caixa */
             border-radius: 10px; /* Margens arredondadas */
-            width: 17%; /* Largura da caixa */
+            width: 20%; /* Largura da caixa */
             position: relative; /* Define a posição relativa */
-            bottom: 70px; /* Move a caixa para cima */
+            bottom: 75px; /* Move a caixa para cima */
         }
 
         /* Estilo dos botões */
@@ -133,9 +133,9 @@
 
         /* Adiciona espaço para o tituloMusica e o player */
         #tituloMusica {
-            margin-top: -30px; /* Espaço para o controle */
+            margin-top: -32px; /* Espaço para o controle */
         }
 
         audioPlayer {
-            margin-top: -20px; /* Espaço adicional para o player */
+            margin-top: -22px; /* Espaço adicional para o player */
         }
