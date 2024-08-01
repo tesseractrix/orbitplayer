@@ -4,7 +4,7 @@
 <head>
     <title> Orbit Player </title>
     <link rel="icon" href="img/orbit_ico_blue.png">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles_hml.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -30,9 +30,6 @@
 
             <p align="center">
                 <input type="text" id="search" onkeyup="search()" placeholder="Search music in 100% Cigarettes..." width="300" height="40">
-		<button id="prevButton" onclick="prevSong()">Prev</button>
-                <button onclick="skipSong()">Skip</button>
-		<button id="repeatButton">Repeat Off</button>
             </p>
 
             <ul align="center" id="results"></ul>
@@ -46,6 +43,11 @@
     </main>
 
     <footer>
+<div class="control-box">
+    <button id="repeatButton">Repeat Off</button>
+    <button id="prevButton" onclick="prevSong()">Prev</button>
+    <button id="skipButton" onclick="skipSong()">Skip</button>
+</div>
 	
 	<p align="center" id="tituloMusica"></p>
 	
