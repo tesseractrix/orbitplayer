@@ -30,9 +30,6 @@
 
             <p align="center">
                 <input type="text" id="search" onkeyup="search()" placeholder="Search music in Serenitas Divinae..." width="300" height="40">
-		<button id="prevButton" onclick="prevSong()">Prev</button>
-                <button onclick="skipSong()">Skip</button>
-		<button id="repeatButton">Repeat Off</button>
             </p>
 
             <ul align="center" id="results"></ul>
@@ -46,6 +43,12 @@
     </main>
 
     <footer>
+	
+<div class="control-box">
+    <button id="repeatButton">Repeat Off</button>
+    <button id="prevButton" onclick="prevSong()">Prev</button>
+    <button id="skipButton" onclick="skipSong()">Skip</button>
+</div>
 	
 	<p align="center" id="tituloMusica"></p>
 	
