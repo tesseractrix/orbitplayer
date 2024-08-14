@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Orbit Player </title>
+    <link rel="icon" href="img/orbit_ico_blue.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <header>
+        <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player"></a></p>
+
+        <p>
+            <a href="explore.html"> Explore </a> •
+            <a href="news.html"> Updates </a>
+		</p>
+
+        <!-- Botão fixo -->
+		<button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+
+
+    </header>
+
+    <main>
+        <article>
+
+            <p align="center">
+                <input type="text" id="search" onkeyup="search()" placeholder="Search meditation..." width="300" height="40">
+            </p>
+
+            <ul align="center" id="results"></ul>
+
+            <article>
+
+            </article>
+
+            <aside>
+            </aside>
+    </main>
+
+    <footer>
+
+<div class="control-box">
+    <button id="repeatButton">Repeat Off</button>
+    <button id="prevButton" onclick="prevSong()">Prev</button>
+    <button id="skipButton" onclick="skipSong()">Skip</button>
+</div>
+	
+	<p align="center" id="tituloMusica"></p>
+	
+			<p align="center">
+                <audio id="audioPlayer" controls onended="playRandom()">
+                    <source id="audioSource" src="" type="audio/mp3">
+                    Seu navegador não suporta a tag de áudio.
+                </audio>
+            </p>
+
+    </footer>
+
+            <script>
+                var data = [
+					{title: "Paciência, presenca, disposição e pais - Ninja", url: "podcasts/motivation/paciencia, presenca, disposicao e pais - ninja.mp3"},
+					{title: "Tu não ganha dinheiro porque não quer - Miguel Expat", url: "podcasts/motivation/tu nao ganha dinheiro porque nao quer - miguel expat.mp3"},
+					{title: "Tu não tem tempo porque não quer - Miguel Expat", url: "podcasts/motivation/tu nao tem tempo porque nao quer - miguel expat.mp3"},
+					];
+
+            </script>
+	    <script src="js/script.js"></script>
+
+</body>
+</html>
