@@ -12,50 +12,55 @@
 <body>
 
 <style>
-        /* Estilize o contêiner de imagem */
+        /* Estilize o retângulo */
         .image-container {
             display: flex; /* Exibe as imagens em uma linha horizontal */
-            justify-content: center; /* Centraliza o contêiner */
             overflow-x: auto;
-            overflow: hidden;
-            width: 100%; /* Largura total do contêiner */
-            max-width: 100%; /* Garante que o contêiner não exceda a largura da tela */
-            height: 80px; /* Altura do contêiner */
-            margin: 0 auto; /* Centraliza horizontalmente */
-            box-sizing: border-box;
+	    overflow: hidden;
+            width: 100%; /* Largura total do retângulo */
+            height: 80px; /* Altura do retângulo (ajuste conforme necessário) */
         }
+		
+		@media (max-width: 100%) {
+		.image-container {
+			width: 24.5%
+			
+		.end {
+			position: fixed;
+			left: 10px;
+			top: 20px;
+			z-index: 1;
+			background-color: rgba(255, 255, 255, 0.5);
+			border: none
+			outline: none;
+			padding: 0px;
+		}
+
+		.start
+			position: fixed;
+			right: 10px;
+			top: 20px;
+			z-index: 1;
+			background-color: rgba(255, 255, 255, 0.5);
+			border: none
+			outline: none;
+			padding: 0px;
+}
+		}
+	}
 
         .image {
             flex-shrink: 0; /* Impede que as imagens diminuam além do tamanho original */
             transition: transform 0.3s ease; /* Animação suave de crescimento */
             margin-right: 10px; /* Espaçamento entre as imagens */
-            filter: grayscale(100%);
+			filter: grayscale(100%);
         }
 
         .image:hover {
             transform: scale(1.1); /* Aumenta a imagem em 10% quando o mouse está sobre ela */
-            filter: grayscale(0%);
+			filter: grayscale(0%);
         }
-
-        /* Botões de navegação */
-        .end,
-        .start {
-            position: fixed;
-            top: 20px;
-            z-index: 1;
-            background-color: rgba(255, 255, 255, 0.5);
-            border: none;
-            outline: none;
-            padding: 0px;
-        }
-
-        .end {
-            left: 10px;
-        }
-
-        .start {
-            right: 10px;
-        }
+		
     </style>
 
   <header>
