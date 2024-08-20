@@ -1,118 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Orbit Player - Explore</title>
     <link rel="icon" href="img/orbit_ico_blue.png">
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
     <style>
         .image-container {
             display: flex;
             overflow-x: auto;
-            width: 100%;
-            padding: 10px 0;
-        }
-
-        .image-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .image-container {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .image-wrapper {
-            flex: 0 0 auto;
-            margin-right: 10px;
+            white-space: nowrap;
+            padding-bottom: 10px;
+            scroll-behavior: smooth;
         }
 
         .image-container img {
-            display: block;
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1/1; /* Mantém a proporção 1x1 */
-            object-fit: cover; /* Garante que a imagem ocupe todo o espaço dentro do contêiner */
-            transition: transform 0.3s ease;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 10px;
             filter: grayscale(100%);
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
 
         .image-container img:hover {
             transform: scale(1.1);
             filter: grayscale(0%);
         }
+
+        .end, .start {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            outline: none;
+            padding: 5px;
+        }
+
+        .end {
+            right: 10px;
+        }
+
+        .start {
+            left: 10px;
+        }
     </style>
-</head>
-<body>
+
     <header>
         <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player"></a></p>
+
         <p>
-            <a href="index.html">Home</a> • 
-            <a href="news.html">Updates</a>
+            <a href="index.html"> Home </a> •
+            <a href="news.html"> Updates </a>
         </p>
+
         <button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
     </header>
 
     <main>
         <article>
+
             <p align="left">Playlists</p>
+
             <div class="image-container" id="imageContainer">
-                <div class="image-wrapper">
-                    <a href="playlist_call-the-boss.html"><img class="image" src="img/call_the_boss_70.jpg" title="Call The Boss" alt="Call The Boss"></a>
-                </div>
-                <div class="image-wrapper">
-                    <a href="playlist_high-trip.html"><img class="image" src="img/high_trip_70.jpg" title="High Trip" alt="High Trip"></a>
-                </div>
-                <div class="image-wrapper">
-                    <a href="playlist_rock-wins.html"><img class="image" src="img/rock_wins_70.jpg" title="Rock Wins" alt="Rock Wins"></a>
-                </div>
-                <div class="image-wrapper">
-                    <a href="playlist_rio-night.html"><img class="image" src="img/rio_night_70.jpg" title="Rio Night" alt="Rio Night"></a>
-                </div>
-                <div class="image-wrapper">
-                    <a href="playlist_serenitas-divinae.html"><img class="image" src="img/serenitas_divinae_70.jpg" title="Serenitas Divinae" alt="Serenitas Divinae"></a>
-                </div>
-                <div class="image-wrapper">
-                    <a href="playlist_cigarettes-after-sex.html"><img class="image" src="img/cigarettesaftersex_70.jpg" title="Cigarettes After Sex" alt="Cigarettes After Sex"></a>
-                </div>
-                <div class="image-wrapper">
-                    <a href="#"><img class="image" src="img/bassline_euphoria.jpg" title="Bassline Euphoria" alt="Bassline Euphoria"></a>
-                </div>
-                <div class="image-wrapper">
-                    <a href="playlist_celin.html"><img class="image" src="img/celin24h_70.jpg" title="Celin" alt="Celin"></a>
-                </div>
-                <div class="image-wrapper">
-                    <a href="playlist_old-but-gold.html"><img class="image" src="img/old_but_gold_70.jpg" title="Old but gold" alt="Old but gold"></a>
-                </div>
-                <div class="image-wrapper">
-                    <a href="playlist_fuego-latino.html"><img class="image" src="img/fuego_latino_70.jpg" title="Fuego Latino" alt="Fuego Latino"></a>
-                </div>
-                <div class="image-wrapper">
-                    <a href="playlist_ambient.html"><img class="image" src="img/ambient_music_70.jpg" title="Ambient Music" alt="Ambient Music"></a>
-                </div>
+                <button class="start" onclick="scrollToStart()">&#10094;</button>
+                <a href="playlist_call-the-boss.html"><img src="img/call_the_boss_70.jpg" title="Call The Boss" alt="Call The Boss"></a>
+                <a href="playlist_high-trip.html"><img src="img/high_trip_70.jpg" title="High Trip" alt="High Trip"></a>
+                <a href="playlist_rock-wins.html"><img src="img/rock_wins_70.jpg" title="Rock Wins" alt="Rock Wins"></a>
+                <a href="playlist_rio-night.html"><img src="img/rio_night_70.jpg" title="Rio Night" alt="Rio Night"></a>
+                <a href="playlist_serenitas-divinae.html"><img src="img/serenitas_divinae_70.jpg" title="Serenitas Divinae" alt="Serenitas Divinae"></a>
+                <a href="playlist_cigarettes-after-sex.html"><img src="img/cigarettesaftersex_70.jpg" title="Cigarettes After Sex" alt="Cigarettes After Sex"></a>
+                <a href="#"><img src="img/bassline_euphoria.jpg" title="Bassline Euphoria" alt="Bassline Euphoria"></a>
+                <a href="playlist_celin.html"><img src="img/celin24h_70.jpg" title="Celin" alt="Celin"></a>
+                <a href="playlist_old-but-gold.html"><img src="img/old_but_gold_70.jpg" title="Old but gold" alt="Old but gold"></a>
+                <a href="playlist_fuego-latino.html"><img src="img/fuego_latino_70.jpg" title="Fuego Latino" alt="Fuego Latino"></a>
+                <a href="playlist_ambient.html"><img src="img/ambient_music_70.jpg" title="Ambient Music" alt="Ambient Music"></a>
+                <button class="end" onclick="scrollToEnd()">&#10095;</button>
             </div>
 
+            <br>
+
             <p align="left">Podcasts</p>
-            <div class="image-container" id="imageContainer">
-                <div class="image-wrapper">
-                    <a href="meditation.html"><img class="image" src="img/meditation_70.jpg" title="Meditation" alt="Meditation"></a>
-                </div>
-                <div class="image-wrapper">
-                    <img class="image" src="img/philosophy_70.jpg" alt="Philosophy" title="Unavailable">
-                </div>
-                <div class="image-wrapper">
-                    <img class="image" src="img/politics_70.jpg" alt="Politics" title="Unavailable">
-                </div>
-                <div class="image-wrapper">
-                    <a href="motivation.html"><img class="image" src="img/motivation.jpg" title="Motivation" alt="Motivation"></a>
-                </div>
-                <div class="image-wrapper">
-                    <img class="image" src="img/soon_70.jpg" alt="Coming Soon" title="Coming Soon" style="filter:grayscale(100%)">
-                </div>
+
+            <div class="image-container">
+                <a href="meditation.html"><img src="img/meditation_70.jpg" title="Meditation" alt="Meditation"></a>
+                <img src="img/philosophy_70.jpg" alt="Philosophy" title="Unavailable">
+                <img src="img/politics_70.jpg" alt="Politics" title="Unavailable">
+                <a href="motivation.html"><img src="img/motivation.jpg" title="Motivation" alt="Motivation"></a>
+                <img src="img/soon_70.jpg" alt="Coming Soon" title="Coming Soon" style="filter:grayscale(100%)">
             </div>
+
         </article>
     </main>
+
+    <script>
+        function scrollToStart() {
+            const imageContainer = document.getElementById('imageContainer');
+            imageContainer.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToEnd() {
+            const imageContainer = document.getElementById('imageContainer');
+            const maxScroll = imageContainer.scrollWidth - imageContainer.clientWidth;
+            imageContainer.scrollTo({
+                left: maxScroll,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 
     <script>
         function toggleDarkMode() {
@@ -123,5 +129,7 @@
             e.preventDefault();
         });
     </script>
+
 </body>
+
 </html>
