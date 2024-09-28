@@ -12,61 +12,43 @@
 <body>
 
 <style>
-    /* Estilize o contêiner de imagens para exibir de forma flexível */
-    .image-container {
-        display: flex; /* Layout flexível */
-        flex-wrap: wrap; /* Permite que as imagens quebrem linhas e sejam exibidas verticalmente */
-        overflow: auto; /* Rolagem para dispositivos menores */
-        width: 100%; /* Largura total do contêiner */
-        justify-content: center; /* Centraliza as imagens no contêiner */
-        gap: 10px; /* Espaçamento entre as imagens */
-        padding: 10px;
-    }
-
-    .image {
-        width: calc(25% - 10px); /* Largura adaptativa das imagens */
-        height: auto; /* Mantém a proporção da imagem */
-        transition: transform 0.3s ease; /* Animação suave de crescimento */
-        filter: grayscale(100%);
-    }
-
-    .image:hover {
-        transform: scale(1.1); /* Aumenta a imagem em 10% ao passar o mouse */
-        filter: grayscale(0%);
-    }
-
-    /* Ajuste para telas menores, como dispositivos móveis */
-    @media (max-width: 768px) {
-        .image {
-            width: calc(50% - 10px); /* Duas colunas de imagens em dispositivos móveis */
+        /* Estilize o retângulo */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que as imagens quebrem linha quando necessário */
+            justify-content: center; /* Centraliza as imagens no contêiner */
+            overflow: hidden;
+            width: 100%;
         }
-    }
 
-    @media (max-width: 480px) {
         .image {
-            width: calc(100% - 10px); /* Imagem em tela cheia em dispositivos muito pequenos */
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            margin: 5px; /* Pequeno espaçamento entre as imagens */
+            width: 60px; /* Tamanho padrão pequeno para as imagens */
+            height: 60px;
+            filter: grayscale(100%);
         }
-    }
 
-    /* Botões de navegação */
-    .end, .start {
-        position: fixed;
-        top: 20px;
-        z-index: 1;
-        background-color: rgba(255, 255, 255, 0.5);
-        border: none;
-        padding: 0px;
-        outline: none;
-    }
+        .image:hover {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
 
-    .end {
-        right: 10px;
-    }
+        /* Estilos responsivos para garantir que as imagens fiquem pequenas em telas menores */
+        @media (max-width: 768px) {
+            .image {
+                width: 50px; /* Reduz o tamanho das imagens em dispositivos menores */
+                height: 50px;
+            }
+        }
 
-    .start {
-        left: 10px;
-    }
-
+        @media (max-width: 480px) {
+            .image {
+                width: 40px; /* Tamanho ainda menor para telas muito pequenas */
+                height: 40px;
+            }
+        }
 </style>
 
 <header>
