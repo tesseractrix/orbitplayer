@@ -12,166 +12,155 @@
 <body>
 
 <style>
-        /* Estilize o retângulo */
-        .image-container {
-            display: flex; /* Exibe as imagens em uma linha horizontal */
-            overflow-x: auto;
-	    overflow: hidden;
-            width: 100%; /* Largura total do retângulo */
-            height: 80px; /* Altura do retângulo (ajuste conforme necessário) */
-        }
-		
-		@media (max-width: 100%) {
-		.image-container {
-			width: 24.5%
-			
-		.end {
-			position: fixed;
-			left: 10px;
-			top: 20px;
-			z-index: 1;
-			background-color: rgba(255, 255, 255, 0.5);
-			border: none
-			outline: none;
-			padding: 0px;
-		}
+    /* Estilize o contêiner de imagens para exibir de forma flexível */
+    .image-container {
+        display: flex; /* Layout flexível */
+        flex-wrap: wrap; /* Permite que as imagens quebrem linhas e sejam exibidas verticalmente */
+        overflow: auto; /* Rolagem para dispositivos menores */
+        width: 100%; /* Largura total do contêiner */
+        justify-content: center; /* Centraliza as imagens no contêiner */
+        gap: 10px; /* Espaçamento entre as imagens */
+        padding: 10px;
+    }
 
-		.start
-			position: fixed;
-			right: 10px;
-			top: 20px;
-			z-index: 1;
-			background-color: rgba(255, 255, 255, 0.5);
-			border: none
-			outline: none;
-			padding: 0px;
-}
-		}
-	}
+    .image {
+        width: calc(25% - 10px); /* Largura adaptativa das imagens */
+        height: auto; /* Mantém a proporção da imagem */
+        transition: transform 0.3s ease; /* Animação suave de crescimento */
+        filter: grayscale(100%);
+    }
 
+    .image:hover {
+        transform: scale(1.1); /* Aumenta a imagem em 10% ao passar o mouse */
+        filter: grayscale(0%);
+    }
+
+    /* Ajuste para telas menores, como dispositivos móveis */
+    @media (max-width: 768px) {
         .image {
-            flex-shrink: 0; /* Impede que as imagens diminuam além do tamanho original */
-            transition: transform 0.3s ease; /* Animação suave de crescimento */
-            margin-right: 10px; /* Espaçamento entre as imagens */
-			filter: grayscale(100%);
+            width: calc(50% - 10px); /* Duas colunas de imagens em dispositivos móveis */
         }
+    }
 
-        .image:hover {
-            transform: scale(1.1); /* Aumenta a imagem em 10% quando o mouse está sobre ela */
-			filter: grayscale(0%);
+    @media (max-width: 480px) {
+        .image {
+            width: calc(100% - 10px); /* Imagem em tela cheia em dispositivos muito pequenos */
         }
-		
-    </style>
+    }
 
-  <header>
-    <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player" ></a></p>
-	
-	<p>
-	<a href="index.html"> Home </a> • 
-	<a href="news.html"> Updates </a>
-	</p>
-	
-        <!-- Botão fixo -->
-		<button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+    /* Botões de navegação */
+    .end, .start {
+        position: fixed;
+        top: 20px;
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+        padding: 0px;
+        outline: none;
+    }
 
-  </header>
+    .end {
+        right: 10px;
+    }
 
-  <main>
+    .start {
+        left: 10px;
+    }
+
+</style>
+
+<header>
+    <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player"></a></p>
+    <p>
+        <a href="index.html"> Home </a> • 
+        <a href="news.html"> Updates </a>
+    </p>
+    <!-- Botão fixo -->
+    <button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+</header>
+
+<main>
     <article>
-	
-	<p align="left">Playlists</p>
+        <p align="left">Playlists</p>
 
-	<div class="image-container" id="imageContainer">
-	<button class="end" onclick="scrollToEnd()">&#10095;</button>
-		<a href="playlist_call-the-boss.html"><img class="image" height="80px" src="img/call_the_boss_70.jpg" title="Call The Boss" alt="Call The Boss"></a>
-		<a href="playlist_high-trip.html"><img class="image" height="80px" src="img/high_trip_70.jpg" title="High Trip" alt="High Trip"></a>
-		<a href="playlist_rock-wins.html"><img class="image" height="80px" src="img/rock_wins_70.jpg" title="Rock Wins" alt="Rock Wins"></a>
-		<a href="playlist_rio-night.html"><img class="image" height="80px" src="img/rio_night_70.jpg" title="Rio Night" alt="Rio Night"></a>
-		<a href="playlist_serenitas-divinae.html"><img class="image" height="80px" src="img/serenitas_divinae_70.jpg" title="Serenitas Divinae" alt="Serenitas Divinae"></a>
-        	<a href="playlist_cigarettes-after-sex.html"><img class="image" height="80px" src="img/cigarettesaftersex_70.jpg" title="Cigarettes After Sex" alt="Cigarettes After Sex"></a>
-		<a href="#"><img class="image" height="80px" src="img/bassline_euphoria.jpg" title="Bassline Euphoria" alt="Bassline Euphoria"></a>
-		<a href="playlist_celin.html"><img class="image" height="80px" src="img/celin24h_70.jpg" title="Celin" alt="Celin"></a>
-		<a href="playlist_old-but-gold.html"><img class="image" height="80px" src="img/old_but_gold_70.jpg" title="Old but gold" alt="Old but gold"></a>
-		<a href="playlist_fuego-latino.html"><img class="image" height="80px" src="img/fuego_latino_70.jpg" title="Fuego Latino" alt="Fuego Latino"></a>
-		<a href="playlist_ambient.html"><img class="image" height="80px" src="img/ambient_music_70.jpg" title="Ambient Music" alt="Ambient Music"></a>
-	<button class="start" onclick="scrollToStart()">&#10094;</button>
-        <!-- Adicione mais imagens conforme necessário -->
-    </div>
-	
-	</br>
-	
-		<p align="left">Podcasts</p>
+        <div class="image-container" id="imageContainer">
+            <button class="end" onclick="scrollToEnd()">&#10095;</button>
+            <a href="playlist_call-the-boss.html"><img class="image" src="img/call_the_boss_70.jpg" title="Call The Boss" alt="Call The Boss"></a>
+            <a href="playlist_high-trip.html"><img class="image" src="img/high_trip_70.jpg" title="High Trip" alt="High Trip"></a>
+            <a href="playlist_rock-wins.html"><img class="image" src="img/rock_wins_70.jpg" title="Rock Wins" alt="Rock Wins"></a>
+            <a href="playlist_rio-night.html"><img class="image" src="img/rio_night_70.jpg" title="Rio Night" alt="Rio Night"></a>
+            <a href="playlist_serenitas-divinae.html"><img class="image" src="img/serenitas_divinae_70.jpg" title="Serenitas Divinae" alt="Serenitas Divinae"></a>
+            <a href="playlist_cigarettes-after-sex.html"><img class="image" src="img/cigarettesaftersex_70.jpg" title="Cigarettes After Sex" alt="Cigarettes After Sex"></a>
+            <a href="#"><img class="image" src="img/bassline_euphoria.jpg" title="Bassline Euphoria" alt="Bassline Euphoria"></a>
+            <a href="playlist_celin.html"><img class="image" src="img/celin24h_70.jpg" title="Celin" alt="Celin"></a>
+            <a href="playlist_old-but-gold.html"><img class="image" src="img/old_but_gold_70.jpg" title="Old but gold" alt="Old but gold"></a>
+            <a href="playlist_fuego-latino.html"><img class="image" src="img/fuego_latino_70.jpg" title="Fuego Latino" alt="Fuego Latino"></a>
+            <a href="playlist_ambient.html"><img class="image" src="img/ambient_music_70.jpg" title="Ambient Music" alt="Ambient Music"></a>
+            <button class="start" onclick="scrollToStart()">&#10094;</button>
+        </div>
 
-	<div class="image-container">
-        <a href="meditation.html"><img class="image" height="80px" src="img/meditation_70.jpg" title="Meditation" alt="Meditation"></a>
-        <img class="image" src="img/philosophy_70.jpg" alt="Philosophy" title="Unavailable">
-        <img class="image" src="img/politics_70.jpg" alt="Politics" title="Unavailable">
-	<a href="motivation.html"><img class="image" height="80px" src="img/motivation.jpg" title="Motivation" alt="Motivation"></a>
-	<img class="image" src="img/soon_70.jpg" alt="Coming Soon" title="Coming Soon" style="filter:grayscale(100%)">
-        <!-- Adicione mais imagens conforme necessário -->
-    </div>
-	
-	<p></p>
-		
-	</article>
+        <br>
 
-    <aside>
-    </aside>
-  </main>
-  
+        <p align="left">Podcasts</p>
+
+        <div class="image-container">
+            <a href="meditation.html"><img class="image" src="img/meditation_70.jpg" title="Meditation" alt="Meditation"></a>
+            <img class="image" src="img/philosophy_70.jpg" alt="Philosophy" title="Unavailable">
+            <img class="image" src="img/politics_70.jpg" alt="Politics" title="Unavailable">
+            <a href="motivation.html"><img class="image" src="img/motivation.jpg" title="Motivation" alt="Motivation"></a>
+            <img class="image" src="img/soon_70.jpg" alt="Coming Soon" title="Coming Soon" style="filter:grayscale(100%)">
+        </div>
+    </article>
+
+    <aside></aside>
+</main>
+
 <script>
-// função dos botões de navegação
-
 function scrollToStart() {
-	const imageContainer = document.querySelector('.image-container');
-	imageContainer.scrollTo({
-		left: 0,
-		behavior: 'smooth'
-	});
+    const imageContainer = document.querySelector('.image-container');
+    imageContainer.scrollTo({
+        left: 0,
+        behavior: 'smooth'
+    });
 }
 
 function scrollToEnd() {
-	const imageContainer = document.querySelector('.image-container');
-	const maxScroll = imageContainer.scrollWidth - imageContainer.clientWidth;
-	imageContainer.scrollTo({
-		left: maxScroll,
-		behavior: 'smooth'
-	});
+    const imageContainer = document.querySelector('.image-container');
+    const maxScroll = imageContainer.scrollWidth - imageContainer.clientWidth;
+    imageContainer.scrollTo({
+        left: maxScroll,
+        behavior: 'smooth'
+    });
 }
-
 </script>
 
 <script>
 // script para rolagem automática das imagens no contêiner
-
 const imageContainer = document.querySelector('.image-container');
 
 imageContainer.addEventListener('mouseover', (e) => {
-const containerWidth = imageContainer.clientWidth;
-const scrollWidth = imageContainer.scrollWidth;
-const mouseX = e.clientX - imageContainer.getBoundingClientRect().left;
-const scrollAmount = (mouseX / containerWidth) * (scrollWidth - containerWidth);
+    const containerWidth = imageContainer.clientWidth;
+    const scrollWidth = imageContainer.scrollWidth;
+    const mouseX = e.clientX - imageContainer.getBoundingClientRect().left;
+    const scrollAmount = (mouseX / containerWidth) * (scrollWidth - containerWidth);
 
-imageContainer.scrollTo({
-	left: scrollAmount,
-	behavior: 'smooth'
+    imageContainer.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+    });
 });
-});
-
 </script>
-  
-<script>
 
-// lightmode script
+<script>
+// script de alternância de tema
 function toggleDarkMode() {
-const body = document.body;
-body.classList.toggle('light-mode');
+    const body = document.body;
+    body.classList.toggle('light-mode');
 }
 
-	
-// anti right-click protection
-	document.addEventListener('contextmenu', function (e) {
-	e.preventDefault();
+// prevenção de clique com o botão direito
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
 });
 </script>
 
