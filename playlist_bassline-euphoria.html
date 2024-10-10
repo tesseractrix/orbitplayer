@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Orbit Player </title>
+    <link rel="icon" href="img/orbit_ico_blue.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <header>
+        <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player"></a></p>
+
+        <p>
+            <a href="explore.html"> Explore </a> •
+            <a href="news.html"> Updates </a>
+		</p>
+
+        <!-- Botão fixo -->
+		<button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+
+
+    </header>
+
+    <main>
+        <article>
+
+            <p align="center">
+                <input type="text" id="search" onkeyup="search()" placeholder="Search music in Fuego Latino..." width="300" height="40">
+            </p>
+
+            <ul align="center" id="results"></ul>
+
+            <article>
+
+            </article>
+
+            <aside>
+            </aside>
+    </main>
+
+    <footer>
+	
+<div class="control-box">
+    <button id="repeatButton">Repeat Off</button>
+    <button id="prevButton" onclick="prevSong()">Prev</button>
+    <button id="skipButton" onclick="skipSong()">Skip</button>
+</div>
+	
+	<p align="center" id="tituloMusica"></p>
+	
+			<p align="center">
+                <audio id="audioPlayer" controls onended="playRandom()">
+                    <source id="audioSource" src="" type="audio/mp3">
+                    Seu navegador não suporta a tag de áudio.
+                </audio>
+            </p>
+
+    </footer>
+
+            <script>
+                var data = [
+			{title: "Dawn - Beyond", url: "music/electro/dawn - beyond.mp3"},
+			{title: "Roya - Cruise", url: "music/electro/roya - cruise.mp3"},
+			{title: "Samantha Machado - Livre Pra Voar", url: "music/electro/Samantha Machado - Livre Pra Voar.mp3"},
+			{title: "Adam Juhl - What if i die today", url: "music/electro/Adam Juhl - What if i die today.mp3"},
+			{title: "Axel Johansson - I Found You", url: "music/electro/Axel Johansson - I found you.mp3"},
+			{title: "HVME - Goosebumps", url: "music/electro/HVME - Goosebumps.mp3"},
+			{title: "Aaryan Shah - Renegade", url: "music/electro/Aaryan Shah - Renegade.mp3"},
+			{title: "Alok - Side Effect", url: "music/electro/Alok - Side effect.mp3"},
+			{title: "Anthony Kalabretta - This Fire", url: "music/electro/Anthony Kalabretta - This fire.mp3"},
+			{title: "Tinlicker - Because You Move Me", url: "music/electro/Tinlicker - Because You Move Me.mp3"},
+			{title: "Meduza - Lose Control", url: "music/electro/Meduza - Lose Control.mp3"},
+			{title: "Meduza - Paradise", url: "music/electro/Meduza - Paradise.mp3"},
+			{title: "Meduza - Piece of your heart", url: "music/electro/Meduza - Piece of your heart.mp3"},
+			{title: "Meduza - Lose Control", url: "music/electro/Meduza - Lose Control.mp3"},
+			{title: "Nazar Drago - Days", url: "music/electro/Nazar Drago - Days.mp3"},
+			{title: "Michael Brun - All i ever wanted", url: "music/electro/Michael Brun - All i ever wanted.mp3"},
+			{title: "Alderyn - Never have i ever (ft Tessa Odden)", url: "music/electro/Alderyn - Never have i ever (ft Tessa Odden).mp3"},
+			{title: "The Chainsmokers - Closer", url: "music/electro/the chainsmokers - closer.mp3"},
+			{title: "David Guetta - Sexy Bitch", url: "music/electro/david guetta - sexy bitch.mp3"},
+			{title: "Tep No - Swear Like a Sailor", url: "music/electro/Tep No - Swear like a sailor.mp3"},
+			{title: "Guru Josh Project - Infinity (remix)", url: "music/electro/Guru Josh Project - Infinity (remix).mp3"},
+			{title: "Bhaskar - Manhã de sol (ft. 3030)", url: "music/electro/Bhaskar - Manhã de sol (ft. 3030).mp3"},
+			{title: "Aaron Hibell - Destroyer of Worlds", url: "music/electro/Aaron Hibell - Destroyer of Worlds.mp3"},
+			{title: "Coldplay - A Sky Full Of Stars", url: "music/electro/Coldplay - A Sky Full Of Stars.mp3"},
+			{title: "Coldplay, Chainsmokers - Something just like this", url: "music/electro/Coldplay, Chainsmokers - Something just like this.mp3"},
+			{title: "Deerock, Robin Woods, Zora Foxx - Let Me Go", url: "music/electro/Deerock, Robin Woods, Zora Foxx - Let Me Go.mp3"},
+			{title: "K-391 - Drop it", url: "music/electro/K-391 - Drop it.mp3"},
+			{title: "Alan Walker - Alone", url: "music/electro/Alan Walker - Alone.mp3"},
+			{title: "Akcent - Thats my name", url: "music/electro/Akcent - Thats my name.mp3"},
+			{title: "EC Twins - Liberian Girl", url: "music/electro/EC Twins - Liberian Girl.mp3"},
+			{title: "Edward Maya - Desert rain", url: "music/electro/Edward Maya - Desert Rain.mp3"},
+			{title: "Edward Maya - Feeling", url: "music/electro/Edward Maya - Feeling.mp3"},
+			{title: "Edward Maya - Desert Rain", url: "music/electro/Edward Maya - Desert Rain.mp3"},
+			{title: "Edward Maya - Feeling", url: "music/electro/Edward Maya - Feeling.mp3"},
+			{title: "Edward Maya - Happy for you", url: "music/electro/Edward Maya - Happy for you.mp3"},
+			{title: "Ian Storm - Waves (ft Marissa)", url: "music/electro/Ian Storm - Waves (ft Marissa).mp3"},
+			{title: "James Young - Infinity (Nighcore)", url: "music/electro/James Young - Infinity (Nighcore).mp3"},
+			{title: "Jay Tastic - Body", url: "music/electro/Jay Tastic - Body.mp3"},
+			{title: "Jonas Blue - Perfect Strangers", url: "music/electro/Jonas Blue - Perfect strangers.mp3"},
+			{title: "Loud Luxury - Body", url: "music/electro/Loud Luxury - Body.mp3"},
+			{title: "Loud Luxury - Fill me in", url: "music/electro/Loud Luxury - Fill me in.mp3"},
+			{title: "Martin Garrix, Dua Lipa - Scared to be lonely", url: "music/electro/Martin Garrix, Dua Lipa - Scared to be lonely.mp3"},
+			{title: "Matvey, Mayxnor - I dont wanna know", url: "music/electro/Matvey, Mayxnor - I dont wanna know.mp3"},
+			{title: "Vitor Kley - Adrenalizou (Remix)", url: "music/electro/Vitor Kley - Adrenalizou (Remix).mp3"},
+			{title: "Kasino - Cant get over", url: "music/electro/Kasino - Cant get over.mp3"},
+			{title: "Magic Box - If You", url: "music/electro/Magic Box - If you.mp3"},
+			{title: "Tikos Groove - I dont know what to do", url: "music/electro/Tikos Groove - I dont know what to do.mp3"},
+			{title: "DJ Snake - Let me love you (ft. Justin Bieber)", url: "music/electro/DJ Snake - Let me love you (ft. Justin Bieber).mp3"},
+			{title: "The Weeknd - Blinding Lights", url: "music/electro/The Weeknd - Blinding Lights.mp3"},
+			{title: "Two Feet - Had some drinks", url: "music/electro/Two Feet - Had some drinks.mp3"},
+			{title: "DM Galaxy - Paralyzed", url: "music/electro/DM Galaxy - Paralyzed.mp3"},
+			{title: "Skrillex - Mind", url: "music/electro/Skrillex - Mind.mp3"},
+			{title: "Skrillex - Summit", url: "music/electro/Skrillex - Summit.mp3"},
+			{title: "Meduza - Piece of your heart", url: "music/electro/Meduza - Piece of your heart.mp3"},
+			{title: "The Chainsmokers - Everybody Hates Me", url: "music/electro/The Chainsmokers - Everybody hates me.mp3"},
+			{title: "Gigi Dagostino - I Still Believe In Your Eyes", url: "music/electro/Gigi Dagostino - I still believe in your eyes.mp3"},
+                    		];
+
+            </script>
+	    <script src="js/script.js"></script>
+
+</body>
+</html>
