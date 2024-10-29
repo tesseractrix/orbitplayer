@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Orbit Player </title>
+    <link rel="icon" href="img/orbit_ico_blue.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <header>
+        <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player"></a></p>
+
+        <p>
+            <a href="explore.html"> Explore </a> •
+            <a href="news.html"> Updates </a>
+		</p>
+
+        <!-- Botão fixo -->
+		<button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+
+
+    </header>
+
+    <main>
+        <article>
+
+            <p align="center">
+                <input type="text" id="search" onkeyup="search()" placeholder="Search music in 3030 Vibes..." width="300" height="40">
+            </p>
+
+            <ul align="center" id="results"></ul>
+
+            <article>
+
+            </article>
+
+            <aside>
+            </aside>
+    </main>
+
+    <footer>
+	
+<div class="control-box">
+    <button id="repeatButton">Repeat Off</button>
+    <button id="prevButton" onclick="prevSong()">Prev</button>
+    <button id="skipButton" onclick="skipSong()">Skip</button>
+</div>
+	
+	<p align="center" id="tituloMusica"></p>
+	
+			<p align="center">
+                <audio id="audioPlayer" controls onended="playRandom()">
+                    <source id="audioSource" src="" type="audio/mp3">
+                    Seu navegador não suporta a tag de áudio.
+                </audio>
+            </p>
+
+    </footer>
+
+            <script>
+                var data = [
+{title: "3030 - Alma De Cigana", url: "music/rap/3030 - Alma De Cigana.mp3"},
+{title: "3030 - Brilho Na Alma", url: "music/rap/3030 - Brilho Na Alma.mp3"},
+{title: "3030 - Fé", url: "music/rap/3030 - Fé.mp3"},
+{title: "3030 - Lunar", url: "music/rap/3030 - Lunar.mp3"},
+{title: "3030 - Raízes", url: "music/rap/3030 - Raízes.mp3"},
+{title: "3030 - Mundo Gira", url: "music/rap/3030 - Mundo gira.mp3"},
+{title: "3030 - Imã", url: "music/rap/3030 - ima.mp3"},
+{title: "3030 - Fora do Padrão", url: "music/rap/3030 - fora do padrao.mp3"},
+{title: "3030 - Veneno", url: "music/rap/3030 - veneno.mp3"},
+{title: "3030 - Dentro de um Instante", url: "music/rap/3030 - dentro de um instante.mp3"},
+{title: "3030 - Amanhã", url: "music/rap/3030 - amanha.mp3"},
+{title: "3030 - Pra Você Ficar", url: "music/rap/3030 - pra voce ficar.mp3"},
+{title: "3030 - Inaé", url: "music/rap/3030 - inae.mp3"},
+{title: "3030 - Fugir Pra Bahia", url: "music/rap/3030 - fugir pra bahia.mp3"},
+{title: "Bhaskar - Manhã de sol (ft. 3030)", url: "music/electro/Bhaskar - Manhã de sol (ft. 3030).mp3"},
+                    ];
+		    
+            </script>
+	    <script src="js/script.js"></script>
+
+</body>
+</html>
