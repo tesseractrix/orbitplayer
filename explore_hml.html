@@ -1,50 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<title> Orbit Player - Explore </title>
-<link rel="icon" href="img/orbit_ico_blue.png">
-<link rel="stylesheet" href="css/styles.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit Player - Explore</title>
+    <link rel="icon" href="img/orbit_ico_blue.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
 
 <style>
-    /* Estilize o contêiner de imagens */
+    /* Estilize o retângulo */
     .image-container {
         display: flex;
-        overflow-x: auto;
-        overflow: hidden;
-        width: 80%; /* Preenche 80% da largura da tela */
-        height: 80px; /* Altura das imagens */
-        margin: 0 auto; /* Centraliza o contêiner horizontalmente */
-        padding-left: 10%; /* Mantém 10% de distância das bordas da tela */
-        padding-right: 10%; /* Mantém 10% de distância das bordas da tela */
+        overflow-x: auto; /* Barra de rolagem horizontal */
+        width: 100%;
     }
 
     .image {
-        flex-shrink: 0; /* Impede que as imagens diminuam além do tamanho original */
-        width: 80px; /* Garante a proporção 1x1 */
-        height: 80px; /* Garante a proporção 1x1 */
-        margin-right: 10px; /* Espaçamento entre as imagens */
-        transition: transform 0.3s ease; /* Animação suave de crescimento */
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+        margin: 5px;
+        width: 60px;
+        height: 60px;
         filter: grayscale(100%);
+        opacity: 0; /* Inicialmente escondidas para "lazy loading" */
+    }
+
+    .image.lazy-loaded {
+        opacity: 1;
+        transition: opacity 0.5s ease-in;
     }
 
     .image:hover {
-        transform: scale(1.1); /* Aumenta a imagem em 10% quando o mouse está sobre ela */
+        transform: scale(1.1);
         filter: grayscale(0%);
-    }
-
-    /* Garantir que o contêiner se adapte bem em dispositivos móveis */
-    @media (max-width: 768px) {
-        .image-container {
-            width: 80%; /* Ajuste para dispositivos móveis */
-            padding-left: 10%;
-            padding-right: 10%;
-        }
     }
 </style>
 
@@ -54,92 +44,100 @@
         <a href="index.html"> Home </a> • 
         <a href="news.html"> Updates </a>
     </p>
-    <!-- Botão fixo -->
     <button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
 </header>
 
 <main>
     <article>
-        <p align="left">Playlists</p>
+        <p align="center">Playlists</p>
         <div class="image-container" id="imageContainer">
-            <button class="end" onclick="scrollToEnd()">&#10095;</button>
-            <a href="playlist_call-the-boss.html"><img class="image" src="img/call_the_boss_70.jpg" title="Call The Boss" alt="Call The Boss"></a>
-            <a href="playlist_high-trip.html"><img class="image" src="img/high_trip_70.jpg" title="High Trip" alt="High Trip"></a>
-            <a href="playlist_rock-wins.html"><img class="image" src="img/rock_wins_70.jpg" title="Rock Wins" alt="Rock Wins"></a>
-            <a href="playlist_rio-night.html"><img class="image" src="img/rio_night_70.jpg" title="Rio Night" alt="Rio Night"></a>
-            <a href="playlist_serenitas-divinae.html"><img class="image" src="img/serenitas_divinae_70.jpg" title="Serenitas Divinae" alt="Serenitas Divinae"></a>
-            <a href="playlist_cigarettes-after-sex.html"><img class="image" src="img/cigarettesaftersex_70.jpg" title="Cigarettes After Sex" alt="Cigarettes After Sex"></a>
-            <a href="#"><img class="image" src="img/bassline_euphoria.jpg" title="Bassline Euphoria" alt="Bassline Euphoria"></a>
-            <a href="playlist_celin.html"><img class="image" src="img/celin24h_70.jpg" title="Celin" alt="Celin"></a>
-            <a href="playlist_old-but-gold.html"><img class="image" src="img/old_but_gold_70.jpg" title="Old but gold" alt="Old but gold"></a>
-            <a href="playlist_fuego-latino.html"><img class="image" src="img/fuego_latino_70.jpg" title="Fuego Latino" alt="Fuego Latino"></a>
-            <a href="playlist_ambient.html"><img class="image" src="img/ambient_music_70.jpg" title="Ambient Music" alt="Ambient Music"></a>
+            <!-- Botões de rolagem -->
             <button class="start" onclick="scrollToStart()">&#10094;</button>
+            <!-- As imagens serão adicionadas dinamicamente pelo JavaScript -->
+            <button class="end" onclick="scrollToEnd()">&#10095;</button>
         </div>
-        </br>
-        <p align="left">Podcasts</p>
-        <div class="image-container" id="imageContainer">
-            <a href="meditation.html"><img class="image" src="img/meditation_70.jpg" title="Meditation" alt="Meditation"></a>
-            <img class="image" src="img/philosophy_70.jpg" alt="Philosophy" title="Unavailable">
-            <img class="image" src="img/politics_70.jpg" alt="Politics" title="Unavailable">
-            <a href="motivation.html"><img class="image" src="img/motivation.jpg" title="Motivation" alt="Motivation"></a>
-            <img class="image" src="img/soon_70.jpg" alt="Coming Soon" title="Coming Soon" style="filter:grayscale(100%)">
-        </div>
-        <p></p>
     </article>
-
-    <aside>
-    </aside>
 </main>
 
 <script>
-// função dos botões de navegação
+// Lista de imagens
+const imagesData = [
+    { src: "img/call_the_boss_70.jpg", title: "Call The Boss", link: "playlist_call-the-boss.html" },
+    { src: "img/high_trip_70.jpg", title: "High Trip", link: "playlist_high-trip.html" },
+    { src: "img/rock_wins_70.jpg", title: "Rock Wins", link: "playlist_rock-wins.html" },
+    { src: "img/rio_night_70.jpg", title: "Rio Night", link: "playlist_rio-night.html" },
+    { src: "img/3030-vibes.jpg", title: "3030 Vibes", link: "playlist_3030-vibes.html" },
+    { src: "img/serenitas_divinae_70.jpg", title: "Serenitas Divinae", link: "playlist_serenitas-divinae.html" },
+    { src: "img/cigarettesaftersex_70.jpg", title: "Cigarettes After Sex", link: "playlist_cigarettes-after-sex.html" },
+    { src: "img/bassline_euphoria.jpg", title: "Bassline Euphoria", link: "playlist_bassline-euphoria.html" },
+    { src: "img/celin24h_70.jpg", title: "Celin", link: "playlist_celin.html" },
+    { src: "img/old_but_gold_70.jpg", title: "Old but Gold", link: "playlist_old-but-gold.html" },
+    { src: "img/fuego_latino_70.jpg", title: "Fuego Latino", link: "playlist_fuego-latino.html" },
+    { src: "img/ambient_music_70.jpg", title: "Ambient Music", link: "playlist_ambient.html" }
+];
+
+// Função para embaralhar as imagens
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Carrega apenas as primeiras imagens
+function loadInitialImages() {
+    shuffle(imagesData);
+    const imageContainer = document.getElementById("imageContainer");
+    imagesData.forEach((imageData, index) => {
+        const a = document.createElement("a");
+        a.href = imageData.link;
+        const img = document.createElement("img");
+        img.src = index < 4 ? imageData.src : ""; // Apenas as 4 primeiras imagens são carregadas imediatamente
+        img.dataset.src = imageData.src; // Lazy load para as restantes
+        img.className = "image";
+        img.title = imageData.title;
+        img.alt = imageData.title;
+        a.appendChild(img);
+        imageContainer.appendChild(a);
+    });
+}
+
+// Lazy load das imagens restantes com IntersectionObserver
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.add("lazy-loaded");
+            observer.unobserve(img); // Interrompe a observação após o carregamento
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadInitialImages();
+    const images = document.querySelectorAll(".image");
+    images.forEach(img => {
+        if (!img.src) observer.observe(img); // Aplica o observer às imagens ainda não carregadas
+    });
+});
+
+// Função para rolagem até o início
 function scrollToStart() {
-    const imageContainer = document.querySelector('.image-container');
-    imageContainer.scrollTo({
-        left: 0,
-        behavior: 'smooth'
-    });
+    document.getElementById("imageContainer").scrollTo({ left: 0, behavior: 'smooth' });
 }
 
+// Função para rolagem até o fim
 function scrollToEnd() {
-    const imageContainer = document.querySelector('.image-container');
+    const imageContainer = document.getElementById("imageContainer");
     const maxScroll = imageContainer.scrollWidth - imageContainer.clientWidth;
-    imageContainer.scrollTo({
-        left: maxScroll,
-        behavior: 'smooth'
-    });
+    imageContainer.scrollTo({ left: maxScroll, behavior: 'smooth' });
 }
-</script>
 
-<script>
-// script para rolagem automática das imagens no contêiner
-const imageContainer = document.querySelector('.image-container');
-
-imageContainer.addEventListener('mouseover', (e) => {
-    const containerWidth = imageContainer.clientWidth;
-    const scrollWidth = imageContainer.scrollWidth;
-    const mouseX = e.clientX - imageContainer.getBoundingClientRect().left;
-    const scrollAmount = (mouseX / containerWidth) * (scrollWidth - containerWidth);
-
-    imageContainer.scrollTo({
-        left: scrollAmount,
-        behavior: 'smooth'
-    });
-});
-</script>
-
-<script>
-// lightmode script
+// Alterna o tema da página
 function toggleDarkMode() {
-    const body = document.body;
-    body.classList.toggle('light-mode');
+    document.body.classList.toggle('light-mode');
 }
-
-// anti right-click protection
-document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-});
 </script>
 
 </body>
