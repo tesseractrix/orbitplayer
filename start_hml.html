@@ -4,7 +4,7 @@
 <head>
     <title> Orbit Player </title>
     <link rel="icon" href="img/orbit_ico_blue.png">
-    <link rel="stylesheet" href="css/styles_hml.css">
+    <link rel="stylesheet" href="css/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -31,10 +31,16 @@
                 <input type="text" id="search" onkeyup="search()" placeholder="Search music..." width="300" height="40">
             </p>
 
-	 <!-- Espaço para anúncios -->
-        <div id="adSpace" style="text-align: center; margin: 20px auto;">
-            <!-- Anúncios do Google serão carregados aqui -->
-        </div>
+	<div id="adSpace" style="text-align: center; margin: 20px auto;">
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 20px auto;"
+         data-ad-client="ca-pub-1939121894357762"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+	</div>
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1939121894357762" crossorigin="anonymous"></script>
 
             <ul align="center" id="results"></ul>
 
@@ -49,9 +55,9 @@
     <footer>
 	
 	<div class="control-box">
-    <button id="repeatButton">Repeat Off</button>
-    <button id="prevButton" onclick="prevSong()">Prev</button>
-    <button id="skipButton" onclick="skipSong()">Skip</button>
+        	<button id="repeatButton">Repeat Off</button>
+       		<button id="prevButton" onclick="prevSong()">Prev</button>
+        	<button id="skipButton" onclick="skipSong()">Skip</button>
 	</div>
     
     <p align="center" id="tituloMusica"></p>
@@ -190,12 +196,10 @@
 {title: "Nando Reis - Luz dos olhos", url: "music/mpb/Nando Reis - Luz dos olhos.mp3"},
 {title: "New West - Those Eyes", url: "music/indie/New West - Those Eyes.mp3"},
 {title: "Nikito - Fire In The Palace", url: "music/rap/Nikito - Fire In The Palace.mp3"},
-{title: "Nikito - Fire In The Palace", url: "music/rap/Nikito - Fire In The Palace.mp3"},
 {title: "Oh Wonder - Drive", url: "music/indie/Oh Wonder - Drive.mp3"},
 {title: "Oh Wonder - Technicolour Beat", url: "music/indie/Oh Wonder - Technicolour Beat.mp3"},
 {title: "Orochi - Assault Monopolio", url: "music/rap/Orochi - Assault Monopolio.mp3"},
 {title: "Orochi - Por Que Não", url: "music/rap/Orochi - Por que nao.mp3"},
-{title: "Os Nonatos - Astronauta", url: "music/Os Nonatos - Astronauta.mp3"},
 {title: "Pagan John - Inesperado", url: "music/indie/Pagan John - Inesperado.mp3"},
 {title: "Pagan John - Meu Cais", url: "music/indie/Pagan John - Meu Cais.mp3"},
 {title: "Partynextdoor - Trauma", url: "music/rnb/Partynextdoor - Trauma.mp3"},
@@ -380,6 +384,70 @@
 {title: "Lil Whind - Vida", url: "music/rap/lil whind - vida.mp3"},
 {title: "Lil Whind - Despedida", url: "music/rap/lil whind - despedida.mp3"},
 {title: "MC Ryan SP, Filipe Ret, Chefin e Caio Luccas - Melhor Vibe", url: "music/rap/mc ryan sp, filipe ret, chefin e caio luccas - melhor vibe.mp3"},
+{title: "Captain Hollywood Project - Find Another Way", url: "music/electro/captain hollywood project - find another way.mp3"},
+{title: "Matuê - Crack com Mussilon", url: "music/rap/matue - crack com mussilon.mp3"},
+{title: "Matuê - 04AM", url: "music/rap/matue - 04am.mp3"},
+{title: "Juanka - Tus Besos (Remix)", url: "music/latin/juanka - tus besos (remix).mp3"},
+{title: "3030 - Imã", url: "music/rap/3030 - ima.mp3"},
+{title: "3030 - Fora do Padrão", url: "music/rap/3030 - fora do padrao.mp3"},
+{title: "3030 - Veneno", url: "music/rap/3030 - veneno.mp3"},
+{title: "3030 - Dentro de um Instante", url: "music/rap/3030 - dentro de um instante.mp3"},
+{title: "3030 - Amanhã", url: "music/rap/3030 - amanha.mp3"},
+{title: "3030 - Pra Você Ficar", url: "music/rap/3030 - pra voce ficar.mp3"},
+{title: "3030 - Inaé", url: "music/rap/3030 - inae.mp3"},
+{title: "3030 - Fugir Pra Bahia", url: "music/rap/3030 - fugir pra bahia.mp3"},
+{title: "Orochi - Balão", url: "music/rap/orochi - balao.mp3"},
+{title: "Modestia - Johnnie Walker", url: "music/rap/modestia - johnnie walker.mp3"},
+{title: "Matue - Vem Chapar", url: "music/rap/matue - vem chapar.mp3"},
+{title: "Liniker - Caju", url: "music/pop/liniker - caju.mp3"},
+{title: "J Balvin, Zion y Lennox - No es Justo", url: "music/latin/j balvin, zion y lennox - no es justo.mp3"},
+{title: "Dawn - Beyond", url: "music/electro/dawn - beyond.mp3"},
+{title: "Roya - Cruise", url: "music/electro/roya - cruise.mp3"},
+{title: "David Guetta - Sexy Bitch", url: "music/electro/david guetta - sexy bitch.mp3"},
+{title: "Tiesto - Red Lights", url: "music/electro/tiesto - red lights.mp3"},
+{title: "Djavan - Eu Te Devoro", url: "music/mpb/djavan - eu te devoro.mp3"},
+{title: "YG Marley - Praise Jah In The Moonlight", url: "music/reggae/yg marley - praise jah in the moonlight.mp3"},
+{title: "Lah Pat - Rodeo (remix)", url: "music/rap/lah pat - rodeo (remix).mp3"},
+{title: "Legião Urbana - Será", url: "music/mpb/legiao urbana - sera.mp3"},
+{title: "Céu, Liniker - Via Láctea", url: "music/rnb/ceu, liniker - via lactea.mp3"},
+{title: "Xamã - Seu Rei", url: "music/rap/xama - seu rei.mp3"},
+{title: "Michael - Careless Whisper", url: "music/pop/michael - careless whisper.mp3"},
+{title: "Rael - Envolvidão", url: "music/rap/rael - envolvidao.mp3"},
+{title: "Matuê, Dada Yute, Rael - Aquarela Luz", url: "music/reggae/matue, dada yute, rael - aquarela luz.mp3"},
+{title: "The Chainsmokers - Closer", url: "music/electro/the chainsmokers - closer.mp3"},
+{title: "Driftboys - Nissan", url: "music/rap/driftboys - nissan.mp3"},
+{title: "Matuê - É Sal", url: "music/rap/matue - e sal.mp3"},
+{title: "Prato - Rebel Love", url: "music/reggae/prato - rebel love.mp3"},
+{title: "Matuê - Gorilla Roxo", url: "music/rap/matue - gorilla roxo.mp3"},
+{title: "Maneva - Mar do Meu Novo Mundo", url: "music/reggae/maneva - mar do meu novo mundo.mp3"},
+{title: "Travis Scott - Telekinesis", url: "music/rap/travis scott - telekinesis.mp3"},
+{title: "Filipinho, Lacan, Dxgio - Anos Surf", url: "music/rap/filipinho, lacan, dxgio - anos surf.mp3"},
+{title: "Matuê - De Peça em Peça", url: "music/rap/matue - de peca em peca.mp3"},
+{title: "Matuê - 777-666", url: "music/rap/matue - 777666.mp3"},
+{title: "Matuê - Máquina do Tempo", url: "music/rap/matue - maquina do tempo.mp3"},
+{title: "Cigarettes After Sex - Flash", url: "music/indie/cigarettes after sex - flash.mp3"},
+{title: "Xamã - Escorpião", url: "music/rap/xama - escorpiao.mp3"},
+{title: "Xamã - Central do Brasil", url: "music/rap/xama - central do brasil.mp3"},
+{title: "Xamã - Advogado do Diabo (ft. Filipe Ret)", url: "music/rap/xama - advogado do diabo (ft. filipe ret).mp3"},
+{title: "Teddy Swims - Lose Control", url: "music/rnb/teddy swims - lose control.mp3"},
+{title: "3030 - Meu Jardim", url: "music/rap/3030 - meu jardim.mp3"},
+{title: "Snow Patrol - Open Your Eyes", url: "music/rock/snow patrol - open your eyes.mp3"},
+{title: "Baco Exu do Blues - Samba in Paris (ft. Glória Groove)", url: "music/rap/baco exu do blues - samba in paris (ft. gloria groove).mp3"},
+{title: "Baco Exu do Blues - 20 Ligações", url: "music/rap/baco exu do blues - 20 ligacoes.mp3"},
+{title: "John Newman - Love Me Again", url: "music/rock/john newman - love me again.mp3"},
+{title: "Ofenbach - Wasted Love", url: "music/electro/ofenbach - wasted love.mp3"},
+{title: "Wiu - Olha oq ce fez comigo", url: "music/rap/wiu - olha oq ce fez comigo.mp3"},
+{title: "Lord Huron - Meet Me In The Woods", url: "music/indie/lord huron - meet me in the woods.mp3"},
+{title: "Lord Huron - The Night We Met", url: "music/indie/lord huron - the night we met.mp3"},
+{title: "Joan Osborne - One Of Us", url: "music/rock/joan osborne - one of us.mp3"},
+{title: "Djavan - Oceano", url: "music/mpb/djavan - oceano.mp3"},
+{title: "Mauricio Manieri - Bem Querer", url: "music/mpb/mauricio manieri - bem querer.mp3"},
+{title: "Cassia Eller - Mudaram as Estações", url: "music/mpb/cassia eller - mudaram as estacoes.mp3"},
+{title: "Novo Amor - Anchor", url: "music/indie/novo amor - anchor.mp3"},
+{title: "Edward Maya - This Is My Life", url: "music/electro/edward maya - this is my life.mp3"},
+{title: "Edward Maya - Summer Heart", url: "music/electro/edward maya - summer heart.mp3"},
+{title: "Major Lazer - Night Riders", url: "music/rap/major lazer - night riders.mp3"},
+{title: "Orochi - Vida Rasa", url: "music/rap/orochi - vida rasa.mp3"},
                 ];
 
 </script>
