@@ -10,8 +10,14 @@ document.addEventListener('contextmenu', function (e) {
 });
 
 // google ads
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1939121894357762"
-     crossorigin="anonymous"></script>
+async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1939121894357762"
+     crossorigin="anonymous">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1939121894357762"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+    (adsbygoogle = window.adsbygoogle || []).push({});
 
 var ul = document.getElementById("results");
 
