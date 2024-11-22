@@ -9,10 +9,6 @@ document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
 });
 
-// google ads
-async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1939121894357762"
-crossorigin="anonymous";
-
 var ul = document.getElementById("results");
 
 var isRepeat = false; // Flag para indicar se a repetição está ativada
