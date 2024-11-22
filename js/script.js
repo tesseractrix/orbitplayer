@@ -11,7 +11,7 @@ document.addEventListener('contextmenu', function (e) {
 
 <!-- Google Ads -->
 async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1939121894357762"
-    crossorigin="anonymous">
+crossorigin="anonymous";
 
 var ul = document.getElementById("results");
 
