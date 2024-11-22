@@ -139,3 +139,13 @@
         audioPlayer {
             margin-top: -22px; /* Espaço adicional para o player */
         }
+
+	#adSpace {
+	    width: 100%;
+	    max-width: 728px; /* Largura máxima para anúncios maiores */
+	    height: auto;
+	    margin: 20px auto;
+	    text-align: center;
+	    padding: 10px;
+	}
+
