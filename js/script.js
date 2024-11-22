@@ -9,7 +9,7 @@ document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
 });
 
-<!-- Google Ads -->
+// google ads
 async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1939121894357762"
 crossorigin="anonymous";
 
