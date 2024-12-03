@@ -78,7 +78,7 @@ function displayCurrentSongTitle(title) {
     tituloMusica.textContent = title;
 
 // Atualiza o título da aba do navegador
-    document.title = `Orbit Player - ${title}`;
+    document.title = `Orbit Player • ${title}`;
     
     var artist = title.split(" - ")[0];
     var songTitle = title.split(" - ")[1];
