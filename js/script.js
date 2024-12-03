@@ -87,6 +87,8 @@ function displayCurrentSongTitle(title) {
     var songTitle = title.split(" - ")[1];
     var artworkUrl = 'img/orbit_ico.png'; // Substitua com o caminho da sua imagem de logo
 
+    updateTabTitle(title); // Atualiza o título da aba
+
     if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
             title: songTitle,
