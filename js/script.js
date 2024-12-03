@@ -76,7 +76,6 @@ function normalizeString(str) {
 function displayCurrentSongTitle(title) {
     var tituloMusica = document.getElementById("tituloMusica");
     tituloMusica.textContent = title;
-}
 
 // Atualiza o título da aba do navegador
 function updateTabTitle(title) {
