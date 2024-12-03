@@ -73,16 +73,15 @@ function normalizeString(str) {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/ç/g, 'c').replace(/Ç/g, 'C');
 }
 
+// Atualiza o título da aba do navegador com apenas o título da música
+function updateTabTitle(title) {
+    var songTitle = title.split(" - ")[1] || title; // Extrai o título após o " - "
+    document.title = `Orbit Player - ${songTitle}`;
+}
+
 function displayCurrentSongTitle(title) {
     var tituloMusica = document.getElementById("tituloMusica");
     tituloMusica.textContent = title;
-
-// Atualiza o título da aba do navegador
-function updateTabTitle(title) {
-    // Divide o título no caractere " - " e pega a segunda parte, que é o título da música
-    var songTitle = title.split(" - ")[1] || title; // Se não houver "-", usa o título completo
-    document.title = `Orbit Player - ${songTitle}`;
-}
     
     var artist = title.split(" - ")[0];
     var songTitle = title.split(" - ")[1];
