@@ -77,6 +77,9 @@ function displayCurrentSongTitle(title) {
     var tituloMusica = document.getElementById("tituloMusica");
     tituloMusica.textContent = title;
 
+// Atualiza o título da aba do navegador
+    document.title = `Orbit Player - ${title}`;
+    
     var artist = title.split(" - ")[0];
     var songTitle = title.split(" - ")[1];
     var artworkUrl = 'img/orbit_ico.png'; // Substitua com o caminho da sua imagem de logo
