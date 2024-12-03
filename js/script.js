@@ -76,9 +76,14 @@ function normalizeString(str) {
 function displayCurrentSongTitle(title) {
     var tituloMusica = document.getElementById("tituloMusica");
     tituloMusica.textContent = title;
+}
 
 // Atualiza o título da aba do navegador
-    document.title = `Orbit Player • ${title}`;
+function updateTabTitle(title) {
+    // Divide o título no caractere " - " e pega a segunda parte, que é o título da música
+    var songTitle = title.split(" - ")[1] || title; // Se não houver "-", usa o título completo
+    document.title = `Orbit Player - ${songTitle}`;
+}
     
     var artist = title.split(" - ")[0];
     var songTitle = title.split(" - ")[1];
