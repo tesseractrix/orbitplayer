@@ -150,7 +150,7 @@ function prevSong() {
 
 function formatSongTitle(title) {
     // Lista de palavras que devem permanecer em minúsculas, exceto se forem a primeira ou última palavra
-    const exceptions = ['a', 'o', 'e', 'de', 'do', 'da', 'em', 'no', 'na', 'por', 'para', 'com', 'sobre', 'sob', 'se', 'que'];
+    const exceptions = ['a', 'o', 'e', 'de', 'do', 'da', 'em', 'no', 'na', 'com', 'se', 'que'];
 
     return title
         .toLowerCase()
