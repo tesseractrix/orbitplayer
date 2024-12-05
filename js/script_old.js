@@ -24,7 +24,7 @@ for (var i = 0; i < data.length; i++) {
     var a = document.createElement("a");
     a.href = "#";
     a.onclick = function (index) {
-        return function () {
+        return function() {
             changeAudioSource(index);
         };
     }(i);
@@ -42,6 +42,7 @@ function changeAudioSource(index) {
     audio.load();
     audio.play();
     displayCurrentSongTitle(data[index].title);
+    playedTracks.push(index); // Adiciona o índice da música ao histórico
 }
 
 function search() {
@@ -72,13 +73,21 @@ function normalizeString(str) {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/ç/g, 'c').replace(/Ç/g, 'C');
 }
 
+// Atualiza o título da aba do navegador com apenas o título da música
+function updateTabTitle(title) {
+    var songTitle = title.split(" - ")[1] || title; // Extrai o título após o " - "
+    document.title = `Orbit Player - ${songTitle}`;
+}
+
 function displayCurrentSongTitle(title) {
     var tituloMusica = document.getElementById("tituloMusica");
     tituloMusica.textContent = title;
-
+    
     var artist = title.split(" - ")[0];
     var songTitle = title.split(" - ")[1];
     var artworkUrl = 'img/orbit_ico.png'; // Substitua com o caminho da sua imagem de logo
+
+    updateTabTitle(title); // Atualiza o título da aba
 
     if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
@@ -100,8 +109,18 @@ function displayCurrentSongTitle(title) {
 var audioPlayer = document.getElementById('audioPlayer');
 var audioSource = document.getElementById('audioSource');
 
+var recentTracks = []; // Histórico das últimas músicas tocadas
+var playedTracks = []; // Histórico de músicas já tocadas na sessão
+
 function getRandomTrack() {
-    var randomIndex = Math.floor(Math.random() * data.length);
+    var randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * data.length);
+    } while (recentTracks.includes(randomIndex));
+    recentTracks.push(randomIndex);
+    if (recentTracks.length > 3) {
+        recentTracks.shift();
+    }
     return data[randomIndex];
 }
 
@@ -111,23 +130,69 @@ function playRandom() {
     audioPlayer.load();
     audioPlayer.play();
     displayCurrentSongTitle(randomTrack.title);
+    playedTracks.push(randomTrack); // Armazena o objeto da música no histórico
 }
 
 function skipSong() {
     playRandom();
 }
 
+function prevSong() {
+    if (playedTracks.length > 1) {
+        playedTracks.pop(); // Remove a música atual do histórico
+        var previousTrack = playedTracks[playedTracks.length - 1]; // Obtém a música anterior
+        audioSource.src = previousTrack.url;
+        audioPlayer.load();
+        audioPlayer.play();
+        displayCurrentSongTitle(previousTrack.title);
+    }
+}
+
+function formatSongTitle(title) {
+    // Lista de palavras que devem permanecer em minúsculas, exceto se forem a primeira ou última palavra
+    const exceptions = ['a', 'o', 'e', 'de', 'do', 'da', 'em', 'no', 'na', 'por', 'para', 'com', 'sobre', 'sob', 'se', 'que'];
+
+    return title
+        .toLowerCase()
+        .split(' ')
+        .map((word, index, array) => {
+            // Mantém a primeira e a última palavra sempre capitalizada
+            if (index === 0 || index === array.length - 1) {
+                return capitalizeWord(word);
+            }
+            // Palavras que não estão nas exceções são capitalizadas
+            if (!exceptions.includes(word)) {
+                return capitalizeWord(word);
+            }
+            // Palavras de exceção são mantidas minúsculas
+            return word;
+        })
+        .join(' ');
+}
+
+function capitalizeWord(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+// Aplicação da função para os títulos das músicas
+data.forEach((track, index) => {
+    data[index].title = formatSongTitle(track.title);
+});
+
+// Exemplo de utilização
+console.log(data.map(track => track.title));
+
 if ('mediaSession' in navigator) {
     navigator.mediaSession.setActionHandler('play', () => {
-        if (audioPlayer.paused) {
-            audioPlayer.play();
-        }
+        audioPlayer.play();
     });
 
     navigator.mediaSession.setActionHandler('pause', () => {
-        if (!audioPlayer.paused) {
-            audioPlayer.pause();
-        }
+        audioPlayer.pause();
+    });
+
+    navigator.mediaSession.setActionHandler('previoustrack', () => {
+        prevSong();
     });
 
     navigator.mediaSession.setActionHandler('nexttrack', () => {
