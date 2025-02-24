@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> Orbit Player </title>
+    <title>Orbit Player</title>
     <link rel="icon" href="img/orbit_ico_blue.png">
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="UTF-8">
@@ -65,33 +65,47 @@
 <script>
     let songs = [];
 
-    // Carrega os dados das músicas do arquivo JSON
+    // Carrega os dados das músicas do arquivo externo (songs.json)
     async function loadSongs() {
         try {
             const response = await fetch('songs.json');
             songs = await response.json();
+            console.log("Músicas carregadas:", songs); // Debug para verificar os dados carregados
         } catch (error) {
             console.error("Erro ao carregar músicas:", error);
         }
     }
 
-    // Função de pesquisa
+    // Função de pesquisa dinâmica
     function searchMusic() {
         const query = document.getElementById("search").value.toLowerCase();
         const resultsList = document.getElementById("results");
         resultsList.innerHTML = "";
 
+        if (query === "") return; // Evita exibir uma lista vazia quando a caixa de pesquisa estiver vazia
+
         const filteredSongs = songs.filter(song => song.title.toLowerCase().includes(query));
 
         filteredSongs.forEach(song => {
             const li = document.createElement("li");
-            li.innerHTML = `<a href="${song.url}" target="_blank">${song.title}</a>`;
+            li.textContent = song.title;
+            li.style.cursor = "pointer";
+            li.onclick = () => playSong(song.url);
             resultsList.appendChild(li);
         });
     }
 
+    // Função para tocar a música ao clicar no título na lista de resultados
+    function playSong(url) {
+        const audioPlayer = document.getElementById("audioPlayer");
+        const audioSource = document.getElementById("audioSource");
+        audioSource.src = url;
+        audioPlayer.load();
+        audioPlayer.play();
+    }
+
     // Carrega as músicas ao iniciar a página
-    loadSongs();
+    window.onload = loadSongs;
 </script>
 
 </body>
