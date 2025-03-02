@@ -82,9 +82,19 @@
         const resultsList = document.getElementById("results");
         resultsList.innerHTML = "";
 
+        if (!songs.length) {
+            console.warn("As músicas ainda não foram carregadas!");
+            return;
+        }
+
         if (query === "") return; // Evita exibir uma lista vazia quando a caixa de pesquisa estiver vazia
 
         const filteredSongs = songs.filter(song => song.title.toLowerCase().includes(query));
+
+        if (filteredSongs.length === 0) {
+            resultsList.innerHTML = "<li>Nenhum resultado encontrado</li>";
+            return;
+        }
 
         filteredSongs.forEach(song => {
             const li = document.createElement("li");
@@ -104,8 +114,8 @@
         audioPlayer.play();
     }
 
-    // Carrega as músicas ao iniciar a página
-    window.onload = loadSongs;
+    // Aguarda o carregamento completo da página para iniciar a busca das músicas
+    document.addEventListener("DOMContentLoaded", loadSongs);
 </script>
 
 </body>
