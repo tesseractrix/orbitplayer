@@ -5,26 +5,23 @@ body {
     color: #c7c7c7;
 }
 
-/* HEADER */
 header {
     background-color: #424242;
     padding: 10px;
     text-align: center;
 }
 
-/* MAIN */
 main {
     padding: 40px;
-    padding-bottom: 200px; /* 🔥 evita sobreposição com footer */
+    padding-bottom: 200px;
 }
 
-/* RESULTADOS */
 ul {
     list-style: none;
     padding: 0;
     text-align: center;
-    max-height: 250px; /* 🔥 limite visual */
-    overflow-y: auto; /* 🔥 scroll interno */
+    max-height: 250px;
+    overflow-y: auto;
     margin-top: 20px;
 }
 
@@ -41,7 +38,6 @@ a:hover {
     color: #c7c7c7;
 }
 
-/* FOOTER FIXO */
 footer {
     background-color: #424242;
     text-align: center;
@@ -51,7 +47,6 @@ footer {
     height: 140px;
 }
 
-/* 🔥 CAIXA DOS BOTÕES (igual seu original) */
 .control-box {
     display: flex;
     justify-content: center;
@@ -62,10 +57,9 @@ footer {
     border-radius: 10px;
     width: 280px;
     position: relative;
-    bottom: 50px; /* 🔥 sobe a caixa */
+    bottom: 50px;
 }
 
-/* BOTÕES */
 .control-box button {
     background-color: #555;
     color: white;
@@ -80,30 +74,11 @@ footer {
     background-color: #777;
 }
 
-/* TÍTULO */
 #tituloMusica {
     margin-top: -30px;
 }
 
-/* PLAYER */
 audio {
     width: 90%;
     max-width: 300px;
-}
-
-/* BOTÃO FIXO */
-#fixedButton {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 5px 10px;
-    background: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* LIGHT MODE */
-.light-mode {
-    background-color: #fff;
-    color: #333;
 }
