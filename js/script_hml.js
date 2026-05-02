@@ -154,17 +154,31 @@ audioPlayer.addEventListener('pause', () => {
     }
 });
 
-// fim da música
+// 🔥 REPEAT + RANDOM CORRIGIDO
 audioPlayer.addEventListener('ended', () => {
-    if (!isRepeat) {
-        setTimeout(playRandom, 300);
+
+    if (isRepeat) {
+        audioPlayer.currentTime = 0;
+        audioPlayer.play();
+        return;
     }
+
+    setTimeout(playRandom, 300);
 });
 
-// fallback mobile
+// 🔥 FALLBACK MOBILE
 audioPlayer.addEventListener('timeupdate', () => {
-    if (!isRepeat && audioPlayer.duration) {
-        if (audioPlayer.currentTime >= audioPlayer.duration - 0.3) {
+
+    if (!audioPlayer.duration) return;
+
+    let remaining = audioPlayer.duration - audioPlayer.currentTime;
+
+    if (remaining <= 0.3) {
+
+        if (isRepeat) {
+            audioPlayer.currentTime = 0;
+            audioPlayer.play();
+        } else {
             playRandom();
         }
     }
