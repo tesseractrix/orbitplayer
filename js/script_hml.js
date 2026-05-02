@@ -1,8 +1,3 @@
-// ================= LIGHT MODE =================
-function toggleDarkMode() {
-    document.body.classList.toggle('light-mode');
-}
-
 // ================= BLOQUEIO CLICK =================
 document.addEventListener('contextmenu', e => e.preventDefault());
 
@@ -38,7 +33,6 @@ data.forEach((track, i) => {
 
 // ================= TROCAR MÚSICA =================
 function changeAudioSource(index) {
-
     audioSource.src = data[index].url;
     audioPlayer.load();
 
@@ -47,7 +41,6 @@ function changeAudioSource(index) {
     });
 
     displayCurrentSongTitle(data[index].title);
-
     playedTracks.push(data[index]);
 }
 
@@ -76,7 +69,6 @@ function updateTabTitle(title) {
 }
 
 function displayCurrentSongTitle(title) {
-
     document.getElementById("tituloMusica").textContent = title;
 
     let artist = title.split(" - ")[0];
@@ -117,7 +109,6 @@ function playRandom() {
     });
 
     displayCurrentSongTitle(track.title);
-
     playedTracks.push(track);
 }
 
@@ -140,41 +131,21 @@ function prevSong() {
 }
 
 // ================= EVENTOS =================
-
-// mantém sessão viva
-audioPlayer.addEventListener('play', () => {
-    if ('mediaSession' in navigator) {
-        navigator.mediaSession.playbackState = "playing";
-    }
-});
-
-audioPlayer.addEventListener('pause', () => {
-    if ('mediaSession' in navigator) {
-        navigator.mediaSession.playbackState = "paused";
-    }
-});
-
-// 🔥 REPEAT + RANDOM CORRIGIDO
 audioPlayer.addEventListener('ended', () => {
-
     if (isRepeat) {
         audioPlayer.currentTime = 0;
         audioPlayer.play();
-        return;
+    } else {
+        setTimeout(playRandom, 300);
     }
-
-    setTimeout(playRandom, 300);
 });
 
-// 🔥 FALLBACK MOBILE
 audioPlayer.addEventListener('timeupdate', () => {
-
     if (!audioPlayer.duration) return;
 
     let remaining = audioPlayer.duration - audioPlayer.currentTime;
 
     if (remaining <= 0.3) {
-
         if (isRepeat) {
             audioPlayer.currentTime = 0;
             audioPlayer.play();
