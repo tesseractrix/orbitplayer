@@ -2,131 +2,155 @@
 <html lang="en">
 
 <head>
-    <title> Orbit Player - Explore </title>
+    <title> Explore </title>
     <link rel="icon" href="img/orbit_ico_blue.png">
     <link rel="stylesheet" href="css/styles.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* CONTAINER */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* IMAGENS */
+        .image {
+            flex-shrink: 0;
+            margin: 5px;
+            width: 60px;
+            height: 60px;
+            filter: grayscale(100%);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .image:hover {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .image {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<style>
-    /* Estilize o retângulo */
-    .image-container {
-        display: flex;
-        overflow-x: auto;
-        max-width: 100%; /* Limita o contêiner à largura da tela */
-        white-space: nowrap; /* Impede que as imagens quebrem linha */
-        margin: 0 auto;
-        padding: 10px;
-    }
-
-    .image {
-        flex-shrink: 0;
-        transition: transform 0.3s ease;
-        margin: 5px;
-        width: 60px;
-        height: 60px;
-        filter: grayscale(100%);
-    }
-
-    .image:hover {
-        transform: scale(1.1);
-        filter: grayscale(0%);
-    }
-
-    /* Estilos responsivos */
-    @media (max-width: 768px) {
-        .image {
-            width: 50px;
-            height: 50px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .image {
-            width: 40px;
-            height: 40px;
-        }
-    }
-</style>
-
 <header>
-    <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player"></a></p>
+    <p>
+        <a href="start.html">
+            <img src="img/orbit_white.png" width="140" height="50">
+        </a>
+    </p>
+
     <p>
         <a href="index.html"> Home </a> • 
         <a href="news.html"> Updates </a>
     </p>
+
     <button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
 </header>
 
 <main>
     <article>
-        <p align="center">Playlists</p>
 
-        <div class="image-container" id="imageContainer">
-            <!-- Lista das imagens -->
-            <a href="playlist_call-the-boss.html"><img class="image" src="img/call_the_boss_70.jpg" title="Call The Boss" alt="Call The Boss"></a>
-            <a href="playlist_high-trip.html"><img class="image" src="img/high_trip_70.jpg" title="High Trip" alt="High Trip"></a>
-            <a href="playlist_rock-wins.html"><img class="image" src="img/rock_wins_70.jpg" title="Rock Wins" alt="Rock Wins"></a>
-            <a href="playlist_rio-night.html"><img class="image" src="img/rio_night_70.jpg" title="Rio Night" alt="Rio Night"></a>
-            <a href="playlist_3030-vibes.html"><img class="image" src="img/3030-vibes.jpg" title="Celin" alt="Celin"></a>
-            <a href="playlist_serenitas-divinae.html"><img class="image" src="img/serenitas_divinae_70.jpg" title="Serenitas Divinae" alt="Serenitas Divinae"></a>
-            <a href="playlist_cigarettes-after-sex.html"><img class="image" src="img/cigarettesaftersex_70.jpg" title="Cigarettes After Sex" alt="Cigarettes After Sex"></a>
-            <a href="playlist_bassline-euphoria.html"><img class="image" src="img/bassline_euphoria.jpg" title="Bassline Euphoria" alt="Bassline Euphoria"></a>
-            <a href="playlist_celin.html"><img class="image" src="img/celin24h_70.jpg" title="Celin" alt="Celin"></a>
-            <a href="playlist_old-but-gold.html"><img class="image" src="img/old_but_gold_70.jpg" title="Old but gold" alt="Old but gold"></a>
-            <a href="playlist_fuego-latino.html"><img class="image" src="img/fuego_latino_70.jpg" title="Fuego Latino" alt="Fuego Latino"></a>
-            <a href="playlist_ambient.html"><img class="image" src="img/ambient_music_70.jpg" title="Ambient Music" alt="Ambient Music"></a>
-        </div>
+        <p align="center">Playlists</p>
+        <div class="image-container" id="playlists"></div>
+
+        <br>
 
         <p align="center">Podcasts</p>
+        <div class="image-container" id="podcasts"></div>
 
-        <div class="image-container">
-            <a href="meditation.html"><img class="image" src="img/meditation_70.jpg" title="Meditation" alt="Meditation"></a>
-            <img class="image" src="img/philosophy_70.jpg" alt="Philosophy" title="Unavailable">
-            <img class="image" src="img/politics_70.jpg" alt="Politics" title="Unavailable">
-            <a href="motivation.html"><img class="image" src="img/motivation.jpg" title="Motivation" alt="Motivation"></a>
-            <img class="image" src="img/soon_70.jpg" alt="Coming Soon" title="Coming Soon" style="filter:grayscale(100%)">
-        </div>
     </article>
+
+    <aside></aside>
 </main>
 
+<!-- ================= SCRIPT ================= -->
+
 <script>
-    // Função para misturar as imagens aleatoriamente
-    function shuffleImages(containerId) {
-        const container = document.getElementById(containerId);
-        const images = Array.from(container.getElementsByClassName('image'));
-        images.sort(() => Math.random() - 0.5);
-        images.forEach(img => container.appendChild(img));
-    }
+// ================= DATA =================
 
-    // Função para carregar as próximas imagens ao rolar
-    function loadOnScroll(containerId) {
-        const container = document.getElementById(containerId);
-        let lastScrollPosition = 0;
+// PLAYLISTS
+const playlists = [
+    {href: "playlist_call-the-boss.html", img: "img/call_the_boss_70.jpg", title: "Call The Boss"},
+    {href: "playlist_high-trip.html", img: "img/high_trip_70.jpg", title: "High Trip"},
+    {href: "playlist_rock-wins.html", img: "img/rock_wins_70.jpg", title: "Rock Wins"},
+    {href: "playlist_rio-night.html", img: "img/rio_night_70.jpg", title: "Rio Night"},
+    {href: "playlist_3030-vibes.html", img: "img/3030_vibes.jpg", title: "3030 Vibes"},
+    {href: "playlist_serenitas-divinae.html", img: "img/serenitas_divinae_70.jpg", title: "Serenitas Divinae"},
+    {href: "playlist_cigarettes-after-sex.html", img: "img/cigarettesaftersex_70.jpg", title: "Cigarettes After Sex"},
+    {href: "playlist_bassline-euphoria.html", img: "img/bassline_euphoria.jpg", title: "Bassline Euphoria"},
+    {href: "playlist_celin.html", img: "img/celin24h_70.jpg", title: "Celin"},
+    {href: "playlist_old-but-gold.html", img: "img/old_but_gold_70.jpg", title: "Old but gold"},
+    {href: "playlist_fuego-latino.html", img: "img/fuego_latino_70.jpg", title: "Fuego Latino"},
+    {href: "playlist_ambient.html", img: "img/ambient_music_70.jpg", title: "Ambient Music"}
+];
 
-        container.addEventListener('scroll', () => {
-            const maxScroll = container.scrollWidth - container.clientWidth;
-            const currentScroll = container.scrollLeft;
+// PODCASTS
+const podcasts = [
+    {href: "meditation.html", img: "img/meditation_70.jpg", title: "Meditation"},
+    {href: "philosophy.html", img: "img/philosophy_70.jpg", title: "Unavailable"},
+    {href: "#", img: "img/politics_70.jpg", title: "Unavailable"},
+    {href: "motivation.html", img: "img/motivation.jpg", title: "Motivation"},
+    {href: "#", img: "img/soon_70.jpg", title: "Coming Soon"}
+];
 
-            if (currentScroll > lastScrollPosition && currentScroll >= maxScroll - 10) {
-                // Carregar mais imagens se atingirmos o final
-                const hiddenImages = container.querySelectorAll('.image.hidden');
-                hiddenImages.forEach((img, index) => {
-                    if (index < 5) img.classList.remove('hidden');
-                });
-            }
-            lastScrollPosition = currentScroll;
-        });
-    }
+// ================= RENDER =================
 
-    // Inicializar ao carregar a página
-    window.onload = () => {
-        shuffleImages('imageContainer');
-        loadOnScroll('imageContainer');
-    };
+function render(containerId, dataArray) {
+    const container = document.getElementById(containerId);
+
+    dataArray.forEach(item => {
+        const a = document.createElement("a");
+        a.href = item.href;
+
+        const img = document.createElement("img");
+        img.className = "image";
+        img.src = item.img;
+
+        // 🔥 OTIMIZAÇÃO
+        img.loading = "lazy";
+        img.decoding = "async";
+
+        img.alt = item.title;
+        img.title = item.title;
+
+        a.appendChild(img);
+        container.appendChild(a);
+    });
+}
+
+// renderiza
+render("playlists", playlists);
+render("podcasts", podcasts);
+
+// ================= THEME =================
+function toggleDarkMode() {
+    document.body.classList.toggle('light-mode');
+}
+
+// ================= BLOQUEIO CLICK =================
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
 </script>
 
 </body>
