@@ -1,142 +1,91 @@
-    body {
-	  background-color: #333;	
-      margin: 0;
-      font-family: Arial, sans-serif;
-      padding: 0px;
-	  color: #c7c7c7;
-    }
-	
-	  audio {
-      width: 300px;
-      margin: 20px;
-    }
-	
-	  ul {
-      list-style-type: none;
-      padding: 0;
-    }
+body {
+    background-color: #333;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #c7c7c7;
+}
 
-      li {
-      display: inline-block;
-      margin: 0 10px;
-    }
+audio {
+    width: 300px;
+    margin: 20px;
+}
 
-    header {
-      background-color: #424242;
-      padding: 10px;
-	  text-align: center;
-    }
-	
-	a {
-	color: white;
-	text-decoration: none;
-	}
-	
-	a:visited {
-		color: #white;
-    }
-	
-	a:hover {
-	color: #c7c7c7;
-	}
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
 
-    main {
-      display: flex;
-    }
+li {
+    margin: 8px 0;
+}
 
-    article {
-      flex: 3;
-      padding: 75px;
-    }
+a {
+    color: white;
+    text-decoration: none;
+}
 
-    aside {
-      flex: 0;
-      background-color: #424242;
-      padding: 0px;
-    }
+a:hover {
+    color: #c7c7c7;
+}
 
-    footer {
-      background-color: #424242;
-      padding: 5px;
-      text-align: center;
-	  color: #fff;
-	  position: fixed;
-	  bottom: 0;
-	  width: 100%;
-	  height: 120px
-    }
-	
-	details {
-		display: block
-	}
-	
-		// Light mode
-		body {
-			transition: background-color 0.3s ease;
-    }
-	
-		.light-mode {
-			background-color: #fff;
-			color: #B3B3B3;
-			a:link {color: #B3B3B3;}
-			a:visited {color: #B3B3B3;}
-			a:hover {color: #c7c7c7;}
-			}
-			
-		#audioPlayer {
-			position: center;
-			width: 90%;
-			height: 20px;
-		}
-			
-	/* Estilos para o botão 'Switch Theme' */
-    #fixedButton {
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 5px 10px;
-        background-color: #ffffff;
-        border: 1px solid #000000;
-        border-radius: 5px;
-        cursor: pointer;
-        z-index: 9999; /* Garante que o botão esteja sempre acima de outros conteúdos */
-    }
-	
-/* Estilo da caixa que contém os botões */
-        .control-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto; /* Centraliza horizontalmente */
-            padding: 10px;
-            background-color: #424242; /* Cor de fundo da caixa */
-            border-radius: 10px; /* Margens arredondadas */
-            width: 280px; /* Largura da caixa */
-            position: relative; /* Define a posição relativa */
-            bottom: 53px; /* Move a caixa para cima */
-        }
+header {
+    background-color: #424242;
+    padding: 10px;
+    text-align: center;
+}
 
-        /* Estilo dos botões */
-        .control-box button {
-            background-color: #555; /* Cor de fundo dos botões */
-            color: white; /* Cor do texto dos botões */
-            border: none;
-            border-radius: 5px; /* Margens arredondadas dos botões */
-            padding: 10px 20px;
-            margin: 0 5px; /* Espaço entre os botões */
-            cursor: pointer;
-        }
+main {
+    padding: 40px;
+}
 
-        .control-box button:hover {
-            background-color: #777; /* Cor de fundo dos botões ao passar o mouse */
-        }
+footer {
+    background-color: #424242;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 140px;
+}
 
-        /* Adiciona espaço para o tituloMusica e o player */
-        #tituloMusica {
-            margin-top: -32px; /* Espaço para o controle */
-        }
+/* botão tema */
+#fixedButton {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 5px 10px;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        audioPlayer {
-            margin-top: -22px; /* Espaço adicional para o player */
-        }
+/* controles */
+.control-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: -20px;
+}
 
+.control-box button {
+    background: #555;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.control-box button:hover {
+    background: #777;
+}
+
+#tituloMusica {
+    margin-top: 5px;
+}
+
+/* light mode */
+.light-mode {
+    background-color: #fff;
+    color: #333;
+}
