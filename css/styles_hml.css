@@ -5,15 +5,27 @@ body {
     color: #c7c7c7;
 }
 
-audio {
-    width: 300px;
-    margin: 20px;
+/* HEADER */
+header {
+    background-color: #424242;
+    padding: 10px;
+    text-align: center;
 }
 
+/* MAIN */
+main {
+    padding: 40px;
+    padding-bottom: 200px; /* 🔥 evita sobreposição com footer */
+}
+
+/* RESULTADOS */
 ul {
     list-style: none;
     padding: 0;
     text-align: center;
+    max-height: 250px; /* 🔥 limite visual */
+    overflow-y: auto; /* 🔥 scroll interno */
+    margin-top: 20px;
 }
 
 li {
@@ -29,16 +41,7 @@ a:hover {
     color: #c7c7c7;
 }
 
-header {
-    background-color: #424242;
-    padding: 10px;
-    text-align: center;
-}
-
-main {
-    padding: 40px;
-}
-
+/* FOOTER FIXO */
 footer {
     background-color: #424242;
     text-align: center;
@@ -48,7 +51,47 @@ footer {
     height: 140px;
 }
 
-/* botão tema */
+/* 🔥 CAIXA DOS BOTÕES (igual seu original) */
+.control-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #424242;
+    border-radius: 10px;
+    width: 280px;
+    position: relative;
+    bottom: 50px; /* 🔥 sobe a caixa */
+}
+
+/* BOTÕES */
+.control-box button {
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.control-box button:hover {
+    background-color: #777;
+}
+
+/* TÍTULO */
+#tituloMusica {
+    margin-top: -30px;
+}
+
+/* PLAYER */
+audio {
+    width: 90%;
+    max-width: 300px;
+}
+
+/* BOTÃO FIXO */
 #fixedButton {
     position: fixed;
     top: 0;
@@ -59,32 +102,7 @@ footer {
     cursor: pointer;
 }
 
-/* controles */
-.control-box {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: -20px;
-}
-
-.control-box button {
-    background: #555;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.control-box button:hover {
-    background: #777;
-}
-
-#tituloMusica {
-    margin-top: 5px;
-}
-
-/* light mode */
+/* LIGHT MODE */
 .light-mode {
     background-color: #fff;
     color: #333;
