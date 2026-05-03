@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> Orbit Player </title>
+    <title>Orbit Player</title>
     <link rel="icon" href="img/orbit_ico_blue.png">
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="UTF-8">
@@ -11,58 +11,46 @@
 
 <body>
 
-    <header>
-        <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player"></a></p>
+<header>
+    <p>
+        <a href="start.html">
+            <img src="img/orbit_white.png" width="140" height="50">
+        </a>
+    </p>
 
-        <p>
-            <a href="explore.html"> Explore </a> •
-            <a href="news.html"> Updates </a>
-        </p>
+    <p>
+        <a href="explore.html">Explore</a> •
+        <a href="news.html">Updates</a>
+    </p>
+</header>
 
-        <!-- Botão fixo Switch Theme -->
-        <button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+<main>
+    <p align="center">
+        <input type="text" id="search" onkeyup="search()" placeholder="Search music...">
+    </p>
 
-    </header>
+    <ul id="results"></ul>
+</main>
 
-    <main>
-        <article>
+<footer>
 
-            <p align="center">
-                <input type="text" id="search" onkeyup="search()" placeholder="Search music..." width="300" height="40">
-            </p>
+    <div class="control-box">
+        <button id="repeatButton">Repeat Off</button>
+        <button onclick="prevSong()">Prev</button>
+        <button onclick="skipSong()">Skip</button>
+    </div>
 
-            <ul align="center" id="results"></ul>
+    <p id="tituloMusica"></p>
 
-            <article>
+    <audio id="audioPlayer" controls preload="auto" playsinline webkit-playsinline>
+        <source id="audioSource" src="" type="audio/mp3">
+    </audio>
 
-            </article>
+</footer>
 
-            <aside>
-            </aside>
-    </main>
-
-    <footer>
-	
-	<div class="control-box">
-        	<button id="repeatButton">Repeat Off</button>
-       		<button id="prevButton" onclick="prevSong()">Prev</button>
-        	<button id="skipButton" onclick="skipSong()">Skip</button>
-	</div>
-    
-    <p align="center" id="tituloMusica"></p>
-    
-            <p align="center">
-                <audio id="audioPlayer" controls>
-                    <source id="audioSource" src="" type="audio/mp3">
-                    Seu navegador não suporta a tag de áudio.
-                </audio>
-            </p>
-
-    </footer>
-
-            <script>
-                var data = [
-                    {title: "30 seconds to mars - From Yesterday", url: "music/rock/30 seconds to mars - From Yesterday.mp3"},
+<script>
+var data = [
+{title: "30 seconds to mars - From Yesterday", url: "music/rock/30 seconds to mars - From Yesterday.mp3"},
 {title: "3030 - Alma De Cigana", url: "music/rap/3030 - Alma De Cigana.mp3"},
 {title: "3030 - Brilho Na Alma", url: "music/rap/3030 - Brilho Na Alma.mp3"},
 {title: "3030 - Fé", url: "music/rap/3030 - Fé.mp3"},
@@ -633,17 +621,13 @@
 {title: "los del fuego - juravas tu", url: "music/latin/los del fuego - juravas tu.mp3"},
 {title: "jao - vsf", url: "music/pop/jao - vsf.mp3"},
 {title: "sting - shape of my heart", url: "music/rock/sting - shape of my heart.mp3"},
-                ];
-
+{title: "3030 - longe dos caretas", url: "music/rap/3030 - longe dos caretas.mp3"},
+{title: "3030 - minha ou nao", url: "music/rap/3030 - minha ou nao.mp3"},
+{title: "3030 - melhores decisoes", url: "music/rap/3030 - melhores decisoes.mp3"}
+];
 </script>
+
 <script src="js/script.js"></script>
-    
+
 </body>
 </html>
-
-
-
-
-
-
-
