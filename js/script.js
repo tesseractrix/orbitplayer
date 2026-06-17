@@ -147,6 +147,21 @@ audioPlayer.addEventListener('ended', () => {
     }
 });
 
+audioPlayer.addEventListener('timeupdate', () => {
+    if (!audioPlayer.duration) return;
+
+    let remaining = audioPlayer.duration - audioPlayer.currentTime;
+
+    if (remaining <= 0.3) {
+        if (isRepeat) {
+            audioPlayer.currentTime = 0;
+            audioPlayer.play();
+        } else {
+            playRandom();
+        }
+    }
+});
+
 // ================= MEDIA SESSION =================
 if ('mediaSession' in navigator) {
     navigator.mediaSession.setActionHandler('nexttrack', skipSong);
