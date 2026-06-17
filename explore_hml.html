@@ -3,17 +3,13 @@
 
 <head>
   <title>Orbit Player - Explore</title>
-  img/orbit_ico_blue.png
-  /styles.css">
+  <link rel="icon" href="img/orbit_ico_blue.png">
+  <link rel="stylesheet" href="css/styles.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
     h2 {
       padding-left: 12px;
       margin-top: 20px;
@@ -38,7 +34,7 @@
 
     /* ===== CARD ===== */
     .card {
-      flex: 0 0 75%; /* mobile: 1 por vez */
+      flex: 0 0 75%;
       scroll-snap-align: start;
 
       border-radius: 14px;
@@ -53,7 +49,6 @@
       height: 180px;
       object-fit: cover;
       border-radius: 14px;
-
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
@@ -80,7 +75,6 @@
       pointer-events: none;
     }
   </style>
-
 </head>
 
 <body>
@@ -88,7 +82,7 @@
 <header>
   <p>
     <a href="start.html">
-      img/orbit_white.png
+      <img src="img/orbit_white.png" width="140" height="50">
     </a>
   </p>
 
@@ -105,29 +99,15 @@
 
   <div class="carousel">
 
-    playlist_call-the-boss.html
-      70.jpg">
-      <p>Call The Boss</p>
+    <div class="card" onclick="locationick="    <p>High Trip</p>
     </div>
 
-    playlist_high-trip.html
-      img/high_trip_70.jpg
-      <p>High Trip</p>
+    <div class="card" onclick="location.href='playlist_rock</p>
     </div>
 
-    playlist_rock-wins.html
-      img/rock_wins_70.jpg
-      <p>Rock Wins</p>
-    </div>
+    <div class="card" onclick="location.href='playlist_rio-night.html/div>
 
-    playlist_rio-night.html
-      img/rio_night_70.jpg
-      <p>Rio Night</p>
-    </div>
-
-    playlist_3030-vibes.html
-      img/3030_vibes.jpg
-      <p>3030 Vibes</p>
+    <div class="card" onclick="location.href='playlist_303/p>
     </div>
 
   </div>
@@ -137,19 +117,17 @@
 
   <div class="carousel">
 
-    meditation.html
-      img/meditation_70.jpg
+    <div class.html
+      <img src="img/meditation_70.jpg">
       <p>Meditation</p>
     </div>
 
     <div class="card disabled">
-      img/philosophy_70.jpg
+      <img src="img/philosophy_70.jpg">
       <p>Coming Soon</p>
     </div>
 
-    motivation.html
-      <img src="img/motivation.jpg">
-      <p>Motivation</p>
+    <div class="card"     <p>Motivation</p>
     </div>
 
   </div>
@@ -157,7 +135,6 @@
 </main>
 
 <script>
-  // bloqueio botão direito (opcional)
   document.addEventListener('contextmenu', e => e.preventDefault());
 </script>
 
