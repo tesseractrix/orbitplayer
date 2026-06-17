@@ -594,7 +594,7 @@
 {"title": "moony - i dont know why", "url": "music/electro/moony - i dont know why.mp3"},
 {"title": "the chainsmokers - dont let me down", "url": "music/electro/the chainsmokers - dont let me down.mp3"},
 {"title": "the chainsmokers - roses", "url": "music/electro/the chainsmokers - roses.mp3"},
-{"title": "kristian fabrizio - Brazil", "url": "music/electro/kristian fabrizio - brazil.mp3"},
+{"title": "kristian fabrizio - brazil", "url": "music/electro/kristian fabrizio - brazil.mp3"},
 {"title": "tainy, bad bunny, julieta venegas - lo siento bb", "url": "music/latin/tainy, bad bunny, julieta venegas - lo siento bb.mp3"},
 {"title": "ivete sangalo, melim - um sinal", "url": "music/pop/ivete sangalo, melim - um sinal.mp3"}
 ]
