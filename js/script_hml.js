@@ -17,19 +17,24 @@ document.getElementById('repeatButton').addEventListener('click', function () {
     this.textContent = isRepeat ? 'Repeat On' : 'Repeat Off';
 });
 
-// ================= LISTA =================
-data.forEach((track, i) => {
-    let li = document.createElement("li");
-    let a = document.createElement("a");
+// ================= RENDER LISTA =================
+function renderList() {
+    ul.innerHTML = "";
 
-    a.href = "#";
-    a.textContent = track.title;
-    a.onclick = () => changeAudioSource(i);
+    data.forEach((track, i) => {
+        let li = document.createElement("li");
+        let a = document.createElement("a");
 
-    li.appendChild(a);
-    ul.appendChild(li);
-    li.style.display = "none";
-});
+        a.href = "#";
+        a.textContent = track.title;
+        a.onclick = () => changeAudioSource(i);
+
+        li.appendChild(a);
+        ul.appendChild(li);
+
+        li.style.display = "none";
+    });
+}
 
 // ================= TROCAR MÚSICA =================
 function changeAudioSource(index) {
@@ -99,6 +104,8 @@ function getRandomTrack() {
 }
 
 function playRandom() {
+    if (data.length === 0) return;
+
     let track = getRandomTrack();
 
     audioSource.src = track.url;
@@ -160,6 +167,3 @@ if ('mediaSession' in navigator) {
     navigator.mediaSession.setActionHandler('nexttrack', skipSong);
     navigator.mediaSession.setActionHandler('previoustrack', prevSong);
 }
-
-// ================= START =================
-playRandom();
