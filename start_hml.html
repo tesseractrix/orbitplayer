@@ -57,10 +57,8 @@ fetch('music_map.txt')
     data = json;
     console.log("Músicas carregadas:", data);
 
-    // caso sua lista dependa disso
-    if (typeof search === "function") {
-        search();
-    }
+    renderList();   // monta a lista
+    playRandom();   // inicia player
   })
   .catch(error => console.error("Erro:", error));
 </script>
