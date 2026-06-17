@@ -2,155 +2,163 @@
 <html lang="en">
 
 <head>
-    <title> Explore </title>
-    <link rel="icon" href="img/orbit_ico_blue.png">
-    <link rel="stylesheet" href="css/styles.css">
+  <title>Orbit Player - Explore</title>
+  img/orbit_ico_blue.png
+  /styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
-    <style>
-        /* CONTAINER */
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
-        }
+    h2 {
+      padding-left: 12px;
+      margin-top: 20px;
+      font-size: 18px;
+    }
 
-        /* IMAGENS */
-        .image {
-            flex-shrink: 0;
-            margin: 5px;
-            width: 60px;
-            height: 60px;
-            filter: grayscale(100%);
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
+    /* ===== CARROSSEL ===== */
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 12px;
+      padding: 10px;
 
-        .image:hover {
-            transform: scale(1.1);
-            filter: grayscale(0%);
-        }
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
 
-        /* RESPONSIVO */
-        @media (max-width: 768px) {
-            .image {
-                width: 50px;
-                height: 50px;
-            }
-        }
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
 
-        @media (max-width: 480px) {
-            .image {
-                width: 40px;
-                height: 40px;
-            }
-        }
-    </style>
+    /* ===== CARD ===== */
+    .card {
+      flex: 0 0 75%; /* mobile: 1 por vez */
+      scroll-snap-align: start;
+
+      border-radius: 14px;
+      overflow: hidden;
+
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 14px;
+
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .card p {
+      margin-top: 6px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .card:active {
+      transform: scale(0.97);
+    }
+
+    /* ===== DESKTOP ===== */
+    @media (min-width: 768px) {
+      .card {
+        flex: 0 0 200px;
+      }
+    }
+
+    /* ===== DESATIVADOS ===== */
+    .disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+  </style>
+
 </head>
 
 <body>
 
 <header>
-    <p>
-        <a href="start.html">
-            <img src="img/orbit_white.png" width="140" height="50">
-        </a>
-    </p>
+  <p>
+    <a href="start.html">
+      img/orbit_white.png
+    </a>
+  </p>
 
-    <p>
-        <a href="index.html"> Home </a> • 
-        <a href="news.html"> Updates </a>
-    </p>
-
-    <button id="fixedButton" onclick="toggleDarkMode()">Switch Theme</button>
+  <p>
+    <a href="index.html">Home</a> • 
+    <a href="news.html">Updates</a>
+  </p>
 </header>
 
 <main>
-    <article>
 
-        <p align="center">Playlists</p>
-        <div class="image-container" id="playlists"></div>
+  <!-- ===== PLAYLISTS ===== -->
+  <h2>🎧 Playlists</h2>
 
-        <br>
+  <div class="carousel">
 
-        <p align="center">Podcasts</p>
-        <div class="image-container" id="podcasts"></div>
+    playlist_call-the-boss.html
+      70.jpg">
+      <p>Call The Boss</p>
+    </div>
 
-    </article>
+    playlist_high-trip.html
+      img/high_trip_70.jpg
+      <p>High Trip</p>
+    </div>
 
-    <aside></aside>
+    playlist_rock-wins.html
+      img/rock_wins_70.jpg
+      <p>Rock Wins</p>
+    </div>
+
+    playlist_rio-night.html
+      img/rio_night_70.jpg
+      <p>Rio Night</p>
+    </div>
+
+    playlist_3030-vibes.html
+      img/3030_vibes.jpg
+      <p>3030 Vibes</p>
+    </div>
+
+  </div>
+
+  <!-- ===== PODCASTS ===== -->
+  <h2>🎙️ Podcasts</h2>
+
+  <div class="carousel">
+
+    meditation.html
+      img/meditation_70.jpg
+      <p>Meditation</p>
+    </div>
+
+    <div class="card disabled">
+      img/philosophy_70.jpg
+      <p>Coming Soon</p>
+    </div>
+
+    motivation.html
+      <img src="img/motivation.jpg">
+      <p>Motivation</p>
+    </div>
+
+  </div>
+
 </main>
 
-<!-- ================= SCRIPT ================= -->
-
 <script>
-// ================= DATA =================
-
-// PLAYLISTS
-const playlists = [
-    {href: "playlist_call-the-boss.html", img: "img/call_the_boss_70.jpg", title: "Call The Boss"},
-    {href: "playlist_high-trip.html", img: "img/high_trip_70.jpg", title: "High Trip"},
-    {href: "playlist_rock-wins.html", img: "img/rock_wins_70.jpg", title: "Rock Wins"},
-    {href: "playlist_rio-night.html", img: "img/rio_night_70.jpg", title: "Rio Night"},
-    {href: "playlist_3030-vibes.html", img: "img/3030_vibes.jpg", title: "3030 Vibes"},
-    {href: "playlist_serenitas-divinae.html", img: "img/serenitas_divinae_70.jpg", title: "Serenitas Divinae"},
-    {href: "playlist_cigarettes-after-sex.html", img: "img/cigarettesaftersex_70.jpg", title: "Cigarettes After Sex"},
-    {href: "playlist_bassline-euphoria.html", img: "img/bassline_euphoria.jpg", title: "Bassline Euphoria"},
-    {href: "playlist_celin.html", img: "img/celin24h_70.jpg", title: "Celin"},
-    {href: "playlist_old-but-gold.html", img: "img/old_but_gold_70.jpg", title: "Old but gold"},
-    {href: "playlist_fuego-latino.html", img: "img/fuego_latino_70.jpg", title: "Fuego Latino"},
-    {href: "playlist_ambient.html", img: "img/ambient_music_70.jpg", title: "Ambient Music"}
-];
-
-// PODCASTS
-const podcasts = [
-    {href: "meditation.html", img: "img/meditation_70.jpg", title: "Meditation"},
-    {href: "philosophy.html", img: "img/philosophy_70.jpg", title: "Unavailable"},
-    {href: "#", img: "img/politics_70.jpg", title: "Unavailable"},
-    {href: "motivation.html", img: "img/motivation.jpg", title: "Motivation"},
-    {href: "#", img: "img/soon_70.jpg", title: "Coming Soon"}
-];
-
-// ================= RENDER =================
-
-function render(containerId, dataArray) {
-    const container = document.getElementById(containerId);
-
-    dataArray.forEach(item => {
-        const a = document.createElement("a");
-        a.href = item.href;
-
-        const img = document.createElement("img");
-        img.className = "image";
-        img.src = item.img;
-
-        // 🔥 OTIMIZAÇÃO
-        img.loading = "lazy";
-        img.decoding = "async";
-
-        img.alt = item.title;
-        img.title = item.title;
-
-        a.appendChild(img);
-        container.appendChild(a);
-    });
-}
-
-// renderiza
-render("playlists", playlists);
-render("podcasts", podcasts);
-
-// ================= THEME =================
-function toggleDarkMode() {
-    document.body.classList.toggle('light-mode');
-}
-
-// ================= BLOQUEIO CLICK =================
-document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-});
+  // bloqueio botão direito (opcional)
+  document.addEventListener('contextmenu', e => e.preventDefault());
 </script>
 
 </body>
