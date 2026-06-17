@@ -1,3 +1,4 @@
+[
 {title: "30 seconds to mars - From Yesterday", url: "music/rock/30 seconds to mars - From Yesterday.mp3"},
 {title: "3030 - Alma De Cigana", url: "music/rap/3030 - Alma De Cigana.mp3"},
 {title: "3030 - Brilho Na Alma", url: "music/rap/3030 - Brilho Na Alma.mp3"},
@@ -596,3 +597,4 @@
 {title: "kristian fabrizio - Brazil", url: "music/electro/kristian fabrizio - brazil.mp3"},
 {title: "tainy, bad bunny, julieta venegas - lo siento bb", url: "music/latin/tainy, bad bunny, julieta venegas - lo siento bb.mp3"},
 {title: "ivete sangalo, melim - um sinal", url: "music/pop/ivete sangalo, melim - um sinal.mp3"}
+]
