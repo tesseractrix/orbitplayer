@@ -16,13 +16,11 @@
       font-size: 18px;
     }
 
-    /* ===== CARROSSEL ===== */
     .carousel {
       display: flex;
       overflow-x: auto;
       gap: 12px;
       padding: 10px;
-
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
@@ -32,15 +30,12 @@
       display: none;
     }
 
-    /* ===== CARD ===== */
     .card {
       flex: 0 0 75%;
       scroll-snap-align: start;
-
       border-radius: 14px;
       overflow: hidden;
       cursor: pointer;
-
       transition: transform 0.2s ease;
     }
 
@@ -49,7 +44,6 @@
       height: 180px;
       object-fit: cover;
       border-radius: 14px;
-
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
@@ -63,14 +57,12 @@
       transform: scale(0.97);
     }
 
-    /* ===== DESKTOP ===== */
     @media (min-width: 768px) {
       .card {
         flex: 0 0 200px;
       }
     }
 
-    /* ===== DESATIVADOS ===== */
     .disabled {
       opacity: 0.4;
       pointer-events: none;
@@ -96,33 +88,31 @@
 
 <main>
 
-  <!-- ===== PLAYLISTS ===== -->
+  <!-- PLAYLISTS -->
   <h2>🎧 Playlists</h2>
 
   <div class="carousel">
 
-    <div class="card" onclick="locationcard" onclick="location.href='playlist_high-tripiv>
-
-    <div class="card" onclick="location.href='playlist_ns_70.jpg" alt="Rock Wins">
-      <p>Rock Wins</p>
+    <div class="card" onclick="location.href='playlist_call-the-boss.html'ist_high-trip.html</p>
     </div>
 
-    <div class="card" onclick="location.href='playlistht</p>
+    <div class="card" onclick="location.href='playlist_rock-wins.html'ins</p>
     </div>
 
-    <div class="card" onclick="location.href='playlist_3030-vibes.html      <p>3030 Vibes</p>
+    <div class="card" onclick="location.href='playlist_rio-night.htmlight</p>
+    </div>
+
+    <div class="card" onclick="location.href='playlist_3030-vibes.html'bes</p>
     </div>
 
   </div>
 
-  <!-- ===== PODCASTS ===== -->
+  <!-- PODCASTS -->
   <h2>🎙️ Podcasts</h2>
 
   <div class="carousel">
 
-    <editation.html
-      <img src="img/meditation_70.jpg" alt="Meditation">
-      <p>Meditation</p>
+    <div class="card" onclick="location.href='meditation.html'ation</p>
     </div>
 
     <div class="card disabled">
@@ -130,15 +120,9 @@
       <p>Coming Soon</p>
     </div>
 
-    <div class="card" onclick="ion</p>
-    </div>
-
-  </div>
-
-</main>
+    <div class="card" onclick="location.href='motivation.html</main>
 
 <script>
-  // bloqueio botão direito (opcional)
   document.addEventListener('contextmenu', e => e.preventDefault());
 </script>
 
