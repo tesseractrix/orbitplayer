@@ -597,5 +597,8 @@
 {"title": "kristian fabrizio - brazil", "url": "music/pop/kristian fabrizio - brazil.mp3"},
 {"title": "tainy, bad bunny, julieta venegas - lo siento bb", "url": "music/latin/tainy, bad bunny, julieta venegas - lo siento bb.mp3"},
 {"title": "ivete sangalo, melim - um sinal", "url": "music/pop/ivete sangalo, melim - um sinal.mp3"},
-{"title": "blessd, anuel aa, kris r, luar la l - yogurcito remix", "url": "music/latin/blessd, anuel aa, kris r, luar la l - yogurcito remix.mp3"}
+{"title": "blessd, anuel aa, kris r, luar la l - yogurcito remix", "url": "music/latin/blessd, anuel aa, kris r, luar la l - yogurcito remix.mp3"},
+{"title": "filipe ret - paradoxo mitico", "url": "music/rap/filipe ret - paradoxo mitico.mp3"},
+{"title": "jao - supernova", "url": "music/pop/jao - supernova.mp3"},
+{"title": "whereismyface - come n go", "url": "music/electro/whereismyface - come n go.mp3"}
 ]
