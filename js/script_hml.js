@@ -4,7 +4,6 @@ document.addEventListener('contextmenu', e => e.preventDefault());
 // ================= ELEMENTOS =================
 var ul = document.getElementById("results");
 var audioPlayer = document.getElementById('audioPlayer');
-var audioSource = document.getElementById('audioSource');
 
 // ================= CONTROLE =================
 var isRepeat = false;
@@ -38,7 +37,8 @@ function renderList() {
 
 // ================= TROCAR MÚSICA =================
 function changeAudioSource(index) {
-    audioSource.src = data[index].url;
+
+    audioPlayer.src = data[index].url;
     audioPlayer.load();
 
     audioPlayer.play().catch(e => {
@@ -95,24 +95,31 @@ function getRandomTrack() {
 
     do {
         index = Math.floor(Math.random() * data.length);
-    } while (recentTracks.includes(index));
+    } while (recentTracks.includes(index) && recentTracks.length < data.length);
 
     recentTracks.push(index);
-    if (recentTracks.length > 3) recentTracks.shift();
+
+    if (recentTracks.length > 3) {
+        recentTracks.shift();
+    }
 
     return data[index];
 }
 
 function playRandom() {
-    if (data.length === 0) return;
+
+    if (!data || data.length === 0) {
+        console.log("Nenhuma música carregada.");
+        return;
+    }
 
     let track = getRandomTrack();
 
-    audioSource.src = track.url;
+    audioPlayer.src = track.url;
     audioPlayer.load();
 
-    audioPlayer.play().catch(() => {
-        console.log("Aguardando interação...");
+    audioPlayer.play().catch(error => {
+        console.log("Erro ao reproduzir:", error);
     });
 
     displayCurrentSongTitle(track.title);
@@ -125,13 +132,19 @@ function skipSong() {
 }
 
 function prevSong() {
+
     if (playedTracks.length > 1) {
+
         playedTracks.pop();
+
         let prev = playedTracks[playedTracks.length - 1];
 
-        audioSource.src = prev.url;
+        audioPlayer.src = prev.url;
         audioPlayer.load();
-        audioPlayer.play();
+
+        audioPlayer.play().catch(error => {
+            console.log("Erro ao reproduzir:", error);
+        });
 
         displayCurrentSongTitle(prev.title);
     }
@@ -139,31 +152,53 @@ function prevSong() {
 
 // ================= EVENTOS =================
 audioPlayer.addEventListener('ended', () => {
+
     if (isRepeat) {
+
         audioPlayer.currentTime = 0;
-        audioPlayer.play();
+
+        audioPlayer.play().catch(error => {
+            console.log(error);
+        });
+
     } else {
+
         setTimeout(playRandom, 300);
+
     }
+
 });
 
 audioPlayer.addEventListener('timeupdate', () => {
+
     if (!audioPlayer.duration) return;
 
     let remaining = audioPlayer.duration - audioPlayer.currentTime;
 
     if (remaining <= 0.3) {
+
         if (isRepeat) {
+
             audioPlayer.currentTime = 0;
-            audioPlayer.play();
+
+            audioPlayer.play().catch(error => {
+                console.log(error);
+            });
+
         } else {
+
             playRandom();
+
         }
+
     }
+
 });
 
 // ================= MEDIA SESSION =================
 if ('mediaSession' in navigator) {
+
     navigator.mediaSession.setActionHandler('nexttrack', skipSong);
     navigator.mediaSession.setActionHandler('previoustrack', prevSong);
+
 }
