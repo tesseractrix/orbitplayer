@@ -23,7 +23,7 @@ window.login = async function () {
 
     } catch (erro) {
 
-        console.error(erro);
+        console.error("Erro de login:", erro);
         alert("Email ou senha inválidos");
 
     }
@@ -31,32 +31,7 @@ window.login = async function () {
 };
 
 /*
- * Carrega músicas somente após autenticação
- */
-function carregarPlayer() {
-
-    fetch("music_map.txt")
-        .then(response => response.json())
-        .then(json => {
-
-            window.data = json;
-
-            console.log("Músicas carregadas:", json);
-
-            renderList();
-            playRandom();
-
-        })
-        .catch(error => {
-
-            console.error("Erro ao carregar músicas:", error);
-
-        });
-
-}
-
-/*
- * Verifica login
+ * Controle de acesso
  */
 onAuthStateChanged(auth, (user) => {
 
@@ -67,8 +42,6 @@ onAuthStateChanged(auth, (user) => {
 
         loginArea.style.display = "none";
         playerArea.style.display = "block";
-
-        carregarPlayer();
 
     } else {
 
