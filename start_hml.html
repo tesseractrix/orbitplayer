@@ -39,63 +39,57 @@
 
     </div>
 
-    <!-- PLAYER -->
+<header>
+    <p>
+        <a href="start.html">
+            <img src="img/orbit_white.png" width="140" height="50">
+        </a>
+    </p>
 
-    <div id="player-area" style="display:none;">
+    <p>
+        <a href="explore.html">Explore</a> •
+        <a href="news.html">Updates</a>
+    </p>
+</header>
 
-        <header>
+<main>
+    <p align="center">
+        <input type="text" id="search" onkeyup="search()" placeholder="Search music...">
+    </p>
 
-            <p>
-                <a href="start.html">
-                    .png" width="140" height="50" alt="Orbit Player">
-                </a>
-            </p>
+    <ul id="results"></ul>
+</main>
 
-            <p>
-                <a href="explore.html">Explore</a> •
-                <a href="news.html">Updates</a>
-            </p>
+<footer>
 
-        </header>
-
-        <main>
-
-            <p align="center">
-                <input
-                    type="text"
-                    id="search"
-                    onkeyup="search()"
-                    placeholder="Search music...">
-            </p>
-
-            <ul id="results"></ul>
-
-        </main>
-
-        <footer>
-
-            <div class="control-box">
-                <button id="repeatButton">Repeat Off</button>
-                <button onclick="prevSong()">Prev</button>
-                <button onclick="skipSong()">Skip</button>
-            </div>
-
-            <p id="tituloMusica"></p>
-
-            <audio
-                id="audioPlayer"
-                controls
-                preload="auto"
-                playsinline
-                webkit-playsinline>
-
-                
-
-            </audio>
-
-        </footer>
-
+    <div class="control-box">
+        <button id="repeatButton">Repeat Off</button>
+        <button onclick="prevSong()">Prev</button>
+        <button onclick="skipSong()">Skip</button>
     </div>
+
+    <p id="tituloMusica"></p>
+
+    <audio id="audioPlayer" controls preload="auto" playsinline webkit-playsinline>
+        <source id="audioSource" src="" type="audio/mp3">
+    </audio>
+
+</footer>
+
+<script>
+var data = [];
+
+fetch('music_map.txt')
+  .then(response => response.json())
+  .then(json => {
+    data = json;
+    console.log("Músicas carregadas:", data);
+
+    renderList();   // monta a lista
+    playRandom();   // inicia player
+  })
+  .catch(error => console.error("Erro:", error));
+</script>
 
     <!-- SCRIPT DO PLAYER -->
     <script src="js/script_hml.js"></script>
@@ -104,5 +98,4 @@
     <script type="module" src="js/login.js"></script>
 
 </body>
-
 </html>
