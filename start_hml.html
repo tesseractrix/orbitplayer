@@ -12,12 +12,10 @@
 <body>
 
     <!-- LOGIN -->
-
     <div id="login-area">
 
         <p align="center">
-            <img src="img/orbit_white.png" width="140" height="50" alt="Orbit Player">
-        </p>
+            <img src="img/orbit_white.png/p>
 
         <p align="center">
             <input
@@ -39,57 +37,76 @@
 
     </div>
 
-<header>
-    <p>
-        <a href="start.html">
-            <img src="img/orbit_white.png" width="140" height="50">
-        </a>
-    </p>
+    <!-- PLAYER -->
+    <div id="player-area" style="display:none;">
 
-    <p>
-        <a href="explore.html">Explore</a> •
-        <a href="news.html">Updates</a>
-    </p>
-</header>
+        <header>
+            <p>
+                <a href="start.html">
+                    img/orbit_white.png
+                </a>
+            </p>
 
-<main>
-    <p align="center">
-        <input type="text" id="search" onkeyup="search()" placeholder="Search music...">
-    </p>
+            <p>
+                <a href="explore.html">Explore</a> •
+                <a href="news.html">Updates</a>
+            </p>
+        </header>
 
-    <ul id="results"></ul>
-</main>
+        <main>
 
-<footer>
+            <p align="center">
+                <input
+                    type="text"
+                    id="search"
+                    onkeyup="search()"
+                    placeholder="Search music...">
+            </p>
 
-    <div class="control-box">
-        <button id="repeatButton">Repeat Off</button>
-        <button onclick="prevSong()">Prev</button>
-        <button onclick="skipSong()">Skip</button>
+            <ul id="results"></ul>
+
+        </main>
+
+        <footer>
+
+            <div class="control-box">
+                <button id="repeatButton">Repeat Off</button>
+                <button onclick="prevSong()">Prev</button>
+                <button onclick="skipSong()">Skip</button>
+            </div>
+
+            <p id="tituloMusica"></p>
+
+            <audio
+                id="audioPlayer"
+                controls
+                preload="auto"
+                playsinline
+                webkit-playsinline>
+
+            </audio>
+
+        </footer>
+
     </div>
 
-    <p id="tituloMusica"></p>
+    <script>
+        var data = [];
 
-    <audio id="audioPlayer" controls preload="auto" playsinline webkit-playsinline>
-        <source id="audioSource" src="" type="audio/mp3">
-    </audio>
+        fetch('music_map.txt')
+            .then(response => response.json())
+            .then(json => {
 
-</footer>
+                data = json;
 
-<script>
-var data = [];
+                console.log("Músicas carregadas:", data);
 
-fetch('music_map.txt')
-  .then(response => response.json())
-  .then(json => {
-    data = json;
-    console.log("Músicas carregadas:", data);
+                renderList();
+                playRandom();
 
-    renderList();   // monta a lista
-    playRandom();   // inicia player
-  })
-  .catch(error => console.error("Erro:", error));
-</script>
+            })
+            .catch(error => console.error("Erro:", error));
+    </script>
 
     <!-- SCRIPT DO PLAYER -->
     <script src="js/script_hml.js"></script>
