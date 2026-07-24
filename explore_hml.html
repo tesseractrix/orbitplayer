@@ -2,129 +2,233 @@
 <html lang="en">
 
 <head>
-  <title>Orbit Player - Explore</title>
-  <link rel="icon" href="img/orbit_ico_blue.png">
-  <link rel="stylesheet" href="css/styles.css">
+    <title>Orbit Player - Explore</title>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    img/orbit_ico_blue.png
+    <ss/styles.css
 
-  <style>
-    h2 {
-      padding-left: 12px;
-      margin-top: 20px;
-      font-size: 18px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 12px;
-      padding: 10px;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-    }
+    <style>
+        .image-container {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
 
-    .carousel::-webkit-scrollbar {
-      display: none;
-    }
+        .image-container::-webkit-scrollbar {
+            display: none;
+        }
 
-    .card {
-      flex: 0 0 75%;
-      scroll-snap-align: start;
-      border-radius: 14px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
+        .image {
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            margin: 5px;
+            width: 60px;
+            height: 60px;
+            filter: grayscale(100%);
+        }
 
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
+        .image:hover {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
 
-    .card p {
-      margin-top: 6px;
-      font-size: 14px;
-      text-align: center;
-    }
+        .section-title {
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+        }
 
-    .card:active {
-      transform: scale(0.97);
-    }
+        @media (max-width: 768px) {
+            .image {
+                width: 50px;
+                height: 50px;
+            }
+        }
 
-    @media (min-width: 768px) {
-      .card {
-        flex: 0 0 200px;
-      }
-    }
-
-    .disabled {
-      opacity: 0.4;
-      pointer-events: none;
-    }
-  </style>
-
+        @media (max-width: 480px) {
+            .image {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-  <p>
-    <a href="start.html">
-      <img src="img/orbit_white.png" width="140" height="50" alt="Orbit Player">
-    </a>
-  </p>
+    <p>
+        <a href="start.html">
+            "
+                 width="140"
+                 height="50"
+                 title="Orbit Player"
+                 alt="Orbit Player">
+        </a>
+    </p>
 
-  <p>
-    <a href="index.html">Home</a> • 
-    <a href="news.html">Updates</a>
-  </p>
+    <p>
+        <a href="index.html">Home</a> •
+        <a href="news.html">Updates</a>
+    </p>
 </header>
 
 <main>
+    <article>
 
-  <!-- PLAYLISTS -->
-  <h2>🎧 Playlists</h2>
+        <p class="section-title">Playlists</p>
 
-  <div class="carousel">
+        <div class="image-container">
 
-    <div class="card" onclick="location.href='playlist_call-the-boss.html'ist_high-trip.html</p>
-    </div>
+            playlist_call-the-boss.html
+                img/call_the_boss_70.jpg
+            </a>
 
-    <div class="card" onclick="location.href='playlist_rock-wins.html'ins</p>
-    </div>
+            playlist_high-trip.html
+                img/high_trip_70.jpg
+            </a>
 
-    <div class="card" onclick="location.href='playlist_rio-night.htmlight</p>
-    </div>
+            playlist_rock-wins.html
+                img/rock_wins_70.jpg
+            </a>
 
-    <div class="card" onclick="location.href='playlist_3030-vibes.html'bes</p>
-    </div>
+            playlist_rio-night.html
+                img/rio_night_70.jpg
+            </a>
 
-  </div>
+            playlist_3030-vibes.html
+                <img class="image" src="img    </a>
 
-  <!-- PODCASTS -->
-  <h2>🎙️ Podcasts</h2>
+            playlist_serenitas-divinae.html
+                img/serenitas_divinae_70.jpge"
+                     alt="Serenitas Divinae">
+            </a>
 
-  <div class="carousel">
+            playlist_cigarettes-after-sex.html
+                img/cigarettesaftersex_70.jpg
+            </a>
 
-    <div class="card" onclick="location.href='meditation.html'ation</p>
-    </div>
+            playlist_bassline-euphoria.html">
+                <img class="imageoria.jpg
+            </a>
 
-    <div class="card disabled">
-      <img src="img/philosophy_70.jpg" alt="Coming Soon">
-      <p>Coming Soon</p>
-    </div>
+            playlist_celin.html
+                <img class="image"g
+            </a>
 
-    <div class="card" onclick="location.href='motivation.html</main>
+            playlist_old-but-gold.html
+                <img class="image" src="img/old_but_gold_70.jpg"
+                     title="Old But Gold"
+                                         title="Fuego Latino"
+                     alt="Fuego Latino">
+            </a>
+
+            playlist_ambient.html
+                img/ambient_music_70.jpg"
+                     title="Ambient Music"
+                     alt="Ambient Music">
+            </a>
+
+        </div>
+
+        <br>
+
+        <p class="section-title">Podcasts</p>
+
+        <div class="image-container">
+
+            .html">
+                _70.jpg"
+                     title="Meditation"
+                     alt="Meditation">
+            </a>
+
+            <img class="image"
+                 src="img/philosophy_70.jpg"
+                 title="Unavailable"
+                 alt="Philosophy">
+
+            <img classhtml">
+                img/motivation.jpg title="Motivation"
+                     alt="Motivation">
+            </a>
+
+            <img class="jpg
+
+        </div>
+
+    </article>
+
+    <aside></aside>
+</main>
 
 <script>
-  document.addEventListener('contextmenu', e => e.preventDefault());
+    function scrollToStart() {
+        document.querySelectorAll('.image-container').forEach(container => {
+            container.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    function scrollToEnd() {
+        document.querySelectorAll('.image-container').forEach(container => {
+            const maxScroll = container.scrollWidth - container.clientWidth;
+
+            container.scrollTo({
+                left: maxScroll,
+                behavior: 'smooth'
+            });
+        });
+    }
 </script>
+
+<script>
+    document.querySelectorAll('.image-container').forEach(container => {
+
+        container.addEventListener('mousemove', (e) => {
+
+            const containerWidth = container.clientWidth;
+            const scrollWidth = container.scrollWidth;
+
+            if (scrollWidth <= containerWidth) return;
+
+            const mouseX =
+                e.clientX - container.getBoundingClientRect().left;
+
+            const scrollAmount =
+                (mouseX / containerWidth) *
+                (scrollWidth - containerWidth);
+
+            container.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+    });
+</script>
+
+<script>
+    function toggleDarkMode() {
+        document.body.classList.toggle('light-mode');
+    }
+
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+</script>
+
+<script src="js/auth.js"></script>
 
 </body>
 </html>
