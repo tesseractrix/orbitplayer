@@ -3,8 +3,9 @@
 
 <head>
     <title>Orbit Player</title>
-    <linkrbit_ico_blue.png
-    <link rel="stylesheeteta charset="UTF-8">
+    <link rel="icon" href="img/orbit_ico_blue.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -15,7 +16,7 @@
     <div id="login-area">
 
         <p align="center">
-            bit_white.png" width="140" height="50">
+            _white.png" width="140" height="50" alt="Orbit Player">
         </p>
 
         <p align="center">
@@ -46,13 +47,13 @@
 
             <p>
                 <a href="start.html">
-                    _white.png" width="140" height="50">
+                    .png" width="140" height="50" alt="Orbit Player">
                 </a>
             </p>
 
             <p>
-                .html">Explore</a> •
-                ">Updates</a>
+                <a href="explore.html">Explore</a> •
+                <a href="news.html">Updates</a>
             </p>
 
         </header>
@@ -96,27 +97,8 @@
 
     </div>
 
-    <script>
-
-        var data = [];
-
-        fetch('music_map.txt')
-            .then(response => response.json())
-            .then(json => {
-
-                data = json;
-
-                console.log("Músicas carregadas:", data);
-
-                renderList();
-                playRandom();
-
-            })
-            .catch(error => console.error("Erro:", error));
-
-    </script>
-
-    js/script_hml.js>
+    <!-- SCRIPT DO PLAYER -->
+    js/script_hml.js
 
     <!-- LOGIN FIREBASE -->
     js/login.js
