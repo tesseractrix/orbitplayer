@@ -608,7 +608,7 @@
 {"title": "os baroes da pisadinha, ze felipe - senta danada", "url": "music/forro/os baroes da pisadinha, ze felipe - senta danada.mp3"},
 {"title": "os baroes da pisadinha - quem me colocou pra beber", "url": "music/forro/os baroes da pisadinha - quem me colocou pra beber.mp3"},
 {"title": "os baroes da pisadinha - basta voce me ligar", "url": "music/forro/os baroes da pisadinha - basta voce me ligar.mp3"},
-{"title": "os baroes da pisadinha - recairei.mp3", "url": "music/forro/os baroes da pisadinha - recairei.mp3.mp3"},
+{"title": "os baroes da pisadinha - recairei.mp3", "url": "music/forro/os baroes da pisadinha - recairei.mp3"},
 {"title": "os baroes da pisadinha - ta rocheda", "url": "music/forro/os baroes da pisadinha - ta rocheda.mp3"},
 {"title": "kvsh, breno rocha - sede pra te ver", "url": "music/electro/kvsh, breno rocha - sede pra te ver.mp3"}
 ]
