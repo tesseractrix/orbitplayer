@@ -11,59 +11,108 @@
 
 <body>
 
-<header>
-    <p>
-        <a href="start.html">
+    <!-- LOGIN -->
+    <div id="login-area">
+
+        <p align="center">
             <img src="img/orbit_white.png" width="140" height="50">
-        </a>
-    </p>
 
-    <p>
-        <a href="explore.html">Explore</a> •
-        <a href="news.html">Updates</a>
-    </p>
-</header>
+        <p align="center">
+            <input
+                type="email"
+                id="email"
+                placeholder="E-mail">
+        </p>
 
-<main>
-    <p align="center">
-        <input type="text" id="search" onkeyup="search()" placeholder="Search music...">
-    </p>
+        <p align="center">
+            <input
+                type="password"
+                id="senha"
+                placeholder="Senha">
+        </p>
 
-    <ul id="results"></ul>
-</main>
+        <p align="center">
+            <button onclick="login()">Entrar</button>
+        </p>
 
-<footer>
-
-    <div class="control-box">
-        <button id="repeatButton">Repeat Off</button>
-        <button onclick="prevSong()">Prev</button>
-        <button onclick="skipSong()">Skip</button>
     </div>
 
-    <p id="tituloMusica"></p>
+    <!-- PLAYER -->
+    <div id="player-area" style="display:none;">
 
-    <audio id="audioPlayer" controls preload="auto" playsinline webkit-playsinline>
-        <source id="audioSource" src="" type="audio/mp3">
-    </audio>
+        <header>
+            <p>
+                <a href="start.html">
+                    <img src="img/orbit_white.png" width="140" height="50">
+                </a>
+            </p>
 
-</footer>
+            <p>
+                <a href="explore.html">Explore</a> •
+                <a href="news.html">Updates</a>
+            </p>
+        </header>
 
-<script>
-var data = [];
+        <main>
 
-fetch('music_map.txt')
-  .then(response => response.json())
-  .then(json => {
-    data = json;
-    console.log("Músicas carregadas:", data);
+            <p align="center">
+                <input
+                    type="text"
+                    id="search"
+                    onkeyup="search()"
+                    placeholder="Search music...">
+            </p>
 
-    renderList();   // monta a lista
-    playRandom();   // inicia player
-  })
-  .catch(error => console.error("Erro:", error));
-</script>
+            <ul id="results"></ul>
 
-<script src="js/script.js"></script>
+        </main>
+
+        <footer>
+
+            <div class="control-box">
+                <button id="repeatButton">Repeat Off</button>
+                <button onclick="prevSong()">Prev</button>
+                <button onclick="skipSong()">Skip</button>
+            </div>
+
+            <p id="tituloMusica"></p>
+
+            <audio
+                id="audioPlayer"
+                controls
+                preload="auto"
+                playsinline
+                webkit-playsinline>
+
+            </audio>
+
+        </footer>
+
+    </div>
+
+    <script>
+        var data = [];
+
+        fetch('music_map.txt')
+            .then(response => response.json())
+            .then(json => {
+
+                data = json;
+
+                console.log("Músicas carregadas:", data);
+
+                renderList();
+                playRandom();
+
+            })
+            .catch(error => console.error("Erro:", error));
+    </script>
+
+    <!-- SCRIPT DO PLAYER -->
+    <script src="js/script_hml.js"></script>
+
+    <!-- LOGIN FIREBASE -->
+    <script type="module" src="js/login.js"></script>
 
 </body>
 </html>
