@@ -595,5 +595,20 @@
 {"title": "jao - supernova", "url": "music/pop/jao - supernova.mp3"},
 {"title": "whereismyface - come n go", "url": "music/electro/whereismyface - come n go.mp3"},
 {"title": "cigarettes after sex - falling in love", "url": "music/indie/cigarettes after sex - falling in love.mp3"},
-{"title": "kweller - voltavida", "url": "music/rap/kweller - voltavida.mp3"}
+{"title": "kweller - voltavida", "url": "music/rap/kweller - voltavida.mp3"},
+{"title": "lulu santos - um certo alguem", "url": "music/mpb/lulu santos - um certo alguem.mp3"},
+{"title": "mc niel - foi ate bom te encontrar", "url": "music/funk/mc niel - foi ate bom te encontrar.mp3"},
+{"title": "mc du black - gaiola e o troco", "url": "music/funk/mc du black - gaiola e o troco.mp3"},
+{"title": "mc kevin o chris - evoluiu", "url": "music/funk/mc kevin o chris - evoluiu.mp3"},
+{"title": "dennis - vamos beber", "url": "music/funk/dennis - vamos beber.mp3"},
+{"title": "gson, luccas, kroa, chris, giovanni, zara g, xama - cocaina", "url": "music/rap/gson, luccas, kroa, chris, giovanni, zara g, xama - cocaina.mp3"},
+{"title": "dj guuga, dj ivis - volta bebe, volta nenem", "url": "music/forro/dj guuga, dj ivis - volta bebe, volta nenem.mp3"},
+{"title": "os baroes da pisadinha, fernando e sorocaba - amor da despedida", "url": "music/forro/os baroes da pisadinha, fernando e sorocaba - amor da despedida.mp3"},
+{"title": "os baroes da pisadinha, maiara e maraisa - zero saudade", "url": "music/forro/os baroes da pisadinha, maiara e maraisa - zero saudade.mp3"},
+{"title": "os baroes da pisadinha, ze felipe - senta danada", "url": "music/forro/os baroes da pisadinha, ze felipe - senta danada.mp3"},
+{"title": "os baroes da pisadinha - quem me colocou pra beber", "url": "music/forro/os baroes da pisadinha - quem me colocou pra beber.mp3"},
+{"title": "os baroes da pisadinha - basta voce me ligar", "url": "music/forro/os baroes da pisadinha - basta voce me ligar.mp3"},
+{"title": "os baroes da pisadinha - recairei.mp3", "url": "music/forro/os baroes da pisadinha - recairei.mp3.mp3"},
+{"title": "os baroes da pisadinha - ta rocheda", "url": "music/forro/os baroes da pisadinha - ta rocheda.mp3"},
+{"title": "kvsh, breno rocha - sede pra te ver", "url": "music/electro/kvsh, breno rocha - sede pra te ver.mp3"}
 ]
