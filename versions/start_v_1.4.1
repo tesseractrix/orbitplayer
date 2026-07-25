@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Orbit Player</title>
+    <link rel="icon" href="img/orbit_ico_blue.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<header>
+    <p>
+        <a href="start.html">
+            <img src="img/orbit_white.png" width="140" height="50">
+        </a>
+    </p>
+
+    <p>
+        <a href="explore.html">Explore</a> •
+        <a href="news.html">Updates</a>
+    </p>
+</header>
+
+<main>
+    <p align="center">
+        <input type="text" id="search" onkeyup="search()" placeholder="Search music...">
+    </p>
+
+    <ul id="results"></ul>
+</main>
+
+<footer>
+
+    <div class="control-box">
+        <button id="repeatButton">Repeat Off</button>
+        <button onclick="prevSong()">Prev</button>
+        <button onclick="skipSong()">Skip</button>
+    </div>
+
+    <p id="tituloMusica"></p>
+
+    <audio id="audioPlayer" controls preload="auto" playsinline webkit-playsinline>
+        <source id="audioSource" src="" type="audio/mp3">
+    </audio>
+
+</footer>
+
+<script>
+var data = [];
+
+fetch('music_map.txt')
+  .then(response => response.json())
+  .then(json => {
+    data = json;
+    console.log("Músicas carregadas:", data);
+
+    renderList();   // monta a lista
+    playRandom();   // inicia player
+  })
+  .catch(error => console.error("Erro:", error));
+</script>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
