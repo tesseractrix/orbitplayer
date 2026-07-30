@@ -3,8 +3,10 @@
 
 <head>
     <title>Orbit Player</title>
-    <link rel="icon" href="img/orbit_ico_blue.png">
-    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="icon" hrefg
+    <link rel="css
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -15,7 +17,8 @@
     <div id="login-area">
 
         <p align="center">
-            <img src="img/orbit_white.png" width="140" height="50">
+            <img src="img/orpng
+        </p>
 
         <p align="center">
             <input
@@ -41,9 +44,10 @@
     <div id="player-area" style="display:none;">
 
         <header>
+
             <p>
                 <a href="start.html">
-                    <img src="img/orbit_white.png" width="140" height="50">
+                    img/orbit_white.png
                 </a>
             </p>
 
@@ -51,9 +55,12 @@
                 <a href="explore.html">Explore</a> •
                 <a href="news.html">Updates</a>
             </p>
+
         </header>
 
         <main>
+
+            <!-- BUSCA -->
 
             <p align="center">
                 <input
@@ -63,6 +70,31 @@
                     placeholder="Search music...">
             </p>
 
+            <!-- PLAYLISTS -->
+
+            <div id="playlistArea">
+
+                <h3 align="center">My Playlists</h3>
+
+                <p align="center">
+                    <input
+                        type="text"
+                        id="playlistName"
+                        placeholder="New Playlist">
+                </p>
+
+                <p align="center">
+                    <button onclick="createPlaylist()">
+                        Create Playlist
+                    </button>
+                </p>
+
+                <ul id="playlistList"></ul>
+
+            </div>
+
+            <!-- RESULTADOS DA BUSCA -->
+
             <ul id="results"></ul>
 
         </main>
@@ -70,9 +102,19 @@
         <footer>
 
             <div class="control-box">
-                <button id="repeatButton">Repeat Off</button>
-                <button onclick="prevSong()">Prev</button>
-                <button onclick="skipSong()">Skip</button>
+
+                <button id="repeatButton">
+                    Repeat Off
+                </button>
+
+                <button onclick="prevSong()">
+                    Prev
+                </button>
+
+                <button onclick="skipSong()">
+                    Skip
+                </button>
+
             </div>
 
             <p id="tituloMusica"></p>
@@ -91,6 +133,7 @@
     </div>
 
     <script>
+
         var data = [];
 
         fetch('music_map.txt')
@@ -99,20 +142,33 @@
 
                 data = json;
 
-                console.log("Músicas carregadas:", data);
+                console.log(
+                    "Músicas carregadas:",
+                    data
+                );
 
                 renderList();
                 playRandom();
 
             })
-            .catch(error => console.error("Erro:", error));
+            .catch(error =>
+                console.error(
+                    "Erro:",
+                    error
+                )
+            );
+
     </script>
 
     <!-- SCRIPT DO PLAYER -->
     <script src="js/script_hml.js"></script>
 
+    <!-- SCRIPT DO PLAYER -->
+    <script src="js/playlist-test.js"></script>
+
     <!-- LOGIN FIREBASE -->
     <script type="module" src="js/login.js"></script>
 
 </body>
+
 </html>
