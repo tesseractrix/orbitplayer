@@ -3,10 +3,8 @@
 
 <head>
     <title>Orbit Player</title>
-
-    <link rel="icon" hrefg
-    <link rel="css
-
+    <link rel="icon" href="img/orbit_ico_blue.png">
+    <link rel="stylesheet" href="css/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -14,10 +12,11 @@
 <body>
 
     <!-- LOGIN -->
+
     <div id="login-area">
 
         <p align="center">
-            <img src="img/orpng
+            img/orbit_white.png
         </p>
 
         <p align="center">
@@ -35,19 +34,23 @@
         </p>
 
         <p align="center">
-            <button onclick="login()">Entrar</button>
+            <button onclick="login()">
+                Entrar
+            </button>
         </p>
 
     </div>
 
     <!-- PLAYER -->
+
     <div id="player-area" style="display:none;">
 
         <header>
 
             <p>
-                <a href="start.html">
-                    img/orbit_white.png
+                .html">
+                    img/orbit_white.png="140"
+                         height="50">
                 </a>
             </p>
 
@@ -60,8 +63,6 @@
 
         <main>
 
-            <!-- BUSCA -->
-
             <p align="center">
                 <input
                     type="text"
@@ -69,31 +70,6 @@
                     onkeyup="search()"
                     placeholder="Search music...">
             </p>
-
-            <!-- PLAYLISTS -->
-
-            <div id="playlistArea">
-
-                <h3 align="center">My Playlists</h3>
-
-                <p align="center">
-                    <input
-                        type="text"
-                        id="playlistName"
-                        placeholder="New Playlist">
-                </p>
-
-                <p align="center">
-                    <button onclick="createPlaylist()">
-                        Create Playlist
-                    </button>
-                </p>
-
-                <ul id="playlistList"></ul>
-
-            </div>
-
-            <!-- RESULTADOS DA BUSCA -->
 
             <ul id="results"></ul>
 
@@ -117,7 +93,19 @@
 
             </div>
 
-            <p id="tituloMusica"></p>
+            <!-- MUSICA + PLAYLIST -->
+
+            <div id="songInfo">
+
+                <p id="tituloMusica"></p>
+
+                <button
+                    id="playlistButton"
+                    onclick="openPlaylistModal()">
+                    ➕
+                </button>
+
+            </div>
 
             <audio
                 id="audioPlayer"
@@ -125,10 +113,40 @@
                 preload="auto"
                 playsinline
                 webkit-playsinline>
-
             </audio>
 
         </footer>
+
+    </div>
+
+    <!-- MODAL PLAYLISTS -->
+
+    <div id="playlistModal" class="modal">
+
+        <div class="modal-content">
+
+            <h3>My Playlists</h3>
+
+            <ul id="playlistList"></ul>
+
+            <hr>
+
+            <input
+                type="text"
+                id="playlistName"
+                placeholder="New Playlist">
+
+            <br><br>
+
+            <button onclick="createPlaylist()">
+                Create Playlist
+            </button>
+
+            <button onclick="closePlaylistModal()">
+                Close
+            </button>
+
+        </div>
 
     </div>
 
