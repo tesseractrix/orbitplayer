@@ -605,5 +605,11 @@
 {"title": "os baroes da pisadinha - basta voce me ligar", "url": "music/forro/os baroes da pisadinha - basta voce me ligar.mp3"},
 {"title": "os baroes da pisadinha - recairei", "url": "music/forro/os baroes da pisadinha - recairei.mp3"},
 {"title": "os baroes da pisadinha - ta rocheda", "url": "music/forro/os baroes da pisadinha - ta rocheda.mp3"},
-{"title": "kvsh, breno rocha - sede pra te ver", "url": "music/electro/kvsh, breno rocha - sede pra te ver.mp3"}
+{"title": "kvsh, breno rocha - sede pra te ver", "url": "music/electro/kvsh, breno rocha - sede pra te ver.mp3"},
+{"title": "yung buda - alles geben", "url": "music/rap/yung buda - alles geben.mp3"},
+{"title": "xama - de novo", "url": "music/rap/xama - de novo.mp3"},
+{"title": "the weeknd - starboy", "url": "music/rap/the weeknd - starboy.mp3"},
+{"title": "3 doors down - here without you", "url": "music/rock/3 doors down - here without you.mp3"},
+{"title": "renato russo - mais uma vez", "url": "music/mpb/renato russo - mais uma vez.mp3"},
+{"title": "jao - amor pirata", "url": "music/pop/jao - amor pirata.mp3"}
 ]
