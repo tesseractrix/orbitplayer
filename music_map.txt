@@ -326,7 +326,7 @@
 {"title": "Legião Urbana - Será", "url": "music/mpb/legiao urbana - sera.mp3"},
 {"title": "Céu, Liniker - Via Láctea", "url": "music/rnb/ceu, liniker - via lactea.mp3"},
 {"title": "Xamã - Seu Rei", "url": "music/rap/xama - seu rei.mp3"},
-{"title": "Michael - Careless Whisper", "url": "music/pop/michael - careless whisper.mp3"},
+{"title": "George Michael - Careless Whisper", "url": "music/pop/michael - careless whisper.mp3"},
 {"title": "Rael - Envolvidão", "url": "music/rap/rael - envolvidao.mp3"},
 {"title": "Matuê, Dada Yute, Rael - Aquarela Luz", "url": "music/reggae/matue, dada yute, rael - aquarela luz.mp3"},
 {"title": "The Chainsmokers - Closer", "url": "music/electro/the chainsmokers - closer.mp3"},
@@ -603,7 +603,7 @@
 {"title": "os baroes da pisadinha, ze felipe - senta danada", "url": "music/forro/os baroes da pisadinha, ze felipe - senta danada.mp3"},
 {"title": "os baroes da pisadinha - quem me colocou pra beber", "url": "music/forro/os baroes da pisadinha - quem me colocou pra beber.mp3"},
 {"title": "os baroes da pisadinha - basta voce me ligar", "url": "music/forro/os baroes da pisadinha - basta voce me ligar.mp3"},
-{"title": "os baroes da pisadinha - recairei.mp3", "url": "music/forro/os baroes da pisadinha - recairei.mp3"},
+{"title": "os baroes da pisadinha - recairei", "url": "music/forro/os baroes da pisadinha - recairei.mp3"},
 {"title": "os baroes da pisadinha - ta rocheda", "url": "music/forro/os baroes da pisadinha - ta rocheda.mp3"},
 {"title": "kvsh, breno rocha - sede pra te ver", "url": "music/electro/kvsh, breno rocha - sede pra te ver.mp3"}
 ]
