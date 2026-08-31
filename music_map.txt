@@ -617,5 +617,7 @@
 {"title": "xama - velho fusca", "url": "music/rap/xama - velho fusca.mp3"},
 {"title": "theres never a forever thing - a ha", "url": "music/pop/theres never a forever thing - a ha.mp3"},
 {"title": "filipe ret - nos combina", "url": "music/rap/filipe ret - nos combina.mp3"},
-{"title": "nico e vinz - am i wrong", "url": "music/pop/nico e vinz - am i wrong.mp3"}
+{"title": "nico e vinz - am i wrong", "url": "music/pop/nico e vinz - am i wrong.mp3"},
+{"title": "matue - horta", "url": "music/rap/matue - horta.mp3"},
+{"title": "papatinho - como ela vem", "url": "music/rap/papatinho - como ela vem.mp3"}
 ]
