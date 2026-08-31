@@ -611,5 +611,11 @@
 {"title": "the weeknd - starboy", "url": "music/rap/the weeknd - starboy.mp3"},
 {"title": "3 doors down - here without you", "url": "music/rock/3 doors down - here without you.mp3"},
 {"title": "renato russo - mais uma vez", "url": "music/mpb/renato russo - mais uma vez.mp3"},
-{"title": "jao - amor pirata", "url": "music/pop/jao - amor pirata.mp3"}
+{"title": "jao - amor pirata", "url": "music/pop/jao - amor pirata.mp3"},
+{"title": "camilo - machu picchu", "url": "music/latin/camilo - machu picchu.mp3"},
+{"title": "xama - just love", "url": "music/rap/xama - just love.mp3"},
+{"title": "xama - velho fusca", "url": "music/rap/xama - velho fusca.mp3"},
+{"title": "theres never a forever thing - a ha", "url": "music/pop/theres never a forever thing - a ha.mp3"},
+{"title": "filipe ret - nos combina", "url": "music/rap/filipe ret - nos combina.mp3"},
+{"title": "nico e vinz - am i wrong", "url": "music/pop/nico e vinz - am i wrong.mp3"}
 ]
