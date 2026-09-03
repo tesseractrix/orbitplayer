@@ -11,41 +11,34 @@
 
 <body>
 
-    <!-- LOGIN -->
+<!-- LOGIN -->
+    
+<div id="login-area">
+    <p align="center">
+        <img src="img/orbit_white.png" width="140" height="50">
+    </p>
 
-    <div id="login-area">
+    <p align="center">
+        <input type="email" id="email" placeholder="E-mail">
+    </p>
 
-        <p align="center">
-            <img src="img/orbit_white.png" width="140" height="50">
-        </p>
+    <p align="center">
+        <input type="password" id="senha" placeholder="Senha">
+    </p>
 
-        <p align="center">
-            <input
-                type="email"
-                id="email"
-                placeholder="E-mail">
-        </p>
+    <p align="center">
+        <button onclick="login()">Entrar</button>
+    </p>
 
-        <p align="center">
-            <input
-                type="password"
-                id="senha"
-                placeholder="Senha">
-        </p>
-
-        <p align="center">
-            <button onclick="login()">
-                Entrar
-            </button>
-        </p>
-
-    </div>
-
+    <!-- NOVOS LINKS DE SUPORTE -->
+    <p align="center" style="font-size: 14px; margin-top: 15px;">
+        <a href="#" onclick="showRegisterModal(event)" style="color: #fff; text-decoration: underline;">Cadastrar-se</a> • 
+        <a href="#" onclick="forgotPassword(event)" style="color: #ccc; text-decoration: underline;">Esqueci a senha</a>
+    </p>
+</div>
+    
     <!-- PLAYER -->
-
     <div id="player-area" style="display:none;">
-
- <div id="player-area" style="display:none;">
 
         <header>
             <p>
@@ -77,34 +70,12 @@
         <footer>
 
             <div class="control-box">
-
-                <button id="repeatButton">
-                    Repeat Off
-                </button>
-
-                <button onclick="prevSong()">
-                    Prev
-                </button>
-
-                <button onclick="skipSong()">
-                    Skip
-                </button>
-
+                <button id="repeatButton">Repeat Off</button>
+                <button onclick="prevSong()">Prev</button>
+                <button onclick="skipSong()">Skip</button>
             </div>
 
-            <!-- MUSICA + PLAYLIST -->
-
-            <div id="songInfo">
-
-                <p id="tituloMusica"></p>
-
-                <button
-                    id="playlistButton"
-                    onclick="openPlaylistModal()">
-                    ➕
-                </button>
-
-            </div>
+            <p id="tituloMusica"></p>
 
             <audio
                 id="audioPlayer"
@@ -118,39 +89,7 @@
 
     </div>
 
-<!-- MODAL PLAYLISTS -->
-
-    <div id="playlistModal" class="modal">
-
-        <div class="modal-content">
-
-            <h3>My Playlists</h3>
-
-            <ul id="playlistList"></ul>
-
-            <hr>
-
-            <input
-                type="text"
-                id="playlistName"
-                placeholder="New Playlist">
-
-            <br><br>
-
-            <button onclick="createPlaylist()">
-                Create Playlist
-            </button>
-
-            <button onclick="closePlaylistModal()">
-                Close
-            </button>
-
-        </div>
-
-    </div>
-        
     <script>
-
         var data = [];
 
         fetch('music_map.txt')
@@ -159,33 +98,20 @@
 
                 data = json;
 
-                console.log(
-                    "Músicas carregadas:",
-                    data
-                );
+                console.log("Músicas carregadas:", data);
 
                 renderList();
                 playRandom();
 
             })
-            .catch(error =>
-                console.error(
-                    "Erro:",
-                    error
-                )
-            );
-
+            .catch(error => console.error("Erro:", error));
     </script>
 
     <!-- SCRIPT DO PLAYER -->
-    <script src="js/script_hml.js"></script>
-
-    <!-- SCRIPT DO PLAYER -->
-    <script type="module" src="js/playlist-test.js"></script>
+    <script src="js/script.js"></script>
 
     <!-- LOGIN FIREBASE -->
-    <script type="module" src="js/login-test.js"></script>
+    <script type="module" src="js/login.js"></script>
 
 </body>
-
 </html>
