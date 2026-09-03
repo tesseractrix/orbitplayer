@@ -1,4 +1,4 @@
-import { auth } from "./firebase-config-test.js";
+import { auth } from "./firebase-config.js";
 
 import {
     signInWithEmailAndPassword,
@@ -51,3 +51,25 @@ onAuthStateChanged(auth, (user) => {
     }
 
 });
+
+// Funções Esqueci a Senha
+
+import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.x.x/firebase-auth.js"; // Ajuste conforme sua versão
+
+window.forgotPassword = function(e) {
+    e.preventDefault();
+    const emailField = document.getElementById('email').value.trim();
+    
+    if (!emailField) {
+        alert("Por favor, digite seu e-mail no campo de login acima para recuperar a senha.");
+        return;
+    }
+
+    sendPasswordResetEmail(auth, emailField)
+        .then(() => {
+            alert("E-mail de recuperação enviado! Verifique sua caixa de entrada.");
+        })
+        .catch((error) => {
+            alert("Erro ao enviar e-mail: " + error.message);
+        });
+}
