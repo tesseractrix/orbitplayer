@@ -82,3 +82,40 @@ audio {
     width: 90%;
     max-width: 300px;
 }
+
+/* ================= FILTROS ================= */
+.filters-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    justify-content: center; /* Centraliza no desktop */
+}
+
+/* Esconde a barra de rolagem no celular para ficar clean */
+.filters-container::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    background-color: #555;
+    color: #c7c7c7;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap; /* Impede que o texto quebre de linha */
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #777;
+    color: white;
+}
+
+.filter-btn.active {
+    background-color: #3498db; /* Azul Orbit */
+    color: white;
+}
