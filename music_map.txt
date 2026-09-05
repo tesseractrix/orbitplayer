@@ -619,5 +619,16 @@
 {"title": "filipe ret - nos combina", "url": "music/rap/filipe ret - nos combina.mp3"},
 {"title": "nico e vinz - am i wrong", "url": "music/pop/nico e vinz - am i wrong.mp3"},
 {"title": "matue - horta", "url": "music/rap/matue - horta.mp3"},
-{"title": "papatinho - como ela vem", "url": "music/rap/papatinho - como ela vem.mp3"}
+{"title": "papatinho - como ela vem", "url": "music/rap/papatinho - como ela vem.mp3"},
+{"title": "xama - mary madalena", "url": "music/rap/xama - mary madalena.mp3"},
+{"title": "xama - basquiat", "url": "music/rap/xama - basquiat.mp3"},
+{"title": "amabbi, xama - money", "url": "music/rap/amabbi, xama - money.mp3"},
+{"title": "brutang - selavi", "url": "music/rap/brutang - selavi.mp3"},
+{"title": "xama - 95s", "url": "music/rap/xama - 95s.mp3"},
+{"title": "orochi - fashion", "url": "music/rap/orochi - fashion.mp3"},
+{"title": "bad bunny - turista", "url": "music/latin/bad bunny - turista.mp3"},
+{"title": "vanessa da mata, cat dealers - ai ai ai", "url": "music/electro/vanessa da mata, cat dealers - ai ai ai.mp3"},
+{"title": "dennis dj - sou teu fa", "url": "music/electro/dennis dj - sou teu fa.mp3"},
+{"title": "jax jones, mnek - where did you go", "url": "music/electro/jax jones, mnek - where did you go.mp3"},
+{"title": "love spells - love costs", "url": "music/electro/love spells - love costs.mp3"}
 ]
