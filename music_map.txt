@@ -630,5 +630,7 @@
 {"title": "vanessa da mata, cat dealers - ai ai ai", "url": "music/electro/vanessa da mata, cat dealers - ai ai ai.mp3"},
 {"title": "dennis dj - sou teu fa", "url": "music/electro/dennis dj - sou teu fa.mp3"},
 {"title": "jax jones, mnek - where did you go", "url": "music/electro/jax jones, mnek - where did you go.mp3"},
-{"title": "love spells - love costs", "url": "music/electro/love spells - love costs.mp3"}
+{"title": "love spells - love costs", "url": "music/electro/love spells - love costs.mp3"},
+{"title": "tainy - si preguntas por mi", "url": "music/latin/tainy - si preguntas por mi.mp3"},
+{"title": "tainy, bad bunny - mojabi ghost", "url": "music/latin/tainy, bad bunny - mojabi ghost.mp3"}
 ]
