@@ -632,5 +632,7 @@
 {"title": "jax jones, mnek - where did you go", "url": "music/electro/jax jones, mnek - where did you go.mp3"},
 {"title": "love spells - love costs", "url": "music/electro/love spells - love costs.mp3"},
 {"title": "tainy - si preguntas por mi", "url": "music/latin/tainy - si preguntas por mi.mp3"},
-{"title": "tainy, bad bunny - mojabi ghost", "url": "music/latin/tainy, bad bunny - mojabi ghost.mp3"}
+{"title": "tainy, bad bunny - mojabi ghost", "url": "music/latin/tainy, bad bunny - mojabi ghost.mp3"},
+{"title": "jowell y randy - lo que quiero", "url": "music/latin/jowell y randy - lo que quiero.mp3"},
+{"title": "zo - super saiyan", "url": "music/rap/zo - super saiyan.mp3"}
 ]
