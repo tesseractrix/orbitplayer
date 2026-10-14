@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Orbit Player | Cigarettes After Sex</title>
+
+    <link rel="icon" href="img/orbit_ico_blue.png">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<!-- data-filter: texto que o título da música precisa conter. data-map: arquivo com as músicas -->
+<body data-filter="Cigarettes After Sex" data-map="music_map.txt">
+
+    <header>
+        <p>
+            <a href="start.html">
+                <img src="img/orbit_white.png" width="140" height="50" title="Orbit Player">
+            </a>
+        </p>
+
+        <p>
+            <a href="explore.html">Explore</a> •
+            <a href="news.html">Updates</a>
+        </p>
+    </header>
+
+    <main>
+        <p align="center">
+            <input
+                type="text"
+                id="search"
+                oninput="search()"
+                placeholder="Search music in 100% Cigarettes..."
+                autocomplete="off">
+        </p>
+
+        <p id="status" align="center"></p>
+
+        <ul id="results"></ul>
+    </main>
+
+    <footer>
+        <div class="control-box">
+            <button id="repeatButton">Repeat Off</button>
+            <button onclick="prevSong()">Prev</button>
+            <button onclick="skipSong()">Skip</button>
+        </div>
+
+        <p id="tituloMusica"></p>
+
+        <audio id="audioPlayer" controls preload="auto" playsinline webkit-playsinline></audio>
+    </footer>
+
+    <!-- Um único script, carregado no fim do body: todos os elementos já existem quando ele roda -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
