@@ -65,38 +65,39 @@
 
     </footer>
 
-<script src="js/script.js"></script>
-
 <script>
-    var data = [];
 
-    fetch('music_map.txt')
-        .then(response => response.json())
-        .then(json => {
+var data = [];
 
-            data = json.filter(track =>
-                track.title.toLowerCase().includes('cigarettes after sex') ||
-                track.title.toLowerCase().includes('cigatettes after sex')
-            );
+fetch('music_map.txt')
+    .then(response => response.json())
+    .then(json => {
 
-            console.log(
-                `Playlist Cigarettes After Sex carregada (${data.length} músicas)`
-            );
+        data = json.filter(track =>
+            track.title.toLowerCase().includes('cigarettes after sex')
+        );
 
-            renderList();
+        renderList();
 
-            document.querySelectorAll('#results li').forEach(li => {
-                li.style.display = '';
-            });
+        // Exibe todas as faixas da playlist
+        let li = document.querySelectorAll('#results li');
 
-            document.getElementById('results').style.display = 'block';
-
-            playRandom();
-        })
-        .catch(error => {
-            consolearregar catálogo:', error);
+        li.forEach(item => {
+            item.style.display = '';
         });
+
+        document.getElementById('results').style.display = 'block';
+
+        playRandom();
+
+    })
+    .catch(error => {
+        alert('Erro ao carregar music_map.txt');
+    });
+
 </script>
+
+<script src="js/script.js"></script>
 
 </body>
 
