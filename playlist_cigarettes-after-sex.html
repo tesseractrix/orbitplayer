@@ -54,15 +54,222 @@
         <audio id="audioPlayer" controls preload="auto" playsinline webkit-playsinline></audio>
     </footer>
 
-    <!-- Um único script, carregado no fim do body: todos os elementos já existem quando ele roda -->
-    <script src="js/script.js?v=3"></script>
-
-    <!-- Diagnóstico: se aparecer esta mensagem, o js/script.js não é a versão nova (cache, arquivo antigo ou caminho errado) -->
     <script>
-        if (typeof loadPlaylist !== "function") {
-            document.getElementById("status").textContent =
-                "js/script.js não foi carregado ou está desatualizado. Confira se o arquivo novo está em js/script.js no GitHub e force a atualização (Ctrl+Shift+R).";
+// ================= BLOQUEIO CLICK =================
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// ================= ELEMENTOS =================
+var ul          = document.getElementById("results");
+var audioPlayer = document.getElementById("audioPlayer");
+var statusEl    = document.getElementById("status");   // opcional (só existe nas playlists)
+
+// ================= MODO =================
+// Playlist: <body data-filter="Nome da banda" data-map="music_map.txt">
+//   -> o próprio script carrega o music_map.txt, filtra e mostra a lista completa.
+// Sem data-filter (ex.: start.html): comportamento original; a página carrega
+//   a variável `data` por conta própria e a lista só aparece ao pesquisar.
+var IS_PLAYLIST   = document.body.dataset.filter !== undefined;
+var PLAYLIST_TERM = document.body.dataset.filter || "";
+var MAP_FILE      = document.body.dataset.map || "music_map.txt";
+
+// ================= CONTROLE =================
+var data = data || [];    // não apaga o `data` que a página já tenha definido
+var isRepeat = false;
+var recentTracks = [];
+var playedTracks = [];
+
+function setStatus(msg) {
+    if (statusEl) statusEl.textContent = msg || "";
+}
+
+function normalizeString(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+// ================= BOTÃO REPEAT =================
+var repeatButton = document.getElementById("repeatButton");
+if (repeatButton) {
+    repeatButton.addEventListener("click", function () {
+        isRepeat = !isRepeat;
+        this.textContent = isRepeat ? "Repeat On" : "Repeat Off";
+    });
+}
+
+// ================= RENDER LISTA =================
+function renderList() {
+    ul.innerHTML = "";
+
+    data.forEach((track, i) => {
+        const li = document.createElement("li");
+        const a  = document.createElement("a");
+        a.href = "#";
+        a.textContent = track.title;
+        a.addEventListener("click", e => {
+            e.preventDefault();
+            changeAudioSource(i);
+        });
+        li.appendChild(a);
+        ul.appendChild(li);
+        // playlist: tudo visível; página geral: escondido até pesquisar
+        li.style.display = IS_PLAYLIST ? "" : "none";
+    });
+
+    ul.style.display = IS_PLAYLIST ? "block" : "none";
+}
+
+// ================= TOCAR UMA FAIXA =================
+function playTrack(track) {
+    audioPlayer.src = encodeURI(track.url);   // trata espaços/acentos no nome do arquivo
+    audioPlayer.load();
+    displayCurrentSongTitle(track.title);
+
+    const p = audioPlayer.play();
+    if (p !== undefined) {
+        p.then(() => setStatus(""))
+         .catch(e => {
+            if (e.name === "NotAllowedError") {
+                setStatus("Clique no play (ou em uma música) para começar.");
+            } else {
+                console.log("Erro play:", e);
+            }
+         });
+    }
+}
+
+function changeAudioSource(index) {
+    const track = data[index];
+    recentTracks.push(index);
+    if (recentTracks.length > 3) recentTracks.shift();
+    playedTracks.push(track);
+    playTrack(track);
+}
+
+// ================= BUSCA =================
+function search() {
+    const input  = document.getElementById("search");
+    const filter = normalizeString(input.value.trim());
+    const items  = ul.getElementsByTagName("li");
+
+    let visible = 0;
+    for (let i = 0; i < items.length; i++) {
+        const match = normalizeString(items[i].textContent).includes(filter);
+        items[i].style.display = match ? "" : "none";
+        if (match) visible++;
+    }
+
+    if (IS_PLAYLIST) {
+        ul.style.display = "block";                       // lista sempre visível
+        setStatus(visible === 0 ? "Nenhum resultado." : "");
+    } else {
+        ul.style.display = filter.length === 0 ? "none" : "block";   // comportamento original
+    }
+}
+
+// ================= TÍTULO =================
+function updateTabTitle(title) {
+    const songTitle = title.split(" - ")[1] || title;
+    document.title = "Orbit Player - " + songTitle;
+}
+
+function displayCurrentSongTitle(title) {
+    document.getElementById("tituloMusica").textContent = title;
+    const artist    = title.split(" - ")[0];
+    const songTitle = title.split(" - ")[1] || title;
+    updateTabTitle(title);
+
+    if ("mediaSession" in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: songTitle,
+            artist: artist
+        });
+    }
+}
+
+// ================= RANDOM =================
+function getRandomIndex() {
+    if (data.length <= 1) return 0;
+    let index, tries = 0;
+    do {
+        index = Math.floor(Math.random() * data.length);
+        tries++;
+    } while (recentTracks.includes(index) && tries < 50);
+
+    recentTracks.push(index);
+    if (recentTracks.length > 3) recentTracks.shift();
+    return index;
+}
+
+function playRandom() {
+    if (data.length === 0) return;
+    const track = data[getRandomIndex()];
+    playedTracks.push(track);
+    playTrack(track);
+}
+
+// ================= CONTROLES (chamados pelos onclick do HTML) =================
+function skipSong() {
+    playRandom();
+}
+
+function prevSong() {
+    if (playedTracks.length > 1) {
+        playedTracks.pop();                                // remove a atual
+        playTrack(playedTracks[playedTracks.length - 1]);  // toca a anterior
+    }
+}
+
+// ================= EVENTOS DO ÁUDIO =================
+audioPlayer.addEventListener("ended", () => {
+    if (isRepeat) {
+        audioPlayer.currentTime = 0;
+        audioPlayer.play().catch(e => console.log("Erro repeat:", e));
+    } else {
+        playRandom();
+    }
+});
+
+audioPlayer.addEventListener("error", () => {
+    const title = document.getElementById("tituloMusica").textContent;
+    setStatus("Não consegui abrir o áudio de: " + title + " (confira o caminho/nome do arquivo).");
+});
+
+// ================= MEDIA SESSION =================
+if ("mediaSession" in navigator) {
+    navigator.mediaSession.setActionHandler("nexttrack", skipSong);
+    navigator.mediaSession.setActionHandler("previoustrack", prevSong);
+}
+
+// ================= CARREGAR MÚSICAS (só no modo playlist) =================
+async function loadPlaylist() {
+    setStatus("Carregando músicas...");
+    try {
+        const response = await fetch(MAP_FILE + "?v=" + Date.now());   // evita cache antigo
+        if (!response.ok) throw new Error("HTTP " + response.status + " ao buscar " + MAP_FILE);
+
+        const text = (await response.text()).replace(/^\uFEFF/, "");   // remove BOM
+        const all  = JSON.parse(text);
+
+        const term = normalizeString(PLAYLIST_TERM);
+        data = all.filter(t => t && t.title && t.url &&
+            normalizeString(t.title).includes(term));
+
+        if (data.length === 0) {
+            setStatus('Nenhuma música encontrada com "' + PLAYLIST_TERM + '".');
+            return;
         }
+
+        setStatus("");
+        renderList();
+        playRandom();
+    } catch (err) {
+        console.error(err);
+        setStatus("Erro ao carregar " + MAP_FILE + ": " + err.message +
+                  " (se abriu o arquivo direto no PC, use um servidor local ou o GitHub Pages)");
+    }
+}
+
+if (IS_PLAYLIST) loadPlaylist();
+
     </script>
 
 </body>
