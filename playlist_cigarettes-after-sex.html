@@ -65,32 +65,7 @@
 
     </footer>
 
-    <script>
-
-        var data = [];
-
-        fetch('music_map.txt')
-            .then(response => response.json())
-            .then(json => {
-
-                data = json.filter(track =>
-                    track.title.toLowerCase().includes('cigarettes after sex')
-                );
-
-                console.log(
-                    `Playlist Cigarettes After Sex carregada (${data.length} músicas)`
-                );
-
-                renderList();
-                playRandom();
-
-            })
-            .catch(error => {
-                console.error(
-                    "Erro ao carregar catálogo:",
-                    error
-                );
-            });
+<script src="js/script.js"></script>
 
 <script>
     var data = [];
@@ -105,14 +80,11 @@
 
             renderList();
 
-            if (document.body.dataset.playlist === 'cigarettes') {
+            document.querySelectorAll('#results li').forEach(li => {
+                li.style.display = '';
+            });
 
-                document.querySelectorAll('#results li').forEach(li => {
-                    li.style.display = '';
-                });
-
-                document.getElementById('results').style.display = 'block';
-            }
+            document.getElementById('results').style.display = 'block';
 
             playRandom();
         });
