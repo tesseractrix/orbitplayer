@@ -75,7 +75,12 @@
         .then(json => {
 
             data = json.filter(track =>
-                track.title.toLowerCase().includes('cigarettes after sex')
+                track.title.toLowerCase().includes('cigarettes after sex') ||
+                track.title.toLowerCase().includes('cigatettes after sex')
+            );
+
+            console.log(
+                `Playlist Cigarettes After Sex carregada (${data.length} músicas)`
             );
 
             renderList();
@@ -87,6 +92,9 @@
             document.getElementById('results').style.display = 'block';
 
             playRandom();
+        })
+        .catch(error => {
+            consolearregar catálogo:', error);
         });
 </script>
 
