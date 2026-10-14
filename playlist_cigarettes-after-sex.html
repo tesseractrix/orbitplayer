@@ -55,7 +55,15 @@
     </footer>
 
     <!-- Um único script, carregado no fim do body: todos os elementos já existem quando ele roda -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=3"></script>
+
+    <!-- Diagnóstico: se aparecer esta mensagem, o js/script.js não é a versão nova (cache, arquivo antigo ou caminho errado) -->
+    <script>
+        if (typeof loadPlaylist !== "function") {
+            document.getElementById("status").textContent =
+                "js/script.js não foi carregado ou está desatualizado. Confira se o arquivo novo está em js/script.js no GitHub e force a atualização (Ctrl+Shift+R).";
+        }
+    </script>
 
 </body>
 
