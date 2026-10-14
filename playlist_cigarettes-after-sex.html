@@ -2,9 +2,11 @@
 <html lang="en">
 
 <head>
-    <title> Orbit Player </title>
+    <title>Orbit Player | Cigarettes After Sex</title>
+
     <link rel="icon" href="img/orbit_ico_blue.png">
     <link rel="stylesheet" href="css/styles.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -12,87 +14,88 @@
 <body>
 
     <header>
-        <p><a href="start.html"><img src="img/orbit_white.png" width="140" height="50" title="Orbit Player"></a></p>
 
         <p>
-            <a href="explore.html"> Explore </a> •
-            <a href="news.html"> Updates </a>
-		</p>
+            <a href="start.html">
+                <img src="img/orbit_white.png"
+                     width="140"
+                     height="50"
+                     title="Orbit Player">
+            </a>
+        </p>
+
+        <p>
+            <a href="explore.html">Explore</a> •
+            <a href="news.html">Updates</a>
+        </p>
 
     </header>
 
     <main>
-        <article>
 
-            <p align="center">
-                <input type="text" id="search" onkeyup="search()" placeholder="Search music in 100% Cigarettes..." width="300" height="40">
-            </p>
+        <p align="center">
+            <input
+                type="text"
+                id="search"
+                onkeyup="search()"
+                placeholder="Search music in 100% Cigarettes...">
+        </p>
 
-            <ul align="center" id="results"></ul>
+        <ul id="results"></ul>
 
-            <article>
-
-            </article>
-
-            <aside>
-            </aside>
     </main>
 
     <footer>
-<div class="control-box">
-    <button id="repeatButton">Repeat Off</button>
-    <button id="prevButton" onclick="prevSong()">Prev</button>
-    <button id="skipButton" onclick="skipSong()">Skip</button>
-</div>
-	
-	<p align="center" id="tituloMusica"></p>
-	
-			<p align="center">
-               	    <audio id="audioPlayer" controls onended="playRandom()">
-                    <source id="audioSource" src="" type="audio/mp3">
-                    Seu navegador não suporta a tag de áudio.
-                </audio>
-            </p>
+
+        <div class="control-box">
+            <button id="repeatButton">Repeat Off</button>
+            <button onclick="prevSong()">Prev</button>
+            <button onclick="skipSong()">Skip</button>
+        </div>
+
+        <p id="tituloMusica"></p>
+
+        <audio
+            id="audioPlayer"
+            controls
+            preload="auto"
+            playsinline
+            webkit-playsinline>
+        </audio>
 
     </footer>
 
-            <script>
-                			var data = [
-                    			{title: "Cigarettes After Sex - Apocalypse", url: "music/indie/Cigarettes After Sex - Apocalypse.mp3"},
-					{title: "Cigarettes After Sex - Touch", url: "music/indie/Cigarettes After Sex - Touch.mp3"},
-					{title: "Cigarettes After Sex - Crush", url: "music/indie/Cigarettes After Sex - Crush.mp3"},
-					{title: "Cigarettes After Sex - K", url: "music/indie/Cigarettes After Sex - K.mp3"},
-                    {title: "Cigarettes After Sex - Keep On Loving You", url: "music/indie/Cigarettes After Sex - Keep On Loving You.mp3"},
-					{title: "Cigarettes After Sex - Affection", url: "music/indie/Cigarettes After Sex - Affection.mp3"},
-					{title: "Cigarettes After Sex - Cry", url: "music/indie/Cigarettes After Sex - Cry.mp3"},
-					{title: "Cigarettes After Sex - Dont let me go", url: "music/indie/Cigarettes After Sex - Dont let me go.mp3"},
-					{title: "Cigarettes After Sex - Each time you fall in love", url: "music/indie/Cigarettes After Sex - Each time you fall in love.mp3"},
-					{title: "Cigarettes After Sex - Heavenly", url: "music/indie/Cigarettes After Sex - Heavenly.mp3"},
-					{title: "Cigarettes After Sex - John Wayne", url: "music/indie/Cigarettes After Sex - John Wayne.mp3"},
-					{title: "Cigarettes After Sex - Motion Picture Soundtrack", url: "music/indie/Cigarettes After Sex - Motion Picture Soundtrack.mp3"},
-					{title: "Cigarettes After Sex - Pistol", url: "music/indie/Cigarettes After Sex - Pistol.mp3"},
-					{title: "Cigarettes After Sex - Sesame Syrup", url: "music/indie/Cigarettes After Sex - Sesame Syrup.mp3"},
-					{title: "Cigarettes After Sex - Sweet", url: "music/indie/Cigarettes After Sex - Sweet.mp3"},
-					{title: "Cigarettes After Sex - Young and Dumb", url: "music/indie/Cigarettes After Sex - Young and Dumb.mp3"},
-					{title: "Cigarettes After Sex - Youre all i want", url: "music/indie/Cigarettes After Sex - Youre all i want.mp3"},
-					{title: "Cigatettes After Sex - Nothings gonna hurt you baby", url: "music/indie/Cigatettes After Sex - Nothings gonna hurt you baby.mp3"},
-					{title: "Cigarettes After Sex - Neon Moon", url: "music/indie/Cigarettes After Sex - Neon Moon.mp3"},
-					{title: "Cigarettes After Sex - Sunsetz", url: "music/indie/Cigarettes After Sex - Sunsetz.mp3"},
-					{title: "Cigarettes After Sex - Tejano Blue", url: "music/indie/Cigarettes After Sex - Tejano Blue.mp3"},
-					{title: "Cigarettes After Sex - Truly", url: "music/indie/Cigarettes After Sex - Truly.mp3"},
-					{title: "Cigarettes After Sex - Baby blue movie", url: "music/indie/Cigarettes After Sex - Baby blue movie.mp3"},
-					{title: "Cigarettes After Sex - Dark vacay", url: "music/indie/Cigarettes After Sex - Dark vacay.mp3"},
-					{title: "Cigarettes After Sex - Hot", url: "music/indie/Cigarettes After Sex - Hot.mp3"},
-					{title: "Cigarettes After Sex - X's", url: "music/indie/Cigarettes After Sex - X's.mp3"},
-					{title: "Cigarettes After Sex - Hideaway", url: "music/indie/Cigarettes After Sex - Hideaway.mp3"},
-					{title: "Cigarettes After Sex - Silver Sable", url: "music/indie/cigarettes after sex - silver sable.mp3"},
-					{title: "cigarettes after sex - dreams from bunker hill", url: "music/indie/cigarettes after sex - dreams from bunker hill.mp3"},
-					{title: "cigarettes after sex - anna karenina", url: "music/indie/cigarettes after sex - anna karenina.mp3"}
-                    			];
+    <script>
 
-            </script>
-	    <script src="js/script.js"></script>
+        var data = [];
+
+        fetch('music_map.txt')
+            .then(response => response.json())
+            .then(json => {
+
+                data = json.filter(track =>
+                    track.title.toLowerCase().includes('cigarettes after sex')
+                );
+
+                console.log(
+                    `Playlist Cigarettes After Sex carregada (${data.length} músicas)`
+                );
+
+                renderList();
+                playRandom();
+
+            })
+            .catch(error => {
+                console.error(
+                    "Erro ao carregar catálogo:",
+                    error
+                );
+            });
+
+    </script>
+
+    <script src="js/script.js"></script>
 
 </body>
-</html>
 
+</html>
