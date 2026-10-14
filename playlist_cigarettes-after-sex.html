@@ -92,9 +92,31 @@
                 );
             });
 
-    </script>
+<script>
+    var data = [];
 
-    <script src="js/script.js"></script>
+    fetch('music_map.txt')
+        .then(response => response.json())
+        .then(json => {
+
+            data = json.filter(track =>
+                track.title.toLowerCase().includes('cigarettes after sex')
+            );
+
+            renderList();
+
+            if (document.body.dataset.playlist === 'cigarettes') {
+
+                document.querySelectorAll('#results li').forEach(li => {
+                    li.style.display = '';
+                });
+
+                document.getElementById('results').style.display = 'block';
+            }
+
+            playRandom();
+        });
+</script>
 
 </body>
 
