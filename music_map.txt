@@ -635,5 +635,10 @@
 {"title": "tainy, bad bunny - mojabi ghost", "url": "music/latin/tainy, bad bunny - mojabi ghost.mp3"},
 {"title": "jowell y randy - lo que quiero", "url": "music/latin/jowell y randy - lo que quiero.mp3"},
 {"title": "chris lebron, arcangel - loco", "url": "music/latin/chris lebron, arcangel - loco.mp3"},
-{"title": "zo - super saiyan", "url": "music/rap/zo - super saiyan.mp3"}
+{"title": "zo - super saiyan", "url": "music/rap/zo - super saiyan.mp3"},
+{"title": "filipe ret, orochi - emocoes", "url": "music/rap/filipe ret, orochi - emocoes.mp3"},
+{"title": "anuel aa - amanece", "url": "music/latin/anuel aa - amanece.mp3"},
+{"title": "quevedo, de la rose, de la ghetto - amanecio", "url": "music/latin/quevedo, de la rose, de la ghetto - amanecio.mp3"},
+{"title": "jovem dex - hash trap house", "url": "music/rap/jovem dex - hash trap house.mp3"},
+{"title": "jovem dex - obama", "url": "music/rap/jovem dex - obama.mp3"}
 ]
