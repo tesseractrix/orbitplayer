@@ -651,5 +651,7 @@
 {"title": "orochi - champagne", "url": "music/rap/orochi - champagne.mp3"},
 {"title": "orochi - stripper", "url": "music/rap/orochi - stripper.mp3"},
 {"title": "apost - i just wanna be with you tonight", "url": "music/rnb/apost - i just wanna be with you tonight.mp3"},
-{"title": "drake - one dance", "url": "music/pop/drake - one dance.mp3"}
+{"title": "drake - one dance", "url": "music/pop/drake - one dance.mp3"},
+{"title": "napa - deslocado", "url": "music/indie/napa - deslocado.mp3"},
+{"title": "don diablo - enjoy the silence", "url": "music/electro/don diablo - enjoy the silence.mp3"}
 ]
