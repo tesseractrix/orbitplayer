@@ -653,5 +653,15 @@
 {"title": "apost - i just wanna be with you tonight", "url": "music/rnb/apost - i just wanna be with you tonight.mp3"},
 {"title": "drake - one dance", "url": "music/pop/drake - one dance.mp3"},
 {"title": "napa - deslocado", "url": "music/indie/napa - deslocado.mp3"},
-{"title": "don diablo - enjoy the silence", "url": "music/electro/don diablo - enjoy the silence.mp3"}
+{"title": "don diablo - enjoy the silence", "url": "music/electro/don diablo - enjoy the silence.mp3"},
+{"title": "robert miles - children", "url": "music/electro/robert miles - children.mp3"},
+{"title": "hoobastank - the reason", "url": "music/rock/hoobastank - the reason.mp3"},
+{"title": "felipe amorim - spoiler do paraiso", "url": "music/forro/felipe amorim - spoiler do paraiso.mp3"},
+{"title": "whitesnake - is this love", "url": "music/rock/whitesnake - is this love.mp3"},
+{"title": "mazzy star - fade into you", "url": "music/indie/mazzy star - fade into you.mp3"},
+{"title": "humbe - fantasmas", "url": "music/latin/humbe - fantasmas.mp3"},
+{"title": "emma levanna - ride", "url": "music/rnb/emma levanna - ride.mp3"},
+{"title": "mellina tey - before i move on", "url": "music/rnb/mellina tey - before i move on.mp3"},
+{"title": "grupo kual - amor regresa ya", "url": "music/latin/grupo kual - amor regresa ya.mp3"},
+{"title": "orbiter - noah kahan", "url": "music/indie/orbiter - noah kahan.mp3"}
 ]
