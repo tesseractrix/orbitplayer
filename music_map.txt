@@ -663,5 +663,6 @@
 {"title": "emma levanna - ride", "url": "music/rnb/emma levanna - ride.mp3"},
 {"title": "mellina tey - before i move on", "url": "music/rnb/mellina tey - before i move on.mp3"},
 {"title": "grupo kual - amor regresa ya", "url": "music/latin/grupo kual - amor regresa ya.mp3"},
-{"title": "orbiter - noah kahan", "url": "music/indie/orbiter - noah kahan.mp3"}
+{"title": "orbiter - noah kahan", "url": "music/indie/orbiter - noah kahan.mp3"},
+{"title": "pendulum - halo", "url": "music/rock/pendulum - halo.mp3"}
 ]
