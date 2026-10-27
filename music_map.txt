@@ -640,5 +640,15 @@
 {"title": "anuel aa - amanece", "url": "music/latin/anuel aa - amanece.mp3"},
 {"title": "quevedo, de la rose, de la ghetto - amanecio", "url": "music/latin/quevedo, de la rose, de la ghetto - amanecio.mp3"},
 {"title": "jovem dex - hash trap house", "url": "music/rap/jovem dex - hash trap house.mp3"},
-{"title": "jovem dex - obama", "url": "music/rap/jovem dex - obama.mp3"}
+{"title": "jovem dex - obama", "url": "music/rap/jovem dex - obama.mp3"},
+{"title": "quavo - hotel lobby", "url": "music/rap/quavo - hotel lobby.mp3"},
+{"title": "j balvin - reggaeton", "url": "music/latin/j balvin - reggaeton.mp3"},
+{"title": "karol g - matadora", "url": "music/latin/karol g - matadora.mp3"},
+{"title": "pixy - legacy", "url": "music/indie/pixy - legacy.mp3"},
+{"title": "calvin Harris, sam smith - desire", "url": "music/electro/calvin Harris, sam smith - desire.mp3"},
+{"title": "don diablo - no piensa", "url": "music/electro/don diablo - no piensa.mp3"},
+{"title": "hoobastank - the reason", "url": "music/rock/hoobastank - the reason.mp3"},
+{"title": "orochi - champagne", "url": "music/rap/orochi - champagne.mp3"},
+{"title": "orochi - stripper", "url": "music/rap/orochi - stripper.mp3"},
+{"title": "apost - i just wanna be with you tonight", "url": "music/rnb/apost - i just wanna be with you tonight.mp3"}
 ]
