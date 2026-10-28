@@ -133,6 +133,9 @@
 {"title": "robert adams - como mudar os habitos", "url": "podcasts/meditation/robert adams - como mudar os habitos.mp3"},
 {"title": "jean yves leloup - medite em deus", "url": "podcasts/meditation/jean yves leloup - medite em deus.mp3"},
 {"title": "ramakrishna - a companhia dos sabios", "url": "podcasts/meditation/ramakrishna - a companhia dos sabios.mp3"},
+{"title": "yongjia xuanjue - a cancao da iluminacao", "url": "podcasts/meditation/yongjia xuanjue - a cancao da iluminacao.mp3"},
+{"title": "kabir - o caminho interior", "url": "podcasts/meditation/kabir - o caminho interior.mp3"},
+{"title": "dzongsar jamyang khyentse - o caminho espiritual.mp3", "url": "podcasts/meditation/dzongsar jamyang khyentse - o caminho espiritual.mp3.mp3"},
 {"title": "O Poder da Mente - 3 testes espirituais importantes que voce precisa passar", "url": "podcasts/meditation/3 testes espirituais importantes que voce precisa passar.mp3"},
 {"title": "O Poder da Mente - 5 efeitos colaterais sombrios do despertar espiritual", "url": "podcasts/meditation/5 efeitos colaterais sombrios do despertar espiritual.mp3"},
 {"title": "Despertar Interior - Somente pessoas com alta energia vibracional experimentam essas coisas estranhas", "url": "podcasts/meditation/Somente pessoas com alta energia vibracional experimentam essas coisas estranhas.mp3"}
