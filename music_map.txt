@@ -665,5 +665,6 @@
 {"title": "grupo kual - amor regresa ya", "url": "music/latin/grupo kual - amor regresa ya.mp3"},
 {"title": "orbiter - noah kahan", "url": "music/indie/orbiter - noah kahan.mp3"},
 {"title": "pendulum - halo", "url": "music/rock/pendulum - halo.mp3"},
-{"title": "kali uchis - telepatia", "url": "music/rnb/kali uchis - telepatia.mp3"}
+{"title": "kali uchis - telepatia", "url": "music/rnb/kali uchis - telepatia.mp3"},
+{"title": "cigarettes after sex - starry eyes", "url": "music/indie/cigarettes after sex - starry eyes.mp3"}
 ]
