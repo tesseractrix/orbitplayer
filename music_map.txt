@@ -666,5 +666,11 @@
 {"title": "orbiter - noah kahan", "url": "music/indie/orbiter - noah kahan.mp3"},
 {"title": "pendulum - halo", "url": "music/rock/pendulum - halo.mp3"},
 {"title": "kali uchis - telepatia", "url": "music/rnb/kali uchis - telepatia.mp3"},
-{"title": "cigarettes after sex - starry eyes", "url": "music/indie/cigarettes after sex - starry eyes.mp3"}
+{"title": "cigarettes after sex - starry eyes", "url": "music/indie/cigarettes after sex - starry eyes.mp3"},
+{"title": "spektrem - shine", "url": "music/electro/spektrem - shine.mp3"},
+{"title": "rvssian, rauw alejandro, chris brown - nostalgico", "url": "music/latin/rvssian, rauw alejandro, chris brown - nostalgico.mp3"},
+{"title": "nathy peluso - buenos aires", "url": "music/latin/nathy peluso - buenos aires.mp3"},
+{"title": "soweto - farol das estrelas", "url": "music/mpb/soweto - farol das estrelas.mp3"},
+{"title": "daddy yankee - el amante", "url": "music/latin/daddy yankee - el amante.mp3"},
+{"title": "rvssian, farruko, shaggy, nicky jam - sunset ", "url": "music/latin/rvssian, farruko, shaggy, nicky jam - sunset .mp3"}
 ]
