@@ -672,5 +672,7 @@
 {"title": "nathy peluso - buenos aires", "url": "music/latin/nathy peluso - buenos aires.mp3"},
 {"title": "soweto - farol das estrelas", "url": "music/mpb/soweto - farol das estrelas.mp3"},
 {"title": "daddy yankee - el amante", "url": "music/latin/daddy yankee - el amante.mp3"},
-{"title": "rvssian, farruko, shaggy, nicky jam - sunset ", "url": "music/latin/rvssian, farruko, shaggy, nicky jam - sunset .mp3"}
+{"title": "rvssian, farruko, shaggy, nicky jam - sunset ", "url": "music/latin/rvssian, farruko, shaggy, nicky jam - sunset .mp3"},
+{"title": "wiu - vidigal", "url": "music/rap/wiu - vidigal.mp3"},
+{"title": "morad - lo que tiene", "url": "music/latin/morad - lo que tiene.mp3"}
 ]
